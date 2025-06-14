@@ -9,9 +9,11 @@
     <script src="script/auth.js"></script>
     <meta name="author" content="工学院大学学園祭実行委員会八王子祭実行部">
     <meta name="description" content="第63回八王子祭の公式ホームページです。2025年9月6日(土)・7日(日)に開催される学園祭の情報をお届けします。">
-    <meta name="keywords" content="八王子祭, 学園祭, 工学院大学, 2025年">
-    <title>第63回八王子祭</title>
+    <meta name="keywords" content="八王子祭, 学園祭, 工学院大学, 2025年">    <title>第63回八王子祭</title>
     <link rel="icon" type="image/png" href="photo/MainLogo.PNG">
+    <style>
+        body.auth-hidden { display: none !important; }
+    </style>
 </head>
 <!--head部分 ブラウザの上のタブのやつ 終-->
 
@@ -50,7 +52,7 @@
 <!--header部分 終-->
 
 <!--body部分-->
-<body>
+<body class="auth-hidden">
 <div class="back">
     <main>
         <h1 class="page-title">教室での展示</h1>
@@ -65,6 +67,14 @@
 
 <script src="script/hamburger.js"></script>
 <script src="script/scroll.js"></script>
+<script>
+    // 認証済みならbodyを表示
+    document.addEventListener('DOMContentLoaded', function() {
+        if (sessionStorage.getItem('authenticated') === 'true') {
+            document.body.style.display = '';
+        }
+    });
+</script>
 </body>
 <!--body部分 終-->
 

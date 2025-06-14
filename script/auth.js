@@ -11,6 +11,9 @@ function checkAuth() {
     // 認証されていない場合、ログインページにリダイレクト
     if (!isAuthenticated) {
         window.location.href = 'login.html';
+    } else {
+        // 認証済みの場合、bodyを表示
+        document.body.classList.remove('auth-hidden');
     }
 }
 
