@@ -6,7 +6,7 @@ html, body {
     min-height: 100vh;
     overflow-x: hidden;
     background: #0a1333;
-    background-image: url("/photo/background1.jpg");
+    background-image: url("/./photo/background1.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -30,7 +30,7 @@ body {
     position: absolute;
     inset: 0;
     z-index: 0;
-    background-image: url("/photo/background1.jpg");
+    background-image: url("/./photo/background1.jpg");
     background-size: cover;
     background-position: center;
     filter: blur(3px);
@@ -54,7 +54,7 @@ body {
   body, html {
     min-height: 100vh;
     background: #0a1333;
-    background-image: url("/photo/background1.jpg");
+    background-image: url("/./photo/background1.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
