@@ -51,11 +51,11 @@ body {
 }
 h1{
     text-align: center;
-    font-size: 3vw;
+    font-size: clamp(20px, 3vw, 32px); /* 最小20px、最大32px */
 }
 .schedule-section
 {
-    font-size:2vw;
+    font-size: clamp(16px, 2vw, 24px); /* 最小16px、最大24px */
     text-align: center;
 }
 .ticket-section
@@ -89,4 +89,96 @@ h1{
     margin: 20px auto !important;
     display: inline-block !important;
     border: 2px solid #FFD700 !important;
+}
+
+/* 画像のレスポンシブ対応 */
+.artist-photo {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .artist-photo {
+        width: 90% !important; /* スマホでは少し小さく */
+        height: auto !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .artist-photo {
+        width: 95% !important; /* 小さいスマホでは大きめに */
+        height: auto !important;
+    }
+}
+
+/* スマホ・タブレット対応 */
+@media (max-width: 768px) {
+    .artist-section {
+        margin: auto 20px; /* マージンを小さく */
+        padding: 15px; /* パディングを調整 */
+        font-size: 16px; /* 読みやすいサイズに固定 */
+        line-height: 1.6; /* 行間を調整 */
+    }
+    
+    h1 {
+        font-size: 24px; /* h1を読みやすいサイズに */
+    }
+    
+    .schedule-section {
+        font-size: 16px; /* スケジュール部分も読みやすく */
+    }
+    
+    .ticket-section {
+        width: 90%; /* 幅を広げて読みやすく */
+        margin: auto 20px; /* マージンを調整 */
+        padding: 15px;
+        font-size: 14px; /* チケット情報を読みやすく */
+        line-height: 1.5;
+    }
+    
+    .attention-section {
+        font-size: 14px; /* 注意事項も読みやすく */
+        line-height: 1.5;
+    }
+    
+    .artist-back {
+        margin: 0 10px; /* 全体のマージンを小さく */
+    }
+}
+
+/* より小さいスマホ画面対応 */
+@media (max-width: 480px) {
+    .artist-section {
+        margin: auto 10px; /* さらにマージンを小さく */
+        padding: 12px;
+        font-size: 15px; /* 少し大きめに */
+        line-height: 1.7; /* 行間をさらに広く */
+    }
+    
+    h1 {
+        font-size: 20px; /* h1をさらに調整 */
+    }
+    
+    .schedule-section {
+        font-size: 15px;
+    }
+    
+    .ticket-section {
+        width: 95%; /* 幅をさらに広げる */
+        margin: auto 10px;
+        padding: 12px;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+    
+    .attention-section {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+    
+    .artist-back {
+        margin: 0 5px; /* 全体のマージンをさらに小さく */
+    }
 }
