@@ -1,6 +1,6 @@
 body {
   background-image: url("../../photo/ticket.jpg") !important;
-  background-size: 300px 400px !important; /* 背景画像を小さく設定 */
+  background-size: 600px 900px !important; /* 画像の比率を保って大きくする */
   background-position: center !important;
   background-repeat: repeat !important; /* リピートして背景全体をカバー */
   background-attachment: fixed !important;
@@ -103,11 +103,10 @@ h1{
     .artist-photo {
         width: 80% !important; /* スマホでは小さく */
         height: auto !important;
-        margin: 20px auto; /* 上下にマージンを追加 */
-    }
+        margin: 20px auto; /* 上下にマージンを追加 */    }
     
     body {
-        background-size: 250px 330px !important; /* タブレット・スマホでは少し小さく */
+        background-size: 500px 750px !important; /* 比率を保ってタブレット・スマホサイズ */
         background-repeat: repeat !important;
     }
 }
@@ -120,7 +119,7 @@ h1{
     }
     
     body {
-        background-size: 200px 270px !important; /* 小さいスマホではさらに小さく */
+        background-size: 400px 600px !important; /* 比率を保って小さいスマホサイズ */
         background-repeat: repeat !important;
     }
 }
