@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ログイン</title>
+    <link rel="stylesheet" href="css/hachisai.css">
+    <style>
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .login-form input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .login-form button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .login-form button:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>八祭2025</h1>
+        <p>このページを閲覧するにはパスワードが必要です。</p>
+        <div class="login-form">
+            <input type="password" id="password" placeholder="パスワードを入力">
+            <button onclick="checkPassword()">ログイン</button>
+            <p id="error-message" class="error-message">パスワードが間違っています。</p>
+        </div>
+    </div>    <script>
+        // SHA-256ハッシュ化関数
+        async function sha256(text) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(text);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }        // パスワード 'hachisai-technology' のSHA-256ハッシュ値
+        const correctHash = 'e1c8fadc3f4cf0a26217492c0df3ae6367798b618606d74f3036cbf29448eb01';        async function checkPassword() {
+            const password = document.getElementById('password').value;
+            const salt = 'hachisai2025salt';
+            const hashedPassword = await sha256(password + salt);
+
+            if (hashedPassword === correctHash) {
+                sessionStorage.setItem('authenticated', 'true');
+                window.location.href = 'index.html';
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+            }
+        }        // エンターキーでログインできるようにする
+        document.getElementById('password').addEventListener('keypress', async function(event) {
+            if (event.key === 'Enter') {
+                await checkPassword();
+            }
+        });
+    </script>
+</body>
+</html>
