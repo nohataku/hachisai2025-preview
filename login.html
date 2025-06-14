@@ -66,13 +66,24 @@
             const salt = 'hachisai2025salt';
             const hashedPassword = await sha256(password + salt);
 
+            console.log('Login attempt:', password);
+            console.log('Hash:', hashedPassword);
+            console.log('Expected:', correctHash);
+
             if (hashedPassword === correctHash) {
+                console.log('Authentication successful');
                 sessionStorage.setItem('authenticated', 'true');
-                window.location.href = 'index.html';
+                
+                // GitHub Pages環境を考慮したリダイレクト
+                const basePath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
+                const targetUrl = basePath + 'index.html';
+                console.log('Redirecting to:', targetUrl);
+                window.location.href = targetUrl;
             } else {
+                console.log('Authentication failed');
                 document.getElementById('error-message').style.display = 'block';
             }
-        }        // エンターキーでログインできるようにする
+        }// エンターキーでログインできるようにする
         document.getElementById('password').addEventListener('keypress', async function(event) {
             if (event.key === 'Enter') {
                 await checkPassword();
