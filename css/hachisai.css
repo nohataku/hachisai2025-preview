@@ -1,0 +1,13 @@
+/* コンポーネントCSSファイルのインポート */
+@import 'components/LoadingAnimation.css';
+@import 'components/layout.css';
+@import 'components/header.css';
+@import 'components/header-mobile.css';
+@import 'components/countdown.css';
+@import 'components/footer.css';
+@import 'components/typography.css';
+@import 'components/utilities.css';
+@import 'components/access.css';
+@import 'components/responsive.css';
+@import 'components/rocket.css';
+@import 'components/content-sections.css';

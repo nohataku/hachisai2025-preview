@@ -1,0 +1,128 @@
+/* カウントダウンタイマーのスタイル */
+.fes-date {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 16px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+    padding: 0 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* カウントダウンラベルを太字・大きめ・見やすく */
+.countdown-label {
+  font-weight: bold;
+  font-size: 3.5rem;
+  color: #fbff00;
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 8px #0a1446, 0 0 2px #fff;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.countdown-value {
+    font-size: 5rem;
+    color: #fffb00;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.countdown-unit {
+    font-size: 2rem;
+    color: #fffb00;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* スマートフォン・タブレット用の調整 */
+@media (max-width: 768px) {
+    .fes-date {
+        font-size: 1.4rem;
+        margin: 12px auto;
+        padding: 0 10px;
+        white-space: normal;
+        line-height: 1.4;
+    }
+
+    .fes-date span:last-child {
+        display: block;
+        margin-top: 4px;
+    }
+
+    .countdown-star-layout {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .star-image {
+        flex: none;
+    }
+
+    .star-image img {
+        max-width: 150px;
+    }
+
+    .countdown-container {
+        padding: 10px 5px;
+        gap: 8px;
+    }
+
+    .countdown-label {
+        font-size: 2.5rem;
+    }
+
+    .countdown-value {
+        font-size: 2.2rem;
+    }
+
+    .countdown-unit {
+        font-size: 1.2rem;
+    }
+}
+
+/* さらに小さい画面用の調整 */
+@media (max-width: 360px) {
+    .fes-date {
+        font-size: 1.2rem;
+    }
+
+    .countdown-container {
+        gap: 4px;
+    }
+
+    .countdown-label {
+        font-size: 2rem;
+    }
+
+    .countdown-value {
+        font-size: 1.8rem;
+    }
+
+    .countdown-unit {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+  .countdown-label {
+    font-size: 2rem;
+    padding: 2px 0;
+  }
+}

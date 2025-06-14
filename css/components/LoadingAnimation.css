@@ -1,0 +1,135 @@
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #000215 0%, #003366 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s;
+}
+
+.splash-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.splash-logo {
+    width: 80px;
+    height: 80px;
+    transform: translateX(60px);
+    transition: transform 0.8s ease-out;
+}
+
+.splash-title {
+    font-size: 2rem;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.8s ease-out;
+    color: white;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+.animate-splash .splash-logo {
+    transform: translateX(0);
+}
+
+.animate-splash .splash-title {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.hide-splash {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 流星エフェクト用のコンテナ */
+.meteor-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10000;
+    overflow: hidden;
+}
+
+/* 流星のスタイル */
+.meteor {
+    position: absolute;
+    width: 400px;  /* 流星の長さをさらに増加 */
+    height: 4px;   /* 流星の太さを増加 */
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 1) 50%, 
+        rgba(120, 180, 255, 0.9) 100%
+    );
+    box-shadow: 
+        0 0 20px rgba(255,255,255,0.8),
+        0 0 40px rgba(70,131,255,0.6),
+        0 0 60px rgba(50,100,255,0.4);  /* 光の効果をさらに強化 */
+    opacity: 0;
+}
+
+/* 流星のアニメーション */
+@keyframes meteor {
+    0% {
+        transform: translate(-100%, -100%) rotate(45deg);
+        opacity: 1;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(200%, 200%) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* 複数の流星を画面全体に分散 */
+.meteor:nth-child(1) {
+    top: 5%;
+    left: 5%;
+    animation: meteor 1.8s linear infinite;
+    animation-delay: 0s;
+}
+
+.meteor:nth-child(2) {
+    top: 25%;
+    left: 35%;
+    width: 500px; /* 特に長い流星 */
+    animation: meteor 2.2s linear infinite;
+    animation-delay: 0.3s;
+}
+
+.meteor:nth-child(3) {
+    top: 45%;
+    left: 55%;
+    animation: meteor 2s linear infinite;
+    animation-delay: 0.6s;
+}
+
+.meteor:nth-child(4) {
+    top: 65%;
+    left: 75%;
+    width: 450px;
+    animation: meteor 1.9s linear infinite;
+    animation-delay: 0.9s;
+}
+
+.meteor:nth-child(5) {
+    top: 85%;
+    left: 15%;
+    animation: meteor 2.1s linear infinite;
+    animation-delay: 1.2s;
+}

@@ -1,0 +1,48 @@
+/* アクセスページ特有のスタイル */
+.access-info {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(64,184,240,0.08);
+    padding: 18px 20px 14px 20px;
+    margin: 0 0 8px 0;
+}
+
+.access-info h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    border-left: 4px solid #40b8f0;
+    padding-left: 10px;
+    background: none;
+}
+
+.access-info ul {
+    padding-left: 1.2em;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.access-info li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.access-info ul ul {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-left: 1.2em;
+    font-size: 0.97em;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 800px) {
+    .access-info {
+        padding: 12px 8px 10px 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .access-info {
+        margin-top: 18px;
+        padding: 10px 4px 8px 8px;
+    }
+}

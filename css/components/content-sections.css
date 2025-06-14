@@ -1,0 +1,394 @@
+/* 宇宙テーマのセクションデザイン（ネオン無し・シンプルで見やすく） */
+.content-section {
+    background: linear-gradient(135deg, #101a3a 0%, #1a237e 60%, #0d133d 100%);
+    border-radius: 22px;
+    box-shadow: 0 8px 36px rgba(10,20,70,0.13), 0 2px 0 #3a3a6a inset;
+    margin: 56px auto;
+    padding: 38px 0 38px 0; /* 見出し分の余白を追加 */
+    max-width: 900px;
+    border: 2.5px solid #00bcd4;
+    position: relative;
+    overflow: hidden;
+}
+
+.content-section::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 12px;
+    background: linear-gradient(90deg, #00bcd4 0%, #3e4cb8 100%);
+    border-radius: 22px 22px 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.85;
+}
+
+.content-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 56px 48px 0 48px;
+    position: relative;
+}
+
+/* テーマセクションだけ左右逆配置 */
+.content-section:first-of-type .content-row {
+    flex-direction: row-reverse;
+}
+
+.content-text {
+    flex: 10;
+}
+
+.content-text h2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(30%) translateX(24px);
+    z-index: 2;
+    font-size: 2.3rem;
+    color: #fff;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+    margin: 0;
+    border-left: 10px solid #00bcd4;
+    padding: 10px 28px 10px 20px;
+    background: rgba(0,34,68,0.92);
+    border-radius: 0 18px 18px 0;
+    display: inline-block;
+    box-shadow: none;
+    text-shadow: 0 1px 4px #0008;
+    font-family: 'MPLUSRounded1c-Bold', 'GenEiMGothic2-Bold', 'Arial Black', sans-serif;
+    line-height: 1.2;
+    filter: none;
+    text-align: left;
+}
+
+.content-text p {
+    font-size: 1.13rem;
+    line-height: 2.1;
+    color: #e0e7ff;
+    margin-bottom: 12px;
+    text-shadow: 0 1px 8px #0a1446;
+}
+
+.content-image {
+    flex: 0 0 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-image img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 14px;
+    box-shadow: 0 2px 16px rgba(0,234,255,0.10), 0 0 0 2px #1a237e;
+    background: #101c3a;
+    border: 1.5px solid #00bcd4;
+}
+
+/* テーマ強調クラス */
+.theme-highlight {
+    display: inline-block;
+    color: #fff;
+    background: linear-gradient(90deg, #00bcd4 0%, #3e4cb8 100%);
+    border-radius: 0.5em;
+    font-weight: 900;
+    font-size: 2.1rem;
+    padding: 0.1em 0.6em;
+    margin: 0 0.2em;
+    letter-spacing: 0.18em;
+    box-shadow: 0 2px 12px #00bcd488;
+    border-left: 6px solid #fff;
+    border-right: 6px solid #fff;
+    text-shadow: 0 2px 8px #0a1446, 0 0 2px #fff;
+}
+
+/* お知らせセクションスタイル */
+.notice-section {
+    background: linear-gradient(135deg, #182c4d 0%, #1a237e 60%, #0d133d 100%);
+    border: 2.5px solid #ffb300;
+    margin-top: 4px; /* 上の空白をさらに詰める */
+}
+
+.notice-section h2 {
+    border-left: 10px solid #ffb300;
+    background: rgba(34,34,34,0.92);
+}
+
+.notice-section .content-text h2 {
+    position: static;
+    transform: none;
+    margin-bottom: 24px;
+    margin-top: 0px; /* 上の余白も最小限に */
+    z-index: 1;
+}
+
+.notice-list {
+    margin: 0;
+    padding: 0 0 0 1.2em;
+    list-style: disc inside;
+    color: #fffbe7;
+    font-size: 1.1rem;
+    line-height: 2;
+}
+
+.notice-list li {
+    margin-bottom: 0.5em;
+    text-shadow: 0 1px 6px #000a;
+}
+
+/* サブページの新セクションも統一デザイン適用 */
+.event-content,
+.stage-content,
+.food-content,
+.artist-list,
+.schedule-content,
+.notice-content,
+.exhibit-content {
+  background: linear-gradient(135deg, #101a3a 0%, #1a237e 60%, #0d133d 100%);
+  border-radius: 22px;
+  box-shadow: 0 8px 36px rgba(10,20,70,0.13), 0 2px 0 #3a3a6a inset;
+  margin: 40px auto;
+  padding: 32px 0 32px 0;
+  max-width: 900px;
+  border: 2.5px solid #00bcd4;
+  position: relative;
+  overflow: hidden;
+}
+
+.event-content > *,
+.stage-content > *,
+.food-content > *,
+.artist-list > *,
+.schedule-content > *,
+.notice-content > *,
+.exhibit-content > * {
+  padding: 0 32px;
+}
+
+.artist-list ul,
+.notice-content ul,
+.schedule-content ul {
+  background: rgba(0,34,68,0.85);
+  border-radius: 12px;
+  padding: 8px 12px;
+  margin: 16px 0 0 0;
+  box-shadow: 0 2px 12px #00bcd488;
+  border-left: 6px solid #00bcd4;
+  color: #e0e7ff;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow-x: auto;
+  text-overflow: ellipsis;
+}
+
+.artist-list h2,
+.notice-content h2,
+.schedule-content h2,
+.event-content h2,
+.stage-content h2,
+.food-content h2,
+.exhibit-content h2 {
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 900;
+  border-left: 10px solid #00bcd4;
+  background: rgba(0,34,68,0.92);
+  border-radius: 0 18px 18px 0;
+  padding: 10px 28px 10px 20px;
+  margin-bottom: 18px;
+  margin-top: 0;
+  text-shadow: 0 1px 4px #0008;
+}
+
+/* 情報テキストを見やすくするカード */
+.highlight-card {
+  background: rgba(30, 40, 80, 0.92);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #00bcd455;
+  padding: 32px 18px 28px 18px;
+  margin: 24px auto 0 auto;
+  text-align: center;
+  font-size: 1.25rem;
+  color: #fff;
+  line-height: 2.1;
+  max-width: 100%;
+  width: 100%;
+  border: 4px solid #00bcd4;
+  word-break: break-all; /* 単語途中でも改行可 */
+  white-space: normal; /* 通常の改行 */
+  box-sizing: border-box;
+}
+@media (min-width: 700px) {
+  .highlight-card {
+    max-width: 900px;
+    width: 90vw;
+  }
+}
+@media (max-width: 600px) {
+  .highlight-card {
+    font-size: 1.05rem;
+    padding: 18px 6vw 16px 6vw;
+  }
+}
+
+@media (max-width: 900px) {
+    .content-section {
+        margin: 32px 8px;
+        max-width: 98vw;
+        padding-top: 28px;
+    }
+    
+    .content-row {
+        flex-direction: column;
+        gap: 24px;
+        padding: 36px 12px 0 12px;
+        text-align: center;
+    }
+    
+    .content-image {
+        max-width: 180px;
+        margin: 0 auto 12px auto;
+    }
+    
+    .content-text h2 {
+        font-size: 1.5rem;
+        padding: 8px 14px 8px 12px;
+        transform: translateY(30%) translateX(10px);
+    }
+    
+    .theme-highlight {
+        font-size: 1.3rem;
+        padding: 0.1em 0.4em;
+    }
+    
+    .event-content,
+    .stage-content,
+    .food-content,
+    .artist-list,
+    .schedule-content,
+    .notice-content,
+    .exhibit-content {
+      margin: 24px 8px;
+      max-width: 98vw;
+      padding: 18px 0 18px 0;
+    }
+    .event-content > *,
+    .stage-content > *,
+    .food-content > *,
+    .artist-list > *,
+    .schedule-content > *,
+    .notice-content > *,
+    .exhibit-content > * {
+      padding: 0 8px;
+    }
+    .artist-list h2,
+    .notice-content h2,
+    .schedule-content h2,
+    .event-content h2,
+    .stage-content h2,
+    .food-content h2,
+    .exhibit-content h2 {
+      font-size: 1.3rem;
+      padding: 8px 14px 8px 12px;
+    }
+    .artist-list ul,
+    .notice-content ul,
+    .schedule-content ul {
+      padding: 12px 8px;
+      font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+  .content-section {
+    padding: 16px 4vw;
+    margin: 16px 0;
+  }
+  .content-row {
+    flex-direction: column !important;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .content-text {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0;
+  }
+  .content-image {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  .content-image img {
+    max-width: 90vw;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+  .content-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  .notice-section {
+    padding: 12px 2vw;
+  }
+  .notice-list {
+    font-size: 0.98rem;
+  }
+}
+
+@media (max-width: 480px) {
+    .content-section {
+        padding-top: 18px;
+    }
+    .content-text h2 {
+        font-size: 1.1rem;
+        padding: 6px 8px 6px 8px;
+        transform: translateY(30%) translateX(4px);
+    }
+    
+    .content-text p {
+        font-size: 0.9rem;
+    }
+    
+    .content-image {
+        max-width: 200px;
+    }
+    
+    .theme-highlight {
+        font-size: 1.1rem;
+        padding: 0.05em 0.2em;
+    }
+}
+
+@media (max-width: 600px) {
+  .event-content,
+  .stage-content,
+  .food-content,
+  .artist-list,
+  .schedule-content,
+  .notice-content,
+  .exhibit-content {
+    padding: 10px 0 10px 0;
+  }
+  .artist-list h2,
+  .notice-content h2,
+  .schedule-content h2,
+  .event-content h2,
+  .stage-content h2,
+  .food-content h2,
+  .exhibit-content h2 {
+    font-size: 1.1rem;
+    padding: 6px 8px 6px 8px;
+  }
+  .artist-list ul,
+  .notice-content ul,
+  .schedule-content ul {
+    font-size: 0.95rem;
+  }
+}

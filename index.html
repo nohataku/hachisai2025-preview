@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<!--head部分 ブラウザの上のタブのやつ-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/hachisai.css" rel="stylesheet">
+    <meta name="author" content="工学院大学学園祭実行委員会八王子祭実行部">
+    <meta name="description" content="第63回八王子祭の公式ホームページです。2025年9月6日(土)・7日(日)に開催される学園祭の情報をお届けします。">
+    <meta name="keywords" content="八王子祭, 学園祭, 工学院大学, 2025年">
+    <title>第63回八王子祭</title>
+    <link rel="icon" type="image/png" href="Photo/Mainlogo.PNG">
+</head>
+<!--head部分 ブラウザの上のタブのやつ 終-->
+
+<!--header部分-->
+<header>
+    <div class="header-flex">
+        <div class="header-title-logo">
+            <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                <img src="photo/Mainlogo.PNG" alt="メインロゴ" class="main-logo">
+                <span class="header-title" style="color: inherit;">第63回<br>八王子祭</span>
+            </a>
+        </div>
+        <div class="nav-container">
+            <button id="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-overlay"></div>
+            <nav class="header-nav" id="mainNav">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="TimeSchedule.html">タイムスケジュール</a></li>
+                    <li><a href="Event.html">イベント</a></li>
+                    <li><a href="Stage.html">ステージ</a></li>
+                    <li><a href="Food.html">模擬店</a></li>
+                    <li><a href="Exhibit.html">展示</a></li>
+                    <li><a href="Artist.html">アーティスト</a></li>
+                    <li><a href="Access.html">アクセス</a></li>
+                    <li><a href="Notice.html">お知らせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<!--header部分 終-->
+
+<!--body部分-->
+<body>
+<div class="splash-screen">
+    <div class="splash-content">
+        <img src="Photo/Mainlogo.PNG" alt="メインロゴ" class="splash-logo">
+        <div class="splash-title">第63回<br>八王子祭</div>
+    </div>
+    <div class="meteor-container">
+        <div class="meteor"></div>
+        <div class="meteor"></div>
+        <div class="meteor"></div>
+        <div class="meteor"></div>
+        <div class="meteor"></div>
+    </div>
+</div>
+
+<div class="back">    <div class="main-visual">
+        <div class="fes-date"><span>2025年9月6日(土)・7日(日)</span> <span>開催</span></div>
+        <div id="countdown" class="countdown"></div>
+    </div><main>
+        <!-- テーマセクション -->
+        <section class="content-section">
+            <div class="content-row">
+                <div class="content-text">
+                    <h2>テーマ</h2>
+                    <p>第63回八王子祭のテーマは<br>　　　　　<span class="theme-highlight">「宇宙」</span>　　　です。</p>
+                    <p>このテーマには、学生たちの熱い思いと、来場者の皆様への感謝の気持ちが込められています。</p>
+                    <p>今年度の八王子祭では、このテーマのもと、様々な企画やイベントを通じて、皆様に楽しい時間をお過ごしいただけるよう、実行委員一同、全力で準備を進めております。</p>
+                </div>
+                <div class="content-image">
+                    <img src="photo/backlogo.png" alt="八王子祭ロゴ">
+                </div>
+            </div>
+        </section>
+
+        <!-- 八王子祭とはセクション -->
+        <section class="content-section">
+            <div class="content-row">
+                <div class="content-image">
+                    <img src="photo/backlogo.png" alt="八王子祭について">
+                </div>
+                <div class="content-text">
+                    <h2>八王子祭とは</h2>
+                    <p>八王子祭は、工学院大学八王子キャンパスで毎年開催される学園祭です。</p>
+                    <p>学生たちの創意工夫が詰まった模擬店、展示、ステージパフォーマンスなど、多彩な企画をお楽しみいただけます。</p>
+                    <p>地域の皆様とのつながりを大切にし、学生と地域が一体となって作り上げる、温かみのある学園祭を目指しています。</p>
+                    <p>今年で第63回を迎える八王子祭に、ぜひお越しください。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- お知らせセクション -->
+        <section class="content-section notice-section">
+            <div class="content-row">
+                <div class="content-text">
+                    <h2>運営からのお知らせ</h2>
+                    <ul class="notice-list">
+                        <li>今後のお知らせは随時こちらに掲載します。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="script/hamburger.js"></script>
+<script src="script/countdown.js"></script>
+<script src="script/animation.js"></script>
+<script src="script/scroll.js"></script>
+</body>
+<!--body部分 終-->
+
+<!--footer部分-->
+<footer class="starry-bg">
+    <div class="shooting-star" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="shooting-star" style="left: 30%; animation-delay: 2s;"></div>
+    <div class="shooting-star" style="left: 60%; animation-delay: 4s;"></div>
+
+    <div style="text-align: center; position: relative; z-index: 1;">
+        <p style="margin-bottom: 8px;">公式SNSはこちら！</p>
+        <div class="sns-footer">
+            <a href="https://www.youtube.com/channel/UCnpniRRt0FdUFXYxQ1n0yjg" target="_blank" class="sns-btn">
+                <img src="photo/yt_icon_rgb.png" alt="YouTube" class="sns-logo">
+            </a>
+            <a href="https://www.instagram.com/hachisai_kgu/" target="_blank" class="sns-btn">
+                <img src="photo/Instagram_Glyph_Gradient.png" alt="Instagram" class="sns-logo">
+            </a>
+            <a href="https://x.com/hachisai_kgu" target="_blank" class="sns-btn">
+                <img src="Photo/X-logo-black.png" alt="X" class="sns-logo">
+            </a>
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <p class="footer-text">© 2025 工学院大学 学園祭実行委員会 八王子祭実行部</p>
+    </div>
+</footer>
+<!--footer部分 終-->
+
+    <!-- ロケットボタン -->
+    <div id="rocket-button" class="rocket-button">
+        <span class="rocket-top-text">ページ<br>トップへ</span>
+        <div class="rocket">
+            <div class="rocket-body">
+                <div class="rocket-flame"></div>
+            </div>
+        </div>
+    </div>
+
+</html>

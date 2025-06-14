@@ -1,0 +1,44 @@
+/* フォントとタイポグラフィーのスタイル */
+@font-face {
+    font-family: 'Kaisotai Next UP B';
+    src: url('../../font/Kaisotai-Next-UP-B.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 共通フォントスタイル */
+body {
+    font-family: '游ゴシック体', 'Yu Gothic', 'YuGothic', 'Meiryo', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.page-title {
+    font-family: 'Kaisotai Next UP B', '游ゴシック体', 'Yu Gothic', 'Meiryo', sans-serif;
+    font-size: 5rem;
+    font-weight: bold;
+    color: #fbff00;
+    text-align: center;
+    margin: 40px 0 24px 0;
+    letter-spacing: 0.1em;
+    z-index: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 600px) {
+    .page-title {
+        font-size: 2.2rem;
+        /* フォントファミリーは継承するため再指定不要 */
+        font-weight: bold;
+        color: #fbff00;
+        text-align: center;
+        margin: 40px 0 24px 0;
+        letter-spacing: 0.1em;
+        position: relative;
+        display: block;
+        z-index: auto;
+    }
+}

@@ -1,0 +1,61 @@
+/* スマートフォン・タブレット用のスタイル調整 */
+@media (max-width: 768px) {
+    /* ヘッダーのテーブルメニュー */
+    #mainNav table {
+        display: none;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* 小さい画面用の調整 */
+@media (max-width: 600px) {
+    .header-title {
+        font-size: 1.1rem;
+    }
+    .main-logo {
+        height: 36px;
+    }
+    .header-title-logo {
+        gap: 6px;
+    }
+}
+
+/* タブレット・スマホ用メニュー */
+.header-tab-table {
+    width: 60%;
+    table-layout: fixed;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.header-tab-table td {
+    text-align: center;
+    padding: 0;
+}
+
+.header-tab-table a {
+    display: block;
+    padding: 16px 0;
+    width: 100%;
+    font-size: 1.4rem;
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+    background: none;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.header-tab-table a:hover {
+    background: #40b8f0;
+    color: #fff;
+}
+
+/* TimeScheduleの改行時、行間を詰める */
+.header-tab-table a .tight-break {
+    display: block;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
