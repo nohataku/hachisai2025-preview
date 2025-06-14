@@ -1,0 +1,92 @@
+body {
+  background-image: url("../../photo/ticket.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+/* デフォルト背景を無効化 */
+.back {
+  background: none !important;
+}
+
+.back::before {
+  background-image: none !important;
+  background: none !important;
+  content: none !important;
+  display: none !important;
+}
+
+.artist-back {
+  position: relative;
+  min-height: 100vh;
+  margin: 0 3vw;
+  padding: 0;
+  /* 背景画像指定を削除 */
+  position: center;
+  inset: 0;
+  z-index: 1; /* .back::before より上に */
+  /* background-image: url("photo/ticket.jpg"); 削除 */
+  /* background-repeat: repeat; 削除 */
+  /* background-position: center; 削除 */
+  pointer-events: none;
+  text-align: center ;
+}
+.artist
+{
+    color:white;
+    opacity: 2.0;
+}
+.artist-section {
+    background-color:rgba(0,0,0,0.8);
+    border-radius: 18px;
+    margin:auto 120px;
+    /*box-shadow: 0 8px 36px rgba(10,20,70,0.13), 0 2px 0 #3a3a6a inset;*/
+    padding: 20px 20px 20px 20px; /* 見出し分の余白を追加 */
+    border: 2.5px solid black;
+    position: relative;
+    overflow: hidden;
+    text-align: left ;
+}
+h1{
+    text-align: center;
+    font-size: 3vw;
+}
+.schedule-section
+{
+    font-size:2vw;
+    text-align: center;
+}
+.ticket-section
+{
+    width:50%;
+    background-color:rgba(0,0,0,0.8);
+    border-radius: 18px;
+    margin:auto auto;
+    /*box-shadow: 0 8px 36px rgba(10,20,70,0.13), 0 2px 0 #3a3a6a inset;*/
+    padding: 20px 20px 20px 20px; /* 見出し分の余白を追加 */
+    border: 2.5px solid black;
+    position: relative;
+    text-align: center;
+}
+.attention-section
+{
+    text-align: left;
+}
+.hachi
+{
+    text-align: center;
+}
+
+/* ページタイトルを見やすくする */
+.page-title {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    color: #FFD700 !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    padding: 20px 40px !important;
+    border-radius: 10px !important;
+    margin: 20px auto !important;
+    display: inline-block !important;
+    border: 2px solid #FFD700 !important;
+}
