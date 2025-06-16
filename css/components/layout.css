@@ -6,7 +6,7 @@ html, body {
     min-height: 100vh;
     overflow-x: hidden;
     background: #0a1333;
-    background-image: url("photo/background1.jpg");
+    background-image: url("../../Photo/background1.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -30,13 +30,12 @@ body {
     position: absolute;
     inset: 0;
     z-index: 0;
-    background-image: url("photo/background1.jpg");
+    background-image: url("../../Photo/background1.jpg");
     background-size: cover;
     background-position: center;
     filter: blur(3px);
     opacity: 0.9;
 }
-
 .back > * {
     position: relative;
     z-index: 1;
@@ -54,7 +53,7 @@ body {
   body, html {
     min-height: 100vh;
     background: #0a1333;
-    background-image: url("photo/background1.jpg");
+    background-image: url("../../Photo/background1.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -75,7 +74,7 @@ body {
   right: 20px;
   width: 110px;
   height: 120px;
-  z-index: 1000;
+  z-index: 9999 !important;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -87,10 +86,10 @@ body {
   transition: all 0.3s ease;
   pointer-events: none;
   /* 背景を追加して可視性を確保 */
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 18px;
   backdrop-filter: blur(2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .rocket-button.show {
@@ -100,13 +99,95 @@ body {
 }
 
 .rocket-button.flying {
-  animation: rocket-fly 0.8s ease-out;
+  animation: rocket-fly 0.8s ease-out forwards;
+  animation-fill-mode: forwards;
+  /* PC環境での確実なアニメーション表示のためのベンダープレフィックス */
+  -webkit-animation: rocket-fly 0.8s ease-out forwards;
+  -moz-animation: rocket-fly 0.8s ease-out forwards;
+  -o-animation: rocket-fly 0.8s ease-out forwards;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
 }
 
 @keyframes rocket-fly {
-  0% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-100px) scale(1.1); }
-  100% { transform: translateY(-200px) scale(0.8); opacity: 0.3; }
+  0% { 
+    transform: translateY(0) scale(1); 
+    opacity: 1; 
+  }
+  30% { 
+    transform: translateY(-60px) scale(1.05); 
+    opacity: 0.8; 
+  }
+  70% { 
+    transform: translateY(-150px) scale(1.1); 
+    opacity: 0.4; 
+  }
+  90% { 
+    transform: translateY(-220px) scale(0.9); 
+    opacity: 0.1; 
+  }
+  100% { 
+    transform: translateY(-250px) scale(0.8); 
+    opacity: 0; 
+  }
+}
+
+/* ベンダープレフィックス付きキーフレーム */
+@-webkit-keyframes rocket-fly {
+  0% { 
+    -webkit-transform: translateY(0) scale(1); 
+    transform: translateY(0) scale(1);
+    opacity: 1; 
+  }
+  30% { 
+    -webkit-transform: translateY(-60px) scale(1.05); 
+    transform: translateY(-60px) scale(1.05);
+    opacity: 0.8; 
+  }
+  70% { 
+    -webkit-transform: translateY(-150px) scale(1.1); 
+    transform: translateY(-150px) scale(1.1);
+    opacity: 0.4; 
+  }
+  90% { 
+    -webkit-transform: translateY(-220px) scale(0.9); 
+    transform: translateY(-220px) scale(0.9);
+    opacity: 0.1; 
+  }
+  100% { 
+    -webkit-transform: translateY(-250px) scale(0.8); 
+    transform: translateY(-250px) scale(0.8);
+    opacity: 0; 
+  }
+}
+
+@-moz-keyframes rocket-fly {
+  0% { 
+    -moz-transform: translateY(0) scale(1); 
+    transform: translateY(0) scale(1);
+    opacity: 1; 
+  }
+  30% { 
+    -moz-transform: translateY(-60px) scale(1.05); 
+    transform: translateY(-60px) scale(1.05);
+    opacity: 0.8; 
+  }
+  70% { 
+    -moz-transform: translateY(-150px) scale(1.1); 
+    transform: translateY(-150px) scale(1.1);
+    opacity: 0.4; 
+  }
+  90% { 
+    -moz-transform: translateY(-220px) scale(0.9); 
+    transform: translateY(-220px) scale(0.9);
+    opacity: 0.1; 
+  }
+  100% { 
+    -moz-transform: translateY(-250px) scale(0.8); 
+    transform: translateY(-250px) scale(0.8);
+    opacity: 0; 
+  }
 }
 
 .rocket-top-text {
@@ -211,4 +292,11 @@ body {
 .rocket-button:hover .rocket-body {
   filter: drop-shadow(0 4px 8px rgba(255, 107, 53, 0.8)) brightness(1.1);
   transform: scale(1.05);
+}
+
+/* デバッグ用: ロケットボタンを常に表示 */
+.rocket-button {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
 }

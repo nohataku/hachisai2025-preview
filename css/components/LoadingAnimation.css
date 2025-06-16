@@ -133,3 +133,16 @@
     animation: meteor 2.1s linear infinite;
     animation-delay: 1.2s;
 }
+
+/* ローディング中はロケットボタンを非表示 */
+.splash-screen ~ body .rocket-button,
+body.loading .rocket-button {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* ローディング完了後のロケットボタン表示 */
+body:not(.loading) .rocket-button {
+    display: flex !important;
+}

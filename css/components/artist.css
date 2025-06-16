@@ -1,9 +1,19 @@
 body {
-  background-image: url("../../photo/ticket.jpg") !important;
-  background-size: 600px 900px !important; /* 画像の比率を保って大きくする */
-  background-position: center !important;
-  background-repeat: repeat !important; /* リピートして背景全体をカバー */
+  /* 複数の背景レイヤーでつなぎ目を目立たなくする */
+  background-image: 
+    linear-gradient(45deg, rgba(0,0,0,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%),
+    url("../../photo/ticket.jpg") !important;
+  background-size: 
+    100% 100%,
+    600px 900px !important;
+  background-position: 
+    center,
+    center !important;
+  background-repeat: 
+    no-repeat,
+    repeat !important;
   background-attachment: fixed !important;
+  background-blend-mode: overlay, normal !important; /* ブレンドモードでなじませる */
 }
 
 /* デフォルト背景を無効化 */
@@ -23,59 +33,73 @@ body {
   min-height: 100vh;
   margin: 0 3vw;
   padding: 0;
-  /* 背景画像指定を削除 */
   position: center;
   inset: 0;
   z-index: 1; /* .back::before より上に */
-  /* background-image: url("photo/ticket.jpg"); 削除 */
-  /* background-repeat: repeat; 削除 */
-  /* background-position: center; 削除 */
-  pointer-events: none;
-  text-align: center ;
+  text-align: center;
 }
-.artist
-{
-    color:white;
-    opacity: 2.0;
+
+.artist {
+    color: white;
+    /* opacityは削除（デフォルトの1で表示） */
 }
+
 .artist-section {
-    background-color:rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.85);
     border-radius: 18px;
-    margin:auto 120px;
-    /*box-shadow: 0 8px 36px rgba(10,20,70,0.13), 0 2px 0 #3a3a6a inset;*/
-    padding: 20px 20px 20px 20px; /* 見出し分の余白を追加 */
+    margin: auto 120px;
+    padding: 25px 30px 25px 30px;
     border: 2.5px solid black;
     position: relative;
     overflow: hidden;
-    text-align: left ;
+    text-align: left;
+    line-height: 1.8; /* 行間を広く */
+    font-size: 16px; /* 基本フォントサイズを設定 */
+    color: #ffffff; /* 明確な白色 */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* テキストの可読性向上 */
 }
-h1{
+
+h1 {
     text-align: center;
-    font-size: clamp(20px, 3vw, 32px); /* 最小20px、最大32px */
+    font-size: clamp(22px, 3vw, 36px); /* 最小22px、最大36px */
+    color: #FFD700; /* ゴールドカラーで目立たせる */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    margin-bottom: 20px; /* 下部に余白を追加 */
+    font-weight: bold;
 }
-.schedule-section
-{
-    font-size: clamp(16px, 2vw, 24px); /* 最小16px、最大24px */
+
+.schedule-section {
+    font-size: clamp(18px, 2.5vw, 26px); /* 最小18px、最大26px */
     text-align: center;
+    line-height: 1.6;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
-.ticket-section
-{
-    width:50%;
-    background-color:rgba(0,0,0,0.8);
+
+.ticket-section {
+    width: 50%;
+    background-color: rgba(0,0,0,0.85);
     border-radius: 18px;
-    margin:auto auto;
-    /*box-shadow: 0 8px 36px rgba(10,20,70,0.13), 0 2px 0 #3a3a6a inset;*/
-    padding: 20px 20px 20px 20px; /* 見出し分の余白を追加 */
+    margin: auto auto;
+    padding: 25px 30px 25px 30px;
     border: 2.5px solid black;
     position: relative;
     text-align: center;
+    line-height: 1.7; /* 行間を広く */
+    font-size: 15px; /* 基本フォントサイズを設定 */
+    color: #ffffff; /* 明確な白色 */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* テキストの可読性向上 */
 }
-.attention-section
-{
+
+.attention-section {
     text-align: left;
+    line-height: 1.7; /* 行間を広く */
+    font-size: 15px; /* 基本フォントサイズを設定 */
+    color: #ffffff; /* 明確な白色 */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* テキストの可読性向上 */
 }
-.hachi
-{
+
+.hachi {
     text-align: center;
 }
 
@@ -91,6 +115,42 @@ h1{
     border: 2px solid #FFD700 !important;
 }
 
+/* 段落間のスペーシングを改善 */
+.artist-section br {
+    line-height: 2.2; /* br要素の行間を調整 */
+    margin: 8px 0; /* 上下にマージンを追加 */
+}
+
+.ticket-section br {
+    line-height: 2.0; /* br要素の行間を調整 */
+    margin: 6px 0; /* 上下にマージンを追加 */
+}
+
+.attention-section br {
+    line-height: 2.0; /* br要素の行間を調整 */
+    margin: 6px 0; /* 上下にマージンを追加 */
+}
+
+/* 文章のかたまりごとに視覚的な区切りを作る */
+.artist-section p,
+.ticket-section p,
+.attention-section p {
+    margin-bottom: 15px; /* 段落間の余白 */
+    text-indent: 1em; /* 段落の最初の文字をインデント */
+    letter-spacing: 0.05em; /* 文字間隔を調整して可読性向上 */
+    text-align: justify; /* 両端揃え */
+    text-justify: inter-ideograph; /* 日本語の両端揃えを最適化 */
+}
+
+/* 重要な情報をハイライト */
+.artist-section strong,
+.ticket-section strong,
+.attention-section strong {
+    color: #FFD700;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
 /* 画像のレスポンシブ対応 */
 .artist-photo {
     max-width: 100%;
@@ -99,142 +159,169 @@ h1{
     margin: 0 auto;
 }
 
+/* タブレット対応 */
 @media (max-width: 768px) {
-    .artist-photo {
-        width: 80% !important; /* スマホでは小さく */
-        height: auto !important;
-        margin: 20px auto; /* 上下にマージンを追加 */    }
-    
     body {
-        background-size: 500px 750px !important; /* 比率を保ってタブレット・スマホサイズ */
-        background-repeat: repeat !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .artist-photo {
-        width: 75% !important; /* さらに小さく */
-        height: auto !important;
-        margin: 15px auto; /* マージンを調整 */
-    }
-    
-    body {
-        background-size: 400px 600px !important; /* 比率を保って小さいスマホサイズ */
-        background-repeat: repeat !important;
-    }
-}
-
-/* スマホ・タブレット対応 */
-@media (max-width: 768px) {
-    .artist-section {
-        margin: auto 30px; /* マージンを増やして背景を見せる */
-        padding: 12px; /* パディングを小さく */
-        font-size: 16px; /* 読みやすいサイズに固定 */
-        line-height: 1.6; /* 行間を調整 */
-        background-color: rgba(0,0,0,0.6); /* 透明度を下げて背景を透かす */
-    }
-    
-    h1 {
-        font-size: 24px; /* h1を読みやすいサイズに */
-    }
-    
-    .schedule-section {
-        font-size: 16px; /* スケジュール部分も読みやすく */
-    }
-      .ticket-section {
-        width: 80%; /* 幅を少し狭めて背景を見せる */
-        margin: auto 30px; /* マージンを調整 */
-        padding: 12px; /* パディングを小さく */
-        font-size: 14px; /* チケット情報を読みやすく */
-        line-height: 1.5;
-        background-color: rgba(0,0,0,0.6); /* 透明度を下げて背景を透かす */
-    }
-    
-    .attention-section {
-        font-size: 14px; /* 注意事項も読みやすく */
-        line-height: 1.5;
-    }
-      .artist-back {
-        margin: 0 20px; /* 全体のマージンを調整して背景を見せる */
-    }
-    
-    /* アーティスト写真を小さくして背景を見せる */
-    .artist-photo {
-        width: 80% !important; /* スマホでは小さく */
-        height: auto !important;
-        margin: 20px auto; /* 上下にマージンを追加 */
-    }
-}
-
-/* より小さいスマホ画面対応 */
-@media (max-width: 480px) {
-    .artist-section {
-        margin: auto 20px; /* マージンを調整して背景を見せる */
-        padding: 10px; /* パディングをさらに小さく */
-        font-size: 15px; /* 少し大きめに */
-        line-height: 1.7; /* 行間をさらに広く */
-        background-color: rgba(0,0,0,0.5); /* さらに透明度を下げる */
-    }
-    
-    h1 {
-        font-size: 20px; /* h1をさらに調整 */
-    }
-    
-    .schedule-section {
-        font-size: 15px;
-    }
-      .ticket-section {
-        width: 85%; /* 幅を調整 */
-        margin: auto 20px;
-        padding: 10px; /* パディングを小さく */
-        font-size: 13px;
-        line-height: 1.6;
-        background-color: rgba(0,0,0,0.5); /* さらに透明度を下げる */
-    }
-    
-    .attention-section {
-        font-size: 13px;
-        line-height: 1.6;
+        background-image: 
+            linear-gradient(45deg, rgba(0,0,0,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%),
+            url("../../photo/ticket.jpg") !important;
+        background-size: 
+            100% 100%,
+            500px 750px !important;
+        background-repeat: 
+            no-repeat,
+            repeat !important;
+        background-blend-mode: overlay, normal !important;
     }
     
     .artist-back {
-        margin: 0 15px; /* 全体のマージンを調整 */
+        margin: 0 20px;
     }
     
-    /* 小さいスマホでのアーティスト写真 */
+    .artist-section {
+        margin: auto 30px;
+        padding: 18px;
+        font-size: 17px;
+        line-height: 1.9;
+        background-color: rgba(0,0,0,0.87);
+    }
+    
+    h1 {
+        font-size: 26px;
+        margin-bottom: 18px;
+    }
+    
+    .schedule-section {
+        font-size: 18px;
+        line-height: 1.8;
+    }
+    
+    .ticket-section {
+        width: 80%;
+        margin: auto 30px;
+        padding: 16px;
+        font-size: 16px;
+        line-height: 1.8;
+        background-color: rgba(0,0,0,0.87);
+    }
+    
+    .attention-section {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+    
     .artist-photo {
-        width: 75% !important; /* さらに小さく */
+        width: 80% !important;
         height: auto !important;
-        margin: 15px auto; /* マージンを調整 */
+        margin: 20px auto;
     }
 }
 
-/* スマホでのコンテンツ間余白調整 */
-@media (max-width: 768px) {
-    /* br要素の余白を調整して、より多くの背景を見せる */
-    br {
-        line-height: 0.8;
-    }
-    
-    /* セクション間の余白を調整 */
-    .artist-section + br,
-    .ticket-section + br {
-        display: block;
-        margin: 20px 0; /* 背景が見える余白を確保 */
-        content: "";
-        height: 20px;
-    }
-}
-
+/* スマートフォン対応 */
 @media (max-width: 480px) {
-    /* 小さいスマホでは余白をさらに調整 */
-    br {
-        line-height: 0.6;
+    body {
+        background-image: 
+            linear-gradient(45deg, rgba(0,0,0,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%),
+            url("../../photo/ticket.jpg") !important;
+        background-size: 
+            100% 100%,
+            400px 600px !important;
+        background-repeat: 
+            no-repeat,
+            repeat !important;
+        background-blend-mode: overlay, normal !important;
     }
     
-    .artist-section + br,
-    .ticket-section + br {
-        margin: 15px 0;
-        height: 15px;
+    .artist-back {
+        margin: 0 15px;
     }
+    
+    .artist-section {
+        margin: auto 20px;
+        padding: 15px;
+        font-size: 16px;
+        line-height: 2.0;
+        background-color: rgba(0,0,0,0.88);
+    }
+    
+    h1 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+    
+    .schedule-section {
+        font-size: 16px;
+        line-height: 1.9;
+    }
+    
+    .ticket-section {
+        width: 85%;
+        margin: auto 20px;
+        padding: 12px;
+        font-size: 14px;
+        line-height: 1.9;
+        background-color: rgba(0,0,0,0.88);
+    }
+    
+    .attention-section {
+        font-size: 14px;
+        line-height: 1.9;
+    }
+    
+    .artist-photo {
+        width: 75% !important;
+        height: auto !important;
+        margin: 15px auto;
+    }
+    
+    /* スマホでのbr要素の調整 */
+    .artist-section br,
+    .ticket-section br,
+    .attention-section br {
+        line-height: 2.5;
+        margin: 10px 0;
+    }
+}
+
+/* 超小型デバイス対応 */
+@media (max-width: 320px) {
+    .artist-section {
+        margin: auto 15px;
+        padding: 12px;
+        font-size: 15px;
+        line-height: 2.1;
+    }
+    
+    h1 {
+        font-size: 20px;
+    }
+    
+    .ticket-section {
+        width: 90%;
+        margin: auto 15px;
+        padding: 10px;
+        font-size: 13px;
+        line-height: 2.0;
+    }
+    
+    .attention-section {
+        font-size: 13px;
+        line-height: 2.0;
+    }
+}
+
+/* 背景のつなぎ目を目立たなくするための追加スタイル */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(255,255,255,0.02) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(0,0,0,0.03) 0%, transparent 50%),
+    linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.01) 50%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
 }

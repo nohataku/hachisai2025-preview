@@ -8,8 +8,10 @@
     <script src="script/auth.js"></script>
     <meta name="author" content="工学院大学学園祭実行委員会八王子祭実行部">
     <meta name="description" content="第63回八王子祭の公式ホームページです。2025年9月6日(土)・7日(日)に開催される学園祭の情報をお届けします。">
-    <meta name="keywords" content="八王子祭, 学園祭, 工学院大学, 2025年">    <title>第63回八王子祭</title>
-    <link rel="icon" type="image/png" href="photo/MainLogo.PNG">    <style>
+    <meta name="keywords" content="八王子祭, 学園祭, 工学院大学, 2025年">
+    <title>第63回八王子祭</title>
+    <link rel="icon" type="image/png" href="photo/MainLogo.PNG">
+    <style>
         body.auth-hidden { display: none !important; }
         /* 初期状態でもbodyを非表示 */
         body { display: none; }
@@ -19,37 +21,7 @@
 <!--head部分 ブラウザの上のタブのやつ 終-->
 
 <!--header部分-->
-<header>
-    <div class="header-flex">
-        <div class="header-title-logo">
-            <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-                <img src="photo/MainLogo.PNG" alt="メインロゴ" class="main-logo">
-                <span class="header-title" style="color: inherit;">第63回<br>八王子祭</span>
-            </a>
-        </div>
-        <div class="nav-container">
-            <button id="hamburger" aria-label="メニュー">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <div class="nav-overlay"></div>
-            <nav class="header-nav" id="mainNav">
-                <ul>
-                    <li><a href="index.html">ホーム</a></li>
-                    <li><a href="TimeSchedule.html">タイムスケジュール</a></li>
-                    <li><a href="Event.html">イベント</a></li>
-                    <li><a href="Stage.html">ステージ</a></li>
-                    <li><a href="Food.html">模擬店</a></li>
-                    <li><a href="Exhibit.html">展示</a></li>
-                    <li><a href="Artist.html">アーティスト</a></li>
-                    <li><a href="Access.html">アクセス</a></li>
-                    <li><a href="Notice.html">お知らせ</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</header>
+<div id="header-include"></div>
 <!--header部分 終-->
 
 <!--body部分-->
@@ -68,8 +40,8 @@
     </main>
 </div>
 
+<script src="script/include.js"></script>
 <script src="script/hamburger.js"></script>
-<script src="script/scroll.js"></script>
 <script>
     // 認証済みならbodyを表示
     document.addEventListener('DOMContentLoaded', function() {
@@ -82,38 +54,10 @@
 <!--body部分 終-->
 
 <!--footer部分-->
-<footer class="starry-bg">
-    <div class="shooting-star" style="left: 10%; animation-delay: 0s;"></div>
-    <div class="shooting-star" style="left: 30%; animation-delay: 2s;"></div>
-    <div class="shooting-star" style="left: 60%; animation-delay: 4s;"></div>
-
-    <div style="text-align: center; position: relative; z-index: 1;">
-        <p style="margin-bottom: 8px;">公式SNSはこちら！</p>
-        <div class="sns-footer">
-            <a href="https://www.youtube.com/channel/UCnpniRRt0FdUFXYxQ1n0yjg" target="_blank" class="sns-btn">
-                <img src="photo/yt_icon_rgb.png" alt="YouTube" class="sns-logo">
-            </a>
-            <a href="https://www.instagram.com/hachisai_kgu/" target="_blank" class="sns-btn">
-                <img src="photo/Instagram_Glyph_Gradient.png" alt="Instagram" class="sns-logo">
-            </a>
-            <a href="https://x.com/hachisai_kgu" target="_blank" class="sns-btn">
-                <img src="photo/X-logo-black.png" alt="X" class="sns-logo">
-            </a>
-        </div>
-    </div>
-    <div style="text-align: center;">
-        <p class="footer-text">© 2025 工学院大学 学園祭実行委員会 八王子祭実行部</p>
-    </div>
-</footer>
+<div id="footer-include"></div>
 <!--footer部分 終-->
 
-    <div id="rocket-button" class="rocket-button">
-        <span class="rocket-top-text">ページ<br>トップへ</span>
-        <div class="rocket">
-            <div class="rocket-body">
-                <div class="rocket-flame"></div>
-            </div>
-        </div>
-    </div>
+<!-- ロケットボタン -->
+<div id="rocket-include"></div>
 
 </html>

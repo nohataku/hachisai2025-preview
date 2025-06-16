@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const splashContent = document.querySelector('.splash-content');
     const meteorContainer = document.querySelector('.meteor-container');
     
+    // ローディング状態を設定
+    document.body.classList.add('loading');
+    
     // 0.5秒後にロゴを左に移動し、タイトルを表示
     setTimeout(() => {
         splashContent.classList.add('animate-splash');
@@ -16,5 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 2.5秒後にスプラッシュ画面をフェードアウト
     setTimeout(() => {
         splash.classList.add('hide-splash');
+        // ローディング完了を通知
+        document.body.classList.remove('loading');
     }, 2500);
 });
