@@ -1,36 +1,321 @@
 /* 共通ユーティリティクラス */
+
+/* テキスト配置 */
 .text-center {
     text-align: center;
 }
 
-.mb-8 {
-    margin-bottom: 8px;
+.text-left {
+    text-align: left;
 }
 
-.mb-16 {
-    margin-bottom: 16px;
+.text-right {
+    text-align: right;
 }
 
-.mb-24 {
-    margin-bottom: 24px;
+.text-justify {
+    text-align: justify;
 }
 
-.mt-40 {
-    margin-top: 40px;
-}
+/* マージン */
+.m-0 { margin: 0; }
+.mt-0 { margin-top: 0; }
+.mr-0 { margin-right: 0; }
+.mb-0 { margin-bottom: 0; }
+.ml-0 { margin-left: 0; }
 
+.m-8 { margin: var(--spacing-xs); }
+.mt-8 { margin-top: var(--spacing-xs); }
+.mr-8 { margin-right: var(--spacing-xs); }
+.mb-8 { margin-bottom: var(--spacing-xs); }
+.ml-8 { margin-left: var(--spacing-xs); }
+
+.m-16 { margin: var(--spacing-sm); }
+.mt-16 { margin-top: var(--spacing-sm); }
+.mr-16 { margin-right: var(--spacing-sm); }
+.mb-16 { margin-bottom: var(--spacing-sm); }
+.ml-16 { margin-left: var(--spacing-sm); }
+
+.m-24 { margin: var(--spacing-md); }
+.mt-24 { margin-top: var(--spacing-md); }
+.mr-24 { margin-right: var(--spacing-md); }
+.mb-24 { margin-bottom: var(--spacing-md); }
+.ml-24 { margin-left: var(--spacing-md); }
+
+.m-32 { margin: var(--spacing-lg); }
+.mt-32 { margin-top: var(--spacing-lg); }
+.mr-32 { margin-right: var(--spacing-lg); }
+.mb-32 { margin-bottom: var(--spacing-lg); }
+.ml-32 { margin-left: var(--spacing-lg); }
+
+.m-40 { margin: var(--spacing-xl); }
+.mt-40 { margin-top: var(--spacing-xl); }
+.mr-40 { margin-right: var(--spacing-xl); }
+.mb-40 { margin-bottom: var(--spacing-xl); }
+.ml-40 { margin-left: var(--spacing-xl); }
+
+.m-56 { margin: var(--spacing-xxl); }
+.mt-56 { margin-top: var(--spacing-xxl); }
+.mr-56 { margin-right: var(--spacing-xxl); }
+.mb-56 { margin-bottom: var(--spacing-xxl); }
+.ml-56 { margin-left: var(--spacing-xxl); }
+
+/* パディング */
+.p-0 { padding: 0; }
+.pt-0 { padding-top: 0; }
+.pr-0 { padding-right: 0; }
+.pb-0 { padding-bottom: 0; }
+.pl-0 { padding-left: 0; }
+
+.p-8 { padding: var(--spacing-xs); }
+.pt-8 { padding-top: var(--spacing-xs); }
+.pr-8 { padding-right: var(--spacing-xs); }
+.pb-8 { padding-bottom: var(--spacing-xs); }
+.pl-8 { padding-left: var(--spacing-xs); }
+
+.p-16 { padding: var(--spacing-sm); }
+.pt-16 { padding-top: var(--spacing-sm); }
+.pr-16 { padding-right: var(--spacing-sm); }
+.pb-16 { padding-bottom: var(--spacing-sm); }
+.pl-16 { padding-left: var(--spacing-sm); }
+
+.p-24 { padding: var(--spacing-md); }
+.pt-24 { padding-top: var(--spacing-md); }
+.pr-24 { padding-right: var(--spacing-md); }
+.pb-24 { padding-bottom: var(--spacing-md); }
+.pl-24 { padding-left: var(--spacing-md); }
+
+.p-32 { padding: var(--spacing-lg); }
+.pt-32 { padding-top: var(--spacing-lg); }
+.pr-32 { padding-right: var(--spacing-lg); }
+.pb-32 { padding-bottom: var(--spacing-lg); }
+.pl-32 { padding-left: var(--spacing-lg); }
+
+.p-40 { padding: var(--spacing-xl); }
+.pt-40 { padding-top: var(--spacing-xl); }
+.pr-40 { padding-right: var(--spacing-xl); }
+.pb-40 { padding-bottom: var(--spacing-xl); }
+.pl-40 { padding-left: var(--spacing-xl); }
+
+/* フレックスボックス */
 .flex {
     display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
 }
 
 .flex-wrap {
     flex-wrap: wrap;
 }
 
-.gap-24 {
-    gap: 24px;
+.flex-nowrap {
+    flex-wrap: nowrap;
 }
 
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-evenly {
+    justify-content: space-evenly;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-end {
+    align-items: flex-end;
+}
+
+.items-stretch {
+    align-items: stretch;
+}
+
+.items-baseline {
+    align-items: baseline;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-auto {
+    flex: auto;
+}
+
+.flex-none {
+    flex: none;
+}
+
+/* ギャップ */
+.gap-8 {
+    gap: var(--spacing-xs);
+}
+
+.gap-16 {
+    gap: var(--spacing-sm);
+}
+
+.gap-24 {
+    gap: var(--spacing-md);
+}
+
+.gap-32 {
+    gap: var(--spacing-lg);
+}
+
+.gap-40 {
+    gap: var(--spacing-xl);
+}
+
+/* 表示・非表示 */
+.hidden {
+    display: none;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+/* 位置指定 */
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.sticky {
+    position: sticky;
+}
+
+/* z-index */
+.z-0 { z-index: 0; }
+.z-10 { z-index: 10; }
+.z-20 { z-index: 20; }
+.z-30 { z-index: 30; }
+.z-40 { z-index: 40; }
+.z-50 { z-index: 50; }
+.z-auto { z-index: auto; }
+
+/* 幅・高さ */
+.w-full {
+    width: 100%;
+}
+
+.w-auto {
+    width: auto;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.h-auto {
+    height: auto;
+}
+
+.min-h-screen {
+    min-height: 100vh;
+}
+
+/* オーバーフロー */
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.overflow-auto {
+    overflow: auto;
+}
+
+.overflow-visible {
+    overflow: visible;
+}
+
+/* 透明度 */
+.opacity-0 { opacity: 0; }
+.opacity-25 { opacity: 0.25; }
+.opacity-50 { opacity: 0.5; }
+.opacity-75 { opacity: 0.75; }
+.opacity-100 { opacity: 1; }
+
+/* ボーダー半径 */
+.rounded-none { border-radius: 0; }
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-full { border-radius: 50%; }
+
+/* シャドウ */
+.shadow-none { box-shadow: none; }
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+
+/* カーソル */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.cursor-default {
+    cursor: default;
+}
+
+.cursor-not-allowed {
+    cursor: not-allowed;
+}
+
+/* ユーザー選択 */
+.select-none {
+    user-select: none;
+}
+
+.select-all {
+    user-select: all;
+}
+
+.select-auto {
+    user-select: auto;
+}
+
+/* 後方互換性のためのレガシークラス */
 .align-items-start {
     align-items: flex-start;
 }

@@ -1,0 +1,148 @@
+/* 共通ベースクラス */
+
+/* 基本的なページ背景 */
+.page-background {
+  background: var(--background-primary);
+  background-image: var(--bg-main);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* 基本的なコンテンツ背景 */
+.content-background {
+  background: linear-gradient(135deg, var(--background-secondary) 0%, var(--background-tertiary) 60%, #0d133d 100%);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg), 0 2px 0 #3a3a6a inset;
+  border: 2.5px solid var(--primary-color);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 基本的なカードスタイル */
+.card {
+  background: var(--overlay-dark);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  margin: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+}
+
+/* 基本的なボタンスタイル */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-weight: bold;
+  transition: var(--transition-fast);
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: var(--accent-color);
+  color: var(--text-primary);
+}
+
+.btn-primary:hover {
+  background: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+}
+
+.btn-secondary:hover {
+  background: var(--accent-color);
+  color: var(--text-primary);
+}
+
+/* 基本的なテキストスタイル */
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-accent {
+  color: var(--accent-color);
+}
+
+.text-warning {
+  color: var(--warning-color);
+}
+
+/* 基本的なレイアウトユーティリティ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.section {
+  padding: var(--spacing-xxl) 0;
+}
+
+/* フォントファミリー */
+.font-primary {
+  font-family: var(--font-primary);
+}
+
+.font-secondary {
+  font-family: var(--font-secondary);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+/* 共通のアニメーション */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hover-lift {
+  transition: transform var(--transition-fast);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* 共通のオーバーレイ */
+.overlay {
+  position: relative;
+}
+
+.overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-dark);
+  border-radius: inherit;
+  z-index: 1;
+}
+
+.overlay > * {
+  position: relative;
+  z-index: 2;
+}

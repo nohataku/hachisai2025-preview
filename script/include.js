@@ -134,7 +134,13 @@ window.addEventListener('DOMContentLoaded', function() {
             // ロケットボタンの初期化
             initRocketButton();
             
-        }, 500);
+            // ドロップダウンメニューの初期化
+            if (typeof initDropdownMenu === 'function') {
+                console.log('include.js: ドロップダウンメニューの初期化を実行');
+                initDropdownMenu();
+            }
+            
+        }, 200);
     }).catch(error => {
         console.error('include.js: HTML読み込みエラー:', error);
     });

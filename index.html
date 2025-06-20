@@ -22,11 +22,13 @@
 <!--head部分 ブラウザの上のタブのやつ 終-->
 
 <body class="auth-hidden">
+<div id="header-include"></div>
+<!--body部分-->
+<body>
 <!--header部分-->
 <div id="header-include"></div>
 <!--header部分 終-->
 
-<!--body部分-->
 <div class="splash-screen">
     <div class="splash-content">
         <img src="photo/MainLogo.PNG" alt="メインロゴ" class="splash-logo">
@@ -44,49 +46,54 @@
 <div class="back">    <div class="main-visual">
         <div class="fes-date"><span>2025年9月6日(土)・7日(日)</span> <span>開催</span></div>
         <div id="countdown" class="countdown"></div>
-    </div><main>
-        <!-- テーマセクション -->
-        <section class="content-section">
-            <div class="content-row">
-                <div class="content-text">
-                    <h2>テーマ</h2>
-                    <p>第63回八王子祭のテーマは<br>　　　　　<span class="theme-highlight">「宇宙旅行」</span>　　　です。</p>
-                    <p>このテーマには、学生たちの熱い思いと、来場者の皆様への感謝の気持ちが込められています。</p>
-                    <p>八王子祭の各企画で宇宙を感じてもらい、様々な企画を見て回ることで宇宙旅行を感じていただきたいです</p>
-                    <p>今年度の八王子祭では、このテーマのもと、様々な企画やイベントを通じて、皆様に楽しい時間をお過ごしいただけるよう、実行委員一同、全力で準備を進めております。</p>
-                </div>
-                <div class="content-image">
-                    <img src="photo/backlogo.PNG" alt="八王子祭ロゴ">
-                </div>
-            </div>
-        </section>
-
-        <!-- ポン八とはセクション -->
-        <section class="content-section">
-            <div class="content-row">
-                <div class="content-image">
-                    <img src="photo/ponhachi.jpg" alt="ポン八について">
-                </div>
-                <div class="content-text">
-                    <h2>ポン八とは</h2>
-                    <p>ポン八は、八王子祭のマスコットキャラクターです。</p>
-                    <p>毎年ポン八のデザインを学生から募集しています。今年はテーマである宇宙旅行の衣装に身を包んだポン八となっています。</p>
+    </div>
+    <main>
+        <!-- 八王子祭についてセクション -->
+        <section class="content-section about-section">
+            <h2 class="section-title">八王子祭について</h2>
+            
+            <!-- テーマ -->
+            <div class="about-item">
+                <div class="content-row">
+                    <div class="content-text">
+                        <h3>テーマ</h3>
+                        <p>第63回八王子祭のテーマは<span class="theme-highlight">「宇宙旅行」</span>です。</p>
+                        <p>八王子祭の各企画で宇宙を感じてもらい、様々な企画を見て回ることで宇宙旅行を感じていただきたいです。</p>
+                        <a href="Theme.html" class="read-more-btn">詳しく見る</a>
+                    </div>
+                    <div class="content-image">
+                        <img src="photo/backlogo.PNG" alt="八王子祭ロゴ">
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- 八王子祭とはセクション -->
-        <section class="content-section">
-            <div class="content-row">
-                <div class="content-image">
-                    <img src="photo/backlogo.PNG" alt="八王子祭について">
+            <!-- ポン八とは -->
+            <div class="about-item">
+                <div class="content-row">
+                    <div class="content-image">
+                        <img src="photo/ponhachi.jpg" alt="ポン八について">
+                    </div>
+                    <div class="content-text">
+                        <h3>ポン八とは</h3>
+                        <p>ポン八は、八王子祭のマスコットキャラクターです。</p>
+                        <p>今年はテーマである宇宙旅行の衣装に身を包んだポン八となっています。</p>
+                        <a href="Ponhachi.html" class="read-more-btn">詳しく見る</a>
+                    </div>
                 </div>
-                <div class="content-text">
-                    <h2>八王子祭とは</h2>
-                    <p>八王子祭は、工学院大学八王子キャンパスで毎年開催される学園祭です。</p>
-                    <p>学生たちの創意工夫が詰まった模擬店、展示、ステージパフォーマンスなど、多彩な企画をお楽しみいただけます。</p>
-                    <p>地域の皆様とのつながりを大切にし、学生と地域が一体となって作り上げる、温かみのある学園祭を目指しています。</p>
-                    <p>今年で第63回を迎える八王子祭に、ぜひお越しください。</p>
+            </div>
+
+            <!-- 八王子祭とは -->
+            <div class="about-item">
+                <div class="content-row">
+                    <div class="content-image">
+                        <img src="photo/backlogo.PNG" alt="八王子祭について">
+                    </div>
+                    <div class="content-text">
+                        <h3>八王子祭とは</h3>
+                        <p>八王子祭は、工学院大学八王子キャンパスで毎年開催される学園祭です。</p>
+                        <p>学生と地域が一体となって作り上げる、温かみのある学園祭を目指しています。</p>
+                        <a href="About.html" class="read-more-btn">詳しく見る</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -101,16 +108,21 @@
                     </ul>
                 </div>
             </div>
-        </section>
-    </main>
+        </section>    </main>
 </div>
 
+<!--footer部分-->
+<div id="footer-include"></div>
+<!--footer部分 終-->
+
+<!-- ロケットボタン -->
+<div id="rocket-include"></div>
+
 <script src="script/include.js"></script>
+<script src="script/dropdown.js"></script>
 <script src="script/hamburger.js"></script>
 <script src="script/countdown.js"></script>
 <script src="script/animation.js"></script>
-    <div id="footer-include"></div>
-    <div id="rocket-include"></div>
 </body>
 <!--body部分 終-->
 

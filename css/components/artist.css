@@ -1,8 +1,9 @@
-body {
+/* Artist専用の背景設定 */
+.artist-back {
   /* 複数の背景レイヤーでつなぎ目を目立たなくする */
   background-image: 
     linear-gradient(45deg, rgba(0,0,0,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%),
-    url("../../photo/ticket.jpg") !important;
+    var(--bg-ticket) !important;
   background-size: 
     100% 100%,
     600px 900px !important;
@@ -14,34 +15,28 @@ body {
     repeat !important;
   background-attachment: fixed !important;
   background-blend-mode: overlay, normal !important; /* ブレンドモードでなじませる */
+  min-height: 100vh;
+  position: relative;
 }
 
 /* デフォルト背景を無効化 */
-.back {
+.artist-back .back {
   background: none !important;
 }
 
-.back::before {
+.artist-back .back::before {
   background-image: none !important;
   background: none !important;
   content: none !important;
   display: none !important;
 }
 
-.artist-back {
-  position: relative;
-  min-height: 100vh;
-  margin: 0 3vw;
-  padding: 0;
-  position: center;
-  inset: 0;
-  z-index: 1; /* .back::before より上に */
-  text-align: center;
-}
-
 .artist {
     color: white;
     /* opacityは削除（デフォルトの1で表示） */
+    margin: 0 3vw;
+    padding: 0;
+    text-align: center;
 }
 
 .artist-section {
@@ -59,7 +54,7 @@ body {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* テキストの可読性向上 */
 }
 
-h1 {
+.artist-page h1 {
     text-align: center;
     font-size: clamp(22px, 3vw, 36px); /* 最小22px、最大36px */
     color: #FFD700; /* ゴールドカラーで目立たせる */
@@ -68,7 +63,7 @@ h1 {
     font-weight: bold;
 }
 
-.schedule-section {
+.artist-schedule-section {
     font-size: clamp(18px, 2.5vw, 26px); /* 最小18px、最大26px */
     text-align: center;
     line-height: 1.6;
@@ -76,8 +71,8 @@ h1 {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
-.ticket-section {
-    width: 50%;
+.artist-ticket-section {
+    width: auto;
     background-color: rgba(0,0,0,0.85);
     border-radius: 18px;
     margin: auto auto;
@@ -91,7 +86,7 @@ h1 {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* テキストの可読性向上 */
 }
 
-.attention-section {
+.artist-attention-section {
     text-align: left;
     line-height: 1.7; /* 行間を広く */
     font-size: 15px; /* 基本フォントサイズを設定 */
@@ -99,12 +94,12 @@ h1 {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* テキストの可読性向上 */
 }
 
-.hachi {
+.artist-hachi {
     text-align: center;
 }
 
-/* ページタイトルを見やすくする */
-.page-title {
+/* Artist専用のページタイトルスタイル */
+.artist-back .page-title {
     background-color: rgba(0, 0, 0, 0.7) !important;
     color: #FFD700 !important;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
@@ -113,6 +108,375 @@ h1 {
     margin: 20px auto !important;
     display: inline-block !important;
     border: 2px solid #FFD700 !important;
+}
+
+.singer-back {
+    padding-top: 100px;
+}
+.singer-back .page-title {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    color: #FFD700 !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    padding: 20px 40px !important;
+    border-radius: 10px !important;
+    margin: 120px auto 20px auto !important;
+    display: inline-block !important;
+    border: 2px solid #FFD700 !important;
+    /* アニメーション追加 */
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeInDown 1s ease-out 0.2s forwards;
+}
+
+/* Comedian専用のページタイトルスタイル */
+.comedian-back .page-title {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    color: #FFD700 !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    padding: 20px 40px !important;
+    border-radius: 10px !important;
+    margin: 20px auto !important;
+    display: inline-block !important;
+    border: 2px solid #FFD700 !important;
+}
+
+/* キーフレームアニメーション定義 */
+@keyframes fadeInDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.6);
+    }
+}
+
+/* アーティスト画像のアニメーション */
+.artist-photo {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    /* アニメーション追加 */
+    opacity: 0;
+    transform: scale(0.8);
+    animation: scaleIn 1s ease-out 0.5s forwards;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.artist-photo:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* アーティストセクションのアニメーション */
+.artist-section {
+    background-color: rgba(0,0,0,0.85);
+    border-radius: 18px;
+    margin: auto 120px;
+    padding: 25px 30px 25px 30px;
+    border: 2.5px solid black;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    line-height: 1.8;
+    font-size: 16px;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    /* アニメーション追加 */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out 0.8s forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.artist-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* スケジュールセクションのアニメーション */
+.artist-schedule-section {
+    font-size: clamp(18px, 2.5vw, 26px);
+    text-align: center;
+    line-height: 1.6;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    /* アニメーション追加 */
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideInLeft 0.8s ease-out 1.2s forwards;
+}
+
+/* チケットセクションのアニメーション */
+.artist-ticket-section {
+    width: auto;
+    background-color: rgba(0,0,0,0.85);
+    border-radius: 18px;
+    margin: auto auto;
+    padding: 25px 30px 25px 30px;
+    border: 2.5px solid black;
+    position: relative;
+    text-align: center;
+    line-height: 1.7;
+    font-size: 15px;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    /* アニメーション追加 */
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideInRight 0.8s ease-out 1.6s forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.artist-ticket-section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* 注意事項セクションのアニメーション */
+.artist-attention-section {
+    text-align: left;
+    line-height: 1.7;
+    font-size: 15px;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    /* アニメーション追加 */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out 2s forwards;
+}
+
+/* 見出しのアニメーション */
+.artist-page h1 {
+    text-align: center;
+    font-size: clamp(22px, 3vw, 36px);
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    margin-bottom: 20px;
+    font-weight: bold;
+    /* アニメーション追加 */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.artist-section h1:hover,
+.artist-schedule-section h1:hover,
+.artist-ticket-section h1:hover,
+.artist-attention-section h1:hover {
+    color: #FFF700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    animation: pulse 1s ease-in-out;
+}
+
+/* 背景のアニメーション効果 */
+.singer-back::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        transparent 30%, 
+        rgba(255, 215, 0, 0.1) 50%, 
+        transparent 70%);
+    opacity: 0;
+    animation: backgroundShimmer 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes backgroundShimmer {
+    0%, 100% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(100%);
+    }
+}
+
+/* スクロールアニメーション用の追加クラス */
+.animate-in {
+    animation-play-state: running !important;
+}
+
+/* 初期状態でアニメーションを一時停止 */
+.artist-section,
+.artist-ticket-section,
+.artist-attention-section {
+    animation-play-state: paused;
+}
+
+/* スクロール時に発動するアニメーション */
+.artist-section.animate-in {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.artist-ticket-section.animate-in {
+    animation: slideInRight 0.8s ease-out forwards;
+}
+
+.artist-attention-section.animate-in {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* テキストの段階的表示アニメーション */
+.artist-section br {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.artist-section br:nth-child(1) { animation-delay: 0.1s; }
+.artist-section br:nth-child(2) { animation-delay: 0.2s; }
+.artist-section br:nth-child(3) { animation-delay: 0.3s; }
+.artist-section br:nth-child(4) { animation-delay: 0.4s; }
+.artist-section br:nth-child(5) { animation-delay: 0.5s; }
+.artist-section br:nth-child(6) { animation-delay: 0.6s; }
+.artist-section br:nth-child(7) { animation-delay: 0.7s; }
+.artist-section br:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* パフォーマンス最適化のためのアニメーション設定 */
+.artist-page * {
+    will-change: auto;
+}
+
+.artist-section,
+.artist-ticket-section,
+.artist-attention-section,
+.artist-photo {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+}
+
+/* 滑らかなスクロールを有効化 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* アニメーション中のちらつき防止 */
+.artist-page {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* GPU加速の有効化 */
+.artist-section:hover,
+.artist-ticket-section:hover,
+.artist-photo:hover {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+/* アニメーション設定の統一 */
+.artist-page * {
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 高解像度ディスプレイ対応 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .artist-section,
+    .artist-ticket-section,
+    .artist-attention-section {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* レスポンシブアニメーションの調整 */
+@media (max-width: 768px) {
+    .artist-section,
+    .artist-ticket-section,
+    .artist-attention-section {
+        animation-duration: 0.6s;
+    }
+    
+    .artist-photo {
+        animation-duration: 0.8s;
+    }
+}
+
+@media (max-width: 480px) {
+    .artist-section,
+    .artist-ticket-section,
+    .artist-attention-section {
+        animation-duration: 0.5s;
+    }
+    
+    .artist-photo {
+        animation-duration: 0.6s;
+    }
 }
 
 /* 段落間のスペーシングを改善 */

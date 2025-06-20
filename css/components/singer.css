@@ -1,0 +1,65 @@
+/* Singer専用の背景設定 */
+.singer-back {
+  /* 複数の背景レイヤーでつなぎ目を目立たなくする */
+  background-image: 
+    linear-gradient(45deg, rgba(0,0,0,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%),
+    var(--bg-ticket) !important;
+  background-size: 
+    100% 100%,
+    600px 900px !important;
+  background-position: 
+    center,
+    center !important;
+  background-repeat: 
+    no-repeat,
+    repeat !important;
+  background-attachment: fixed !important;
+  background-blend-mode: overlay, normal !important; /* ブレンドモードでなじませる */
+  min-height: 100vh;
+  position: relative;
+}
+
+/* デフォルト背景を無効化 */
+.singer-back .back {
+  background: none !important;
+}
+
+.singer-back .back::before {
+  background-image: none !important;
+  background: none !important;
+  content: none !important;
+  display: none !important;
+}
+
+/* モバイル版でもticket.jpgを使用 */
+@media (max-width: 768px) {
+  .singer-back {
+    /* モバイルでもticket.jpgを使用 */
+    background-image: 
+      linear-gradient(45deg, rgba(0,0,0,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%),
+      var(--bg-ticket) !important;
+    background-size: 
+      100% 100%,
+      400px 600px !important;
+    background-position: 
+      center,
+      center !important;
+    background-repeat: 
+      no-repeat,
+      repeat !important;
+    background-attachment: fixed !important;
+    background-blend-mode: overlay, normal !important;
+  }
+  
+  .singer-back .back {
+    background: transparent !important;
+    background-image: none !important;
+  }
+  
+  .singer-back .back::before {
+    background-image: none !important;
+    background: none !important;
+    content: none !important;
+    display: none !important;
+  }
+}

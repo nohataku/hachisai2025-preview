@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/hachisai.css" rel="stylesheet">
     <script src="script/auth.js"></script>
+    <style>
+        body.auth-hidden { display: none !important; }
+        body { display: none; }
+        body:not(.auth-hidden) { display: block; }
+    </style>
     <meta name="author" content="工学院大学学園祭実行委員会八王子祭実行部">
     <meta name="description" content="第63回八王子祭の公式ホームページです。2025年9月6日(土)・7日(日)に開催される学園祭の情報をお届けします。">
     <meta name="keywords" content="八王子祭, 学園祭, 工学院大学, 2025年">
@@ -36,11 +41,18 @@
             <p>詳細は後日発表いたしますので、しばらくお待ちください。</p>
             <p>最新情報は公式SNSをご確認ください。</p>
           </div>
-        </section>
-    </main>
+        </section>    </main>
 </div>
 
+<!--footer部分-->
+<div id="footer-include"></div>
+<!--footer部分 終-->
+
+<!-- ロケットボタン -->
+<div id="rocket-include"></div>
+
 <script src="script/include.js"></script>
+<script src="script/dropdown.js"></script>
 <script src="script/hamburger.js"></script>
 <script>
     // 認証済みならbodyを表示
@@ -52,12 +64,5 @@
 </script>
 </body>
 <!--body部分 終-->
-
-<!--footer部分-->
-<div id="footer-include"></div>
-<!--footer部分 終-->
-
-<!-- ロケットボタン -->
-<div id="rocket-include"></div>
 
 </html>

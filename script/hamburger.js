@@ -27,9 +27,7 @@ function initHamburgerMenu() {
 
     // 既存のイベントリスナーを削除（重複を防ぐ）
     const newHamburger = hamburger.cloneNode(true);
-    hamburger.parentNode.replaceChild(newHamburger, hamburger);
-
-    function closeMenu() {
+    hamburger.parentNode.replaceChild(newHamburger, hamburger);    function closeMenu() {
         const currentHamburger = document.getElementById('hamburger');
         const currentNav = document.getElementById('mainNav');
         const currentOverlay = document.querySelector('.nav-overlay');
@@ -38,6 +36,16 @@ function initHamburgerMenu() {
             currentHamburger.classList.remove('active');
             currentNav.classList.remove('open');
             currentOverlay.classList.remove('open');
+            
+            // ドロップダウンメニューも閉じる
+            document.querySelectorAll('.dropdown.open').forEach(dropdown => {
+                dropdown.classList.remove('open');
+                const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+                if (dropdownMenu) {
+                    dropdownMenu.style.maxHeight = '0';
+                }
+            });
+            
             console.log('メニューを閉じました');
         }
     }

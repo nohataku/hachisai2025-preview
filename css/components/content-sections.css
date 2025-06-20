@@ -1,14 +1,16 @@
 /* 宇宙テーマのセクションデザイン（ネオン無し・シンプルで見やすく） */
 .content-section {
-    background: linear-gradient(135deg, #101a3a 0%, #1a237e 60%, #0d133d 100%);
-    border-radius: 22px;
-    box-shadow: 0 8px 36px rgba(10,20,70,0.13), 0 2px 0 #3a3a6a inset;
-    margin: 56px auto;
+    background: linear-gradient(135deg, var(--background-secondary) 0%, var(--background-tertiary) 60%, #0d133d 100%);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg), 0 2px 0 #3a3a6a inset;
+    margin: var(--spacing-xxl) auto; /* auto で中央揃え */
     padding: 38px 0 38px 0; /* 見出し分の余白を追加 */
     max-width: 900px;
-    border: 2.5px solid #00bcd4;
+    width: 100%; /* 幅を100%に */
+    border: 2.5px solid var(--primary-color);
     position: relative;
     overflow: hidden;
+    text-align: center; /* セクション全体を中央揃え */
 }
 
 .content-section::before {
@@ -16,8 +18,8 @@
     display: block;
     width: 100%;
     height: 12px;
-    background: linear-gradient(90deg, #00bcd4 0%, #3e4cb8 100%);
-    border-radius: 22px 22px 0 0;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
     position: absolute;
     top: 0;
     left: 0;
@@ -27,9 +29,11 @@
 .content-row {
     display: flex;
     align-items: center;
-    gap: 40px;
-    padding: 56px 48px 0 48px;
+    justify-content: center; /* 中央揃えを追加 */
+    gap: var(--spacing-xl);
+    padding: var(--spacing-xxl) 48px 0 48px;
     position: relative;
+    text-align: center; /* 行内コンテンツも中央揃え */
 }
 
 /* テーマセクションだけ左右逆配置 */
@@ -39,27 +43,28 @@
 
 .content-text {
     flex: 10;
+    text-align: center; /* テキストコンテンツを中央揃え */
 }
 
 .content-text h2 {
     position: absolute;
     top: 0;
-    left: 0;
-    transform: translateY(30%) translateX(24px);
+    left: 50%; /* 中央に配置 */
+    transform: translateY(30%) translateX(-50%); /* 中央揃えのため -50% に変更 */
     z-index: 2;
     font-size: 2.3rem;
-    color: #fff;
+    color: var(--text-primary);
     font-weight: 900;
     letter-spacing: 0.13em;
     margin: 0;
-    border-left: 10px solid #00bcd4;
+    border-left: 10px solid var(--primary-color);
     padding: 10px 28px 10px 20px;
     background: rgba(0,34,68,0.92);
-    border-radius: 0 18px 18px 0;
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
     display: inline-block;
     box-shadow: none;
-    text-shadow: 0 1px 4px #0008;
-    font-family: 'MPLUSRounded1c-Bold', 'GenEiMGothic2-Bold', 'Arial Black', sans-serif;
+    text-shadow: var(--shadow-text);
+    font-family: var(--font-heading);
     line-height: 1.2;
     filter: none;
     text-align: left;
@@ -68,7 +73,7 @@
 .content-text p {
     font-size: 1.13rem;
     line-height: 2.1;
-    color: #e0e7ff;
+    color: var(--text-secondary);
     margin-bottom: 12px;
     text-shadow: 0 1px 8px #0a1446;
 }
@@ -111,6 +116,7 @@
     background: linear-gradient(135deg, #182c4d 0%, #1a237e 60%, #0d133d 100%);
     border: 2.5px solid #ffb300;
     margin-top: 4px; /* 上の空白をさらに詰める */
+    text-align: center; /* 中央揃えを追加 */
 }
 
 .notice-section h2 {
@@ -133,6 +139,8 @@
     color: #fffbe7;
     font-size: 1.1rem;
     line-height: 2;
+    text-align: left; /* リスト項目は左揃えで読みやすく */
+    display: inline-block; /* 中央揃えしつつリストを左揃えにする */
 }
 
 .notice-list li {
@@ -238,7 +246,7 @@
 
 @media (max-width: 900px) {
     .content-section {
-        margin: 32px 8px;
+        margin: 32px auto; /* auto で中央揃え */
         max-width: 98vw;
         padding-top: 28px;
     }
@@ -307,7 +315,7 @@
 @media (max-width: 768px) {
   .content-section {
     padding: 16px 4vw;
-    margin: 16px 0;
+    margin: 16px auto; /* auto で中央揃え */
   }
   .content-row {
     flex-direction: column !important;

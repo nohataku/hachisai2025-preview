@@ -1,4 +1,6 @@
 /* コンポーネントCSSファイルのインポート */
+@import 'components/variables.css';
+@import 'components/base.css';
 @import 'components/LoadingAnimation.css';
 @import 'components/layout.css';
 @import 'components/header.css';
@@ -10,3 +12,8 @@
 @import 'components/access.css';
 @import 'components/responsive.css';
 @import 'components/content-sections.css';
+@import 'components/singer.css';
+@import 'components/comedian.css';
+@import 'components/projects.css';
+@import 'components/guide.css';
+@import 'components/about-pages.css';
