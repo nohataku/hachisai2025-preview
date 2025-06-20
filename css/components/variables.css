@@ -1,0 +1,49 @@
+/* CSS変数とカラーパレット定義 */
+:root {
+  /* カラーパレット */
+  --primary-color: #00bcd4;
+  --secondary-color: #3e4cb8;
+  --accent-color: #40b8f0;
+  --warning-color: #FFD700;
+  --background-primary: #0a1333;
+  --background-secondary: #101a3a;
+  --background-tertiary: #1a237e;
+  --text-primary: #fff;
+  --text-secondary: #e0e7ff;
+  --text-muted: #ccc;
+  --overlay-dark: rgba(0, 0, 0, 0.85);
+  --overlay-light: rgba(255, 255, 255, 0.95);
+  
+  /* フォントファミリー */
+  --font-primary: 'Kaisotai Next UP B', '游ゴシック体', 'Yu Gothic', 'Meiryo', sans-serif;
+  --font-secondary: '游ゴシック体', 'Yu Gothic', 'YuGothic', 'Meiryo', sans-serif;
+  --font-heading: 'MPLUSRounded1c-Bold', 'GenEiMGothic2-Bold', 'Arial Black', sans-serif;
+    /* 背景画像 */
+  --bg-main: url("../../photo/background1.jpg");
+  --bg-ticket: url("../../photo/ticket.jpg");
+  
+  /* スペーシング */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 40px;
+  --spacing-xxl: 56px;
+  
+  /* ボーダー半径 */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 22px;
+  
+  /* シャドウ */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 36px rgba(10, 20, 70, 0.13);
+  --shadow-text: 0 1px 3px rgba(0, 0, 0, 0.8);
+  
+  /* トランジション */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.8s ease-out;
+}

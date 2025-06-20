@@ -1,9 +1,9 @@
 /* ヘッダー関連のスタイル */
 header {
-    background: rgb(255, 255, 255);
+    background: var(--overlay-light);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-sm);
     position: fixed;
     top: 0;
     left: 0;
@@ -56,15 +56,18 @@ header {
 }
 
 .header-nav ul {
-    display: flex !important;
+    display: flex;
     flex-direction: row;
-    gap: 12px;
+    gap: 8px;
     margin: 0;
     padding: 0;
     list-style: none;
     background: none;
     overflow-x: visible !important;
     white-space: normal !important;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .header-nav li {
@@ -88,8 +91,115 @@ header {
 }
 
 .header-nav a:hover {
+    background: var(--accent-color);
+    color: var(--text-primary);
+}
+
+/* ドロップダウンメニューのスタイル */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.dropdown-toggle::after {
+    content: " ▼";
+    font-size: 0.8rem;
+    margin-left: 4px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-toggle::after {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 8px 0;
+    min-width: 160px;
+    z-index: 3000;
+    list-style: none;
+    margin: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block !important;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    width: 100%;
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    color: #333;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 0;
+    white-space: nowrap;
+    transition: background 0.2s;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
     background: #40b8f0;
     color: #fff;
+}
+
+/* 最後のドロップダウンメニューのみ右寄せで見切れを防止 */
+.dropdown:last-child .dropdown-menu {
+    right: 0 !important;
+    left: auto !important;
+}
+
+/* ご案内メニューを確実に右寄せ */
+.header-nav ul li:last-child .dropdown-menu {
+    right: 0 !important;
+    left: auto !important;
+}
+
+/* 他のCSSからの干渉を防ぐためのリセット */
+@media (min-width: 769px) {
+    .dropdown-menu {
+        display: none !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+    }
+    
+    .dropdown:hover .dropdown-menu {
+        display: block !important;
+    }
+    
+    .dropdown-menu li {
+        display: block !important;
+        width: 100% !important;
+        flex: none !important;
+    }
+}
+
+.dropdown:hover .dropdown-menu {
+    display: flex;
 }
 
 @media (min-width: 769px) {
@@ -104,110 +214,6 @@ header {
         color: #fff;
         transform: translateY(-2px);
     }
-}
-
-@media (max-width: 768px) {
-    header {
-        background: rgba(255, 255, 255, 0.95);
-        width: 100%;
-    }
-    
-    .header-flex {
-        flex-direction: row;
-        justify-content: flex-start;
-        padding: 10px;
-    }
-
-    /* ハンバーガーメニュー */
-    #hamburger {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        top: 15px;
-        right: 15px;
-        width: 40px;
-        height: 40px;
-        background: rgba(255, 255, 255, 0.9);
-        border: none;
-        border-radius: 8px;
-        padding: 0;
-        cursor: pointer;
-        z-index: 3000;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    #hamburger span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        margin: 2px 0;
-        background-color: #333;
-        border-radius: 3px;
-        transition: all 0.3s ease;
-    }
-
-    #hamburger.active span:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
-    }
-
-    #hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    #hamburger.active span:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
-    }
-
-    .header-nav {
-        visibility: hidden;
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 75%;
-        height: 100vh;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-        z-index: 2500;
-        padding: 80px 20px 20px;
-        transform: translateX(100%);
-        opacity: 0;
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                    opacity 0.3s ease,
-                    visibility 0.3s ease;
-    }
-
-    .header-nav.open {
-        visibility: visible;
-        transform: translateX(0);
-        opacity: 1;
-    }
-
-    /* メニュー項目のフェードイン */
-    .header-nav li {
-        opacity: 0;
-        transform: translateX(20px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        transition-delay: calc(0.1s * var(--item-index, 0));
-    }
-
-    .header-nav.open li {
-        opacity: 1;
-        transform: translateX(0);
-    }
-
-    .header-nav li:nth-child(1) { --item-index: 1; }
-    .header-nav li:nth-child(2) { --item-index: 2; }
-    .header-nav li:nth-child(3) { --item-index: 3; }
-    .header-nav li:nth-child(4) { --item-index: 4; }
-    .header-nav li:nth-child(5) { --item-index: 5; }
-    .header-nav li:nth-child(6) { --item-index: 6; }
-    .header-nav li:nth-child(7) { --item-index: 7; }
-    .header-nav li:nth-child(8) { --item-index: 8; }
-    .header-nav li:nth-child(9) { --item-index: 9; }
 }
 
 @media (max-width: 600px) {

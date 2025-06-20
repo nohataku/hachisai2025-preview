@@ -14,33 +14,62 @@ function initHamburgerMenu() {
             navExists: !!nav,
             overlayExists: !!overlay
         });
+        
+        // 要素が見つからない場合、少し待ってから再試行
+        setTimeout(() => {
+            console.log('ハンバーガーメニューの初期化を再試行します');
+            initHamburgerMenu();
+        }, 500);
         return;
     }
 
-    console.log('要素が見つかりました');
+    console.log('要素が見つかりました、イベントリスナーを設定します');
 
-    function closeMenu() {
-        hamburger.classList.remove('active');
-        nav.classList.remove('open');
-        overlay.classList.remove('open');
-        console.log('メニューを閉じました');
+    // 既存のイベントリスナーを削除（重複を防ぐ）
+    const newHamburger = hamburger.cloneNode(true);
+    hamburger.parentNode.replaceChild(newHamburger, hamburger);    function closeMenu() {
+        const currentHamburger = document.getElementById('hamburger');
+        const currentNav = document.getElementById('mainNav');
+        const currentOverlay = document.querySelector('.nav-overlay');
+        
+        if (currentHamburger && currentNav && currentOverlay) {
+            currentHamburger.classList.remove('active');
+            currentNav.classList.remove('open');
+            currentOverlay.classList.remove('open');
+            
+            // ドロップダウンメニューも閉じる
+            document.querySelectorAll('.dropdown.open').forEach(dropdown => {
+                dropdown.classList.remove('open');
+                const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+                if (dropdownMenu) {
+                    dropdownMenu.style.maxHeight = '0';
+                }
+            });
+            
+            console.log('メニューを閉じました');
+        }
     }
 
     // ハンバーガーメニューのクリックイベント
-    hamburger.addEventListener('click', function(e) {
+    document.getElementById('hamburger').addEventListener('click', function(e) {
         console.log('ハンバーガーがクリックされました');
         e.preventDefault();
         e.stopPropagation();
         
-        const isOpen = nav.classList.contains('open');
+        const currentNav = document.getElementById('mainNav');
+        const currentOverlay = document.querySelector('.nav-overlay');
+        
+        if (!currentNav || !currentOverlay) return;
+        
+        const isOpen = currentNav.classList.contains('open');
         if (isOpen) {
             closeMenu();
         } else {
-            hamburger.classList.add('active');
-            nav.classList.add('open');
-            overlay.classList.add('open');
+            this.classList.add('active');
+            currentNav.classList.add('open');
+            currentOverlay.classList.add('open');
+            console.log('メニューを開きました');
         }
-        console.log('メニューの状態:', !isOpen);
     });
 
     // メニュー内のクリックイベントの伝播を停止
@@ -53,26 +82,25 @@ function initHamburgerMenu() {
 
     // 画面のどこかをクリックしたらメニューを閉じる
     document.addEventListener('click', function(e) {
-        if (nav.classList.contains('open') && !nav.contains(e.target) && !hamburger.contains(e.target)) {
+        const currentNav = document.getElementById('mainNav');
+        const currentHamburger = document.getElementById('hamburger');
+        
+        if (currentNav && currentNav.classList.contains('open') && 
+            !currentNav.contains(e.target) && 
+            !currentHamburger.contains(e.target)) {
             closeMenu();
         }
     });
 
     // スクロール時にメニューを閉じる
     window.addEventListener('scroll', function() {
-        if (nav.classList.contains('open')) {
+        const currentNav = document.getElementById('mainNav');
+        if (currentNav && currentNav.classList.contains('open')) {
             closeMenu();
         }
-    });
+    });    
+    console.log('ハンバーガーメニューの初期化が完了しました');
 }
 
-// ページ読み込み完了後に初期化
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log('DOMContentLoaded イベント発火');
-        setTimeout(initHamburgerMenu, 100);
-    });
-} else {
-    console.log('ページは既に読み込み済み');
-    setTimeout(initHamburgerMenu, 100);
-}
+// 動的読み込み環境では include.js から呼び出されるため、自動初期化は無効化
+// initHamburgerMenu関数は include.js から呼び出されます

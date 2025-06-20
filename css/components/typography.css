@@ -9,18 +9,18 @@
 
 /* 共通フォントスタイル */
 body {
-    font-family: '游ゴシック体', 'Yu Gothic', 'YuGothic', 'Meiryo', sans-serif;
+    font-family: var(--font-secondary);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 .page-title {
-    font-family: 'Kaisotai Next UP B', '游ゴシック体', 'Yu Gothic', 'Meiryo', sans-serif;
+    font-family: var(--font-primary);
     font-size: 5rem;
     font-weight: bold;
-    color: #fbff00;
+    color: var(--warning-color);
     text-align: center;
-    margin: 40px 0 24px 0;
+    margin: var(--spacing-xl) 0 var(--spacing-md) 0;
     letter-spacing: 0.1em;
     z-index: auto;
     -webkit-font-smoothing: antialiased;
@@ -33,9 +33,9 @@ body {
         font-size: 2.2rem;
         /* フォントファミリーは継承するため再指定不要 */
         font-weight: bold;
-        color: #fbff00;
+        color: var(--warning-color);
         text-align: center;
-        margin: 40px 0 24px 0;
+        margin: var(--spacing-xl) 0 var(--spacing-md) 0;
         letter-spacing: 0.1em;
         position: relative;
         display: block;
