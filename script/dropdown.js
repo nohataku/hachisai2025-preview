@@ -31,8 +31,7 @@ function initDropdownMenu() {
             // モバイル表示の場合、企画情報とご案内は直接リンクとして動作
             if (window.innerWidth <= 768) {
                 const toggleText = this.textContent.trim();
-                
-                // 企画情報とご案内の場合は直接リンクとして動作
+                  // 企画情報、ご案内、八王子祭についての場合は直接リンクとして動作
                 if (toggleText === '企画情報') {
                     e.preventDefault();
                     window.location.href = 'Projects.html';
@@ -40,6 +39,10 @@ function initDropdownMenu() {
                 } else if (toggleText === 'ご案内') {
                     e.preventDefault();
                     window.location.href = 'Guide.html';
+                    return;
+                } else if (toggleText === '八王子祭について') {
+                    e.preventDefault();
+                    window.location.href = 'About.html';
                     return;
                 }
                 

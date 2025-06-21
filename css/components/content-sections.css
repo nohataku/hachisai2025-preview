@@ -43,7 +43,7 @@
 
 .content-text {
     flex: 10;
-    text-align: center; /* テキストコンテンツを中央揃え */
+    text-align: left; /* テキストコンテンツを中央揃え */
 }
 
 .content-text h2 {
@@ -52,7 +52,7 @@
     left: 50%; /* 中央に配置 */
     transform: translateY(30%) translateX(-50%); /* 中央揃えのため -50% に変更 */
     z-index: 2;
-    font-size: 2.3rem;
+    font-size: 1.7vw;
     color: var(--text-primary);
     font-weight: 900;
     letter-spacing: 0.13em;
@@ -76,11 +76,11 @@
     color: var(--text-secondary);
     margin-bottom: 12px;
     text-shadow: 0 1px 8px #0a1446;
+    text-align: left;
 }
 
 .content-image {
     flex: 0 0 240px;
-    display: flex;
     align-items: center;
     justify-content: center;
 }

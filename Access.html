@@ -7,12 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/hachisai.css" rel="stylesheet">
     <script src="script/auth.js"></script>
-    <style>
-        body.auth-hidden { display: none !important; }
-        /* 初期状態でもbodyを非表示 */
-        body { display: none; }
-        body:not(.auth-hidden) { display: block; }
-    </style>
     <meta name="author" content="工学院大学学園祭実行委員会八王子祭実行部">
     <meta name="description" content="第63回八王子祭の公式ホームページです。2025年9月6日(土)・7日(日)に開催される学園祭の情報をお届けします。">
     <meta name="keywords" content="八王子祭, 学園祭, 工学院大学, 2025年">
@@ -62,7 +56,9 @@
                         </li>
                     </ul>
                 </section>
-            </div>        </div>    </main>
+            </div>
+        </div>
+    </main>
 </div>
 
 <!--footer部分-->
@@ -75,14 +71,6 @@
 <script src="script/include.js"></script>
 <script src="script/dropdown.js"></script>
 <script src="script/hamburger.js"></script>
-<script>
-    // 認証済みならbodyを表示
-    document.addEventListener('DOMContentLoaded', function() {
-        if (sessionStorage.getItem('authenticated') === 'true') {
-            document.body.style.display = '';
-        }
-    });
-</script>
 </body>
 <!--body部分 終-->
 

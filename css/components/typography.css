@@ -20,11 +20,12 @@ body {
     font-weight: bold;
     color: var(--warning-color);
     text-align: center;
-    margin: var(--spacing-xl) 0 var(--spacing-md) 0;
+    margin-top: 100px;
     letter-spacing: 0.1em;
     z-index: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    padding-top: var(--spacing-md);
 }
 
 /* レスポンシブ対応 */
@@ -35,7 +36,7 @@ body {
         font-weight: bold;
         color: var(--warning-color);
         text-align: center;
-        margin: var(--spacing-xl) 0 var(--spacing-md) 0;
+        margin: var(--spacing-xxl) 0 var(--spacing-md) 0;
         letter-spacing: 0.1em;
         position: relative;
         display: block;

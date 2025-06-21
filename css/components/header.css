@@ -226,14 +226,6 @@ header {
     .header-title-logo {
         gap: 6px;
     }
-
-    body {
-        padding-top: 60px; /* モバイル時のヘッダー高さに合わせて調整 */
-    }
-}
-
-body {
-    padding-top: 100px; /* ヘッダーの高さ分。必要に応じて調整 */
 }
 
 /* ドロップダウンメニューの横スクロール・スライドを防止 */

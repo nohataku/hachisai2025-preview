@@ -25,7 +25,7 @@
 <!--header部分 終-->
 
 <!--body部分-->
-<body class="auth-hidden">
+<body>
 <div class="back">
     <main>
         <h1 class="page-title">ステージ</h1>
@@ -39,25 +39,17 @@
         </section>    </main>
 </div>
 
+<script src="script/include.js"></script>
+<script src="script/dropdown.js"></script>
+<script src="script/hamburger.js"></script>
+</body>
+<!--body部分 終-->
+
 <!--footer部分-->
 <div id="footer-include"></div>
 <!--footer部分 終-->
 
 <!-- ロケットボタン -->
 <div id="rocket-include"></div>
-
-<script src="script/include.js"></script>
-<script src="script/dropdown.js"></script>
-<script src="script/hamburger.js"></script>
-<script>
-    // 認証済みならbodyを表示
-    document.addEventListener('DOMContentLoaded', function() {
-        if (sessionStorage.getItem('authenticated') === 'true') {
-            document.body.style.display = '';
-        }
-    });
-</script>
-</body>
-<!--body部分 終-->
 
 </html>

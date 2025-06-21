@@ -17,13 +17,20 @@ function includeHTML(id, file) {
 function initRocketButton() {
     console.log('ロケットボタンの初期化を開始します');
     
-    // ローディング中は初期化を遅らせる
+    // ローディング中は初期化を遅らせる（ただし、スプラッシュ画面がない場合は5秒でタイムアウト）
     if (document.body.classList.contains('loading')) {
-        console.log('ローディング中のため、ロケットボタンの初期化を遅らせます');
-        setTimeout(() => {
-            initRocketButton();
-        }, 1000);
-        return;
+        const splashScreen = document.querySelector('.splash-screen');
+        if (splashScreen) {
+            console.log('ローディング中のため、ロケットボタンの初期化を遅らせます');
+            setTimeout(() => {
+                initRocketButton();
+            }, 1000);
+            return;
+        } else {
+            // スプラッシュ画面がない場合はローディングクラスを強制削除
+            console.log('スプラッシュ画面が存在しないため、loadingクラスを削除します');
+            document.body.classList.remove('loading');
+        }
     }
     
     const rocket = document.getElementById('rocket-button');

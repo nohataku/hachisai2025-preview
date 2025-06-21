@@ -17,6 +17,7 @@
   background-blend-mode: overlay, normal !important; /* ブレンドモードでなじませる */
   min-height: 100vh;
   position: relative;
+  z-index: 1; /* ロケットボタンより低いz-indexを設定 */
 }
 
 /* デフォルト背景を無効化 */
@@ -119,7 +120,7 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
     padding: 20px 40px !important;
     border-radius: 10px !important;
-    margin: 120px auto 20px auto !important;
+    margin: 50px auto 20px auto;
     display: inline-block !important;
     border: 2px solid #FFD700 !important;
     /* アニメーション追加 */
@@ -135,7 +136,7 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
     padding: 20px 40px !important;
     border-radius: 10px !important;
-    margin: 20px auto !important;
+    margin: 150px auto;
     display: inline-block !important;
     border: 2px solid #FFD700 !important;
 }
@@ -689,3 +690,38 @@ body::before {
   pointer-events: none;
   z-index: 0;
 }
+
+/* アーティストページ用のロケットボタン表示確保 */
+.artist-page .rocket-button {
+  z-index: 99999 !important;
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  display: flex !important;
+  /* ローディング状態に関係なく表示 */
+  visibility: visible !important;
+}
+
+.artist-page .rocket-button.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+}
+
+/* アーティストページではローディング中でもロケットボタンを表示 */
+.artist-page.loading .rocket-button,
+.artist-page .rocket-button {
+  display: flex !important;
+  visibility: visible !important;
+}
+
+/* デバッグ後は以下のスタイルに戻す */
+/* 
+.artist-page .rocket-button {
+  z-index: 99999 !important;
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  display: flex !important;
+}
+*/
