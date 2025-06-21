@@ -14,6 +14,7 @@
     <script src="script/auth.js"></script>
     <style>
         body.auth-hidden { display: none !important; }
+        /* 初期状態でもbodyを非表示 */
         body { display: none; }
         body:not(.auth-hidden) { display: block; }
     </style>
@@ -174,15 +175,16 @@
     </main>
 </div>
 
+<!--header・footerの読み込み-->
+<script src="script/include.js"></script>
+<script src="script/dropdown.js"></script>
+<script src="script/hamburger.js"></script>
+</body>
+
 <!--footer部分-->
 <div id="footer-include"></div>
 <!--footer部分 終-->
 
 <div id="rocket-include"></div>
 
-<!--header・footerの読み込み-->
-<script src="script/include.js"></script>
-<script src="script/dropdown.js"></script>
-<script src="script/hamburger.js"></script>
-</body>
 </html>

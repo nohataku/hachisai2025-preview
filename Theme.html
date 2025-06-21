@@ -3,7 +3,8 @@
 
 <!--head部分 ブラウザの上のタブのやつ-->
 <head>
-    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/hachisai.css" rel="stylesheet">
     <link href="css/components/about-pages.css" rel="stylesheet">
     <meta name="author" content="工学院大学学園祭実行委員会八王子祭実行部">
@@ -14,6 +15,7 @@
     <script src="script/auth.js"></script>
     <style>
         body.auth-hidden { display: none !important; }
+        /* 初期状態でもbodyを非表示 */
         body { display: none; }
         body:not(.auth-hidden) { display: block; }
     </style>
@@ -78,17 +80,17 @@
     </main>
 </div>
 
+<script src="script/include.js"></script>
+<script src="script/dropdown.js"></script>
+<script src="script/hamburger.js"></script>
+</body>
+<!--body部分 終-->
+
 <!--footer部分-->
 <div id="footer-include"></div>
 <!--footer部分 終-->
 
 <!-- ロケットボタン -->
 <div id="rocket-include"></div>
-
-<script src="script/include.js"></script>
-<script src="script/dropdown.js"></script>
-<script src="script/hamburger.js"></script>
-</body>
-<!--body部分 終-->
 
 </html>

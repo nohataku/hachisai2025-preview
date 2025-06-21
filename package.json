@@ -2,16 +2,12 @@
   "name": "hachisai2025-preview",
   "version": "1.0.0",
   "description": "八王子祭2025 プレビュー版",  "scripts": {
-    "prepare": "husky install",
     "sync-from-main": "node script/sync-from-main.js",
     "add-auth": "node script/add-auth.js",
-    "install-deps": "npm install",
-    "setup": "npm install && npm run prepare"
-  },
-  "devDependencies": {
-    "husky": "^8.0.3"
-  },
-  "repository": {
+    "manual-sync": "node script/manual-sync.js",
+    "cleanup": "node script/cleanup.js",
+    "full-sync": "node script/full-auto-sync.js"
+  },  "repository": {
     "type": "git",
     "url": "https://github.com/nohataku/hachisai2025-preview.git"
   }

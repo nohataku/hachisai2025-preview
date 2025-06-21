@@ -9,14 +9,19 @@
 ## 利用可能なコマンド
 
 ```bash
-# main版からの同期
-npm run sync-from-main
+# 完全自動同期（推奨）
+npm run full-sync
 
-# 認証機能の再適用
-npm run add-auth
+# 手動同期（3ステップを自動実行）
+npm run manual-sync
 
-# 初期環境セットアップ
-npm run setup
+# 不要ファイル削除
+npm run cleanup
+
+# 従来のコマンド
+npm run sync-from-main    # main版からの同期（非推奨）
+npm run add-auth          # 認証機能の再適用
+npm run setup            # 初期環境セットアップ
 ```
 
 ## 認証システム概要
@@ -35,26 +40,34 @@ npm run setup
 
 ## 同期システム
 
-### 移植元
+### 推奨手法（手動同期）
+
+- **コマンド**: `npm run full-sync` または `npm run manual-sync`
+- **方式**: Windows robocopy + 認証機能復元
+- **対象**: 全ファイル（.git、.gitattributes除く）
+- **自動化**: 3ステップを完全自動実行
+
+### 従来手法（非推奨）
 
 - **リポジトリ**: <https://github.com/takamura0926/HachiojiFes2025-HP.git>
-- **ブランチ**: main
+- **ブランチ**: main  
 - **方式**: Git Clone + ファイルコピー
-
-### フォールバック機能
-
-1. GitHub API経由での個別ファイル取得
-2. Git Cloneでの一括取得 (メイン手法)
-3. 既存ファイル保護 (auth.js等)
+- **問題**: 動作不安定
 
 ## ファイル構成
 
 ```text
 script/
-├── sync-from-main.js  # 同期メインスクリプト
-├── add-auth.js        # 認証機能追加スクリプト
-└── auth.js            # 認証チェック機能
+├── full-auto-sync.js      # 完全自動同期（推奨）
+├── manual-sync.js         # 手動同期プロセス
+├── cleanup.js             # 不要ファイル削除
+├── add-auth.js            # 認証機能追加スクリプト
+├── auth.js                # 認証チェック機能
+└── sync-from-main.js      # 旧同期スクリプト（非推奨）
 
-login.html             # ログインページ
-package.json           # NPMスクリプト定義
+backup-auth/               # 認証機能バックアップ（保持）
+├── auth.js                # 認証スクリプトのバックアップ
+└── login.html             # ログインページのバックアップ
+login.html                 # ログインページ
+package.json               # NPMスクリプト定義
 ```

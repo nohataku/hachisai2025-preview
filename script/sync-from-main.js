@@ -5,7 +5,8 @@ const { execSync } = require('child_process');
 
 // GitHubからファイルを取得する関数
 async function fetchFromGitHub(repoUrl, filePath) {
-    const apiUrl = repoUrl.replace('github.com', 'api.github.com/repos').replace('.git', '') + '/contents/' + filePath;
+    // GitHub URLをAPI URLに変換（正しく変換）
+    const apiUrl = repoUrl.replace('https://github.com', 'https://api.github.com/repos').replace('.git', '') + '/contents/' + filePath;
     console.log(`Fetching: ${apiUrl}`);
     
     return new Promise((resolve, reject) => {
@@ -53,34 +54,13 @@ async function syncFromMain() {
         'css/hachisai.css',
         'css/CSS_STYLE_GUIDE.md'
     ];
-    
-    let syncCount = 0;
+      let syncCount = 0;
     let errorCount = 0;
     
-    // 個別ファイルの同期
-    for (const filePath of filesToSync) {
-        try {
-            console.log(`同期中: ${filePath}`);
-            const content = await fetchFromGitHub(mainRepoUrl, filePath);
-            
-            const destPath = path.join(previewPath, filePath);
-            const destDir = path.dirname(destPath);
-            
-            // ディレクトリが存在しない場合は作成
-            if (!fs.existsSync(destDir)) {
-                fs.mkdirSync(destDir, { recursive: true });
-            }
-            
-            fs.writeFileSync(destPath, content, 'utf8');
-            syncCount++;
-            console.log(`✓ ${filePath} を同期しました`);
-            
-        } catch (error) {
-            console.error(`✗ ${filePath} の同期に失敗: ${error.message}`);
-            errorCount++;
-        }
-    }
-      // gitを使って一括でクローンしてコピーする方法
+    // GitHub API個別ファイル取得は一時的に無効化
+    console.log('GitHub API個別取得をスキップし、Gitクローンを使用します...');
+    
+    // 代わりにgitを使って一括でクローンしてコピーする方法
     try {
         console.log('\\nGitを使用してmain版をクローンします...');
         const tempDir = path.join(__dirname, '../../temp_main');
@@ -89,9 +69,24 @@ async function syncFromMain() {
         if (fs.existsSync(tempDir)) {
             fs.rmSync(tempDir, { recursive: true });
         }
-        
-        // main版をクローン
+          // main版をクローン
         execSync(`git clone ${mainRepoUrl} "${tempDir}"`, { stdio: 'inherit' });
+        
+        // HTMLファイルを同期
+        for (const filePath of filesToSync) {
+            const srcPath = path.join(tempDir, filePath);
+            const destPath = path.join(previewPath, filePath);
+            
+            if (fs.existsSync(srcPath)) {
+                const destDir = path.dirname(destPath);
+                if (!fs.existsSync(destDir)) {
+                    fs.mkdirSync(destDir, { recursive: true });
+                }
+                fs.copyFileSync(srcPath, destPath);
+                syncCount++;
+                console.log(`✓ ${filePath} をGitから同期しました`);
+            }
+        }
         
         // 特定のディレクトリを同期
         const dirsToSync = ['css', 'photo', 'font', 'script'];
@@ -161,18 +156,37 @@ function copyDirectory(src, dest, excludeFiles = []) {
 // preview版に認証機能を追加
 async function addAuthenticationToPreview() {
     console.log('\\npreview版に認証機能を追加中...');
-      const htmlFiles = [
+    
+    // 外部の add-auth.js スクリプトを使用して認証機能を追加
+    try {
+        const { execSync } = require('child_process');
+        execSync('node script/add-auth.js', { stdio: 'inherit', cwd: path.join(__dirname, '..') });
+        console.log('✓ 認証機能の追加が完了しました');
+    } catch (error) {
+        console.error('✗ 認証機能の追加に失敗:', error.message);
+        
+        // フォールバック: 従来の方法で認証機能を追加
+        console.log('フォールバック: 従来の認証機能追加を実行...');
+        await addAuthenticationFallback();
+    }
+}
+
+// フォールバック用の認証機能追加
+async function addAuthenticationFallback() {
+    const htmlFiles = [
         'index.html', 'About.html', 'Projects.html', 'Guide.html',
         'Notice.html', 'Event.html', 'Stage.html', 'Food.html',
         'Exhibit.html', 'Access.html', 'Theme.html', 'Ponhachi.html',
         'Singer.html', 'Comedian.html', 'TimeSchedule.html'  // 全てのページに認証を適用
     ];
-      for (const htmlFile of htmlFiles) {
+    
+    for (const htmlFile of htmlFiles) {
         const filePath = path.join('../', htmlFile); // scriptフォルダから一つ上のディレクトリ
         if (!fs.existsSync(filePath)) continue;
         
         try {
             let content = fs.readFileSync(filePath, 'utf8');
+            let hasChanges = false;
             
             // 認証スクリプトの追加（headセクション内）
             if (!content.includes('script/auth.js')) {
@@ -181,19 +195,22 @@ async function addAuthenticationToPreview() {
                     `$1
     <script src="script/auth.js"></script>`
                 );
+                hasChanges = true;
             }
-              // 認証用スタイルの追加
+            
+            // 認証用スタイルの追加
             if (!content.includes('auth-hidden')) {
                 content = content.replace(
                     /<\/head>/,
                     `    <style>
         body.auth-hidden { display: none !important; }
-        /* 初期状態でbodyを非表示 */
+        /* 初期状態でもbodyを非表示 */
         body { display: none; }
         body:not(.auth-hidden) { display: block; }
     </style>
 </head>`
                 );
+                hasChanges = true;
             }
             
             // bodyタグにauth-hiddenクラスを追加
@@ -202,10 +219,13 @@ async function addAuthenticationToPreview() {
                     /<body>/,
                     '<body class="auth-hidden">'
                 );
+                hasChanges = true;
             }
             
-            fs.writeFileSync(filePath, content);
-            console.log(`✓ ${htmlFile} に認証機能を追加しました`);
+            if (hasChanges) {
+                fs.writeFileSync(filePath, content);
+                console.log(`✓ ${htmlFile} に認証機能を追加しました`);
+            }
             
         } catch (error) {
             console.error(`✗ ${htmlFile} の認証機能追加に失敗: ${error.message}`);
