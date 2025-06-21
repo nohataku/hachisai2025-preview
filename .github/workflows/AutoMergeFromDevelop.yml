@@ -1,0 +1,121 @@
+name: Auto Merge from HachiojiFes2025-HP
+
+on:
+  repository_dispatch:
+    types: [source-updated]
+  workflow_dispatch: # 手動実行も可能
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout current repo
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+    
+    - name: Configure Git
+      run: |
+        git config --global user.name "Auto Merge Bot"
+        git config --global user.email "actions@github.com"
+    
+    - name: Add source repository
+      run: |
+        git remote add source-repo https://github.com/takamura0926/HachiojiFes2025-HP.git
+        git fetch source-repo main
+    
+    - name: Create backup branch
+      run: |
+        git checkout -b backup-auth-$(date +%Y%m%d-%H%M%S)
+        git push origin backup-auth-$(date +%Y%m%d-%H%M%S)
+    
+    - name: Create merge branch
+      run: |
+        git checkout main
+        git checkout -b auto-merge-$(date +%Y%m%d-%H%M%S)
+    
+    - name: Backup auth files
+      run: |
+        mkdir -p backup-temp
+        cp script/auth.js backup-temp/ 2>/dev/null || echo "auth.js not found"
+        cp login.html backup-temp/ 2>/dev/null || echo "login.html not found"
+    
+    - name: Merge source changes
+      run: |
+        # 認証関連ファイル以外をマージ
+        git checkout source-repo/main -- . || true
+        
+        # 認証ファイルを復元
+        cp backup-temp/auth.js script/ 2>/dev/null || echo "Restoring auth.js"
+        cp backup-temp/login.html . 2>/dev/null || echo "Restoring login.html"
+    
+    - name: Add auth to HTML files
+      run: |
+        python3 << 'EOF'
+        import os
+        import re
+        
+        auth_script = '''    <script src="script/auth.js"></script>
+        <style>
+            body.auth-hidden { display: none !important; }
+            /* 初期状態でもbodyを非表示 */
+            body { display: none; }
+            body:not(.auth-hidden) { display: block; }
+        </style>'''
+        
+        for file in os.listdir('.'):
+            if file.endswith('.html') and file != 'login.html':
+                try:
+                    with open(file, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                    
+                    # 既に認証コードがある場合はスキップ
+                    if 'script/auth.js' in content:
+                        print(f"Auth code already exists in {file}")
+                        continue
+                    
+                    # </head>の直前に認証コードを挿入
+                    if '</head>' in content:
+                        content = content.replace('</head>', f'{auth_script}\n</head>')
+                    
+                    # <body>タグにauth-hiddenクラスを追加
+                    content = re.sub(r'<body([^>]*?)>', r'<body\1 class="auth-hidden">', content)
+                    content = re.sub(r'class="([^"]*?)"([^>]*?)class="auth-hidden"', r'class="\1 auth-hidden"', content)
+                    
+                    with open(file, 'w', encoding='utf-8') as f:
+                        f.write(content)
+                    
+                    print(f"Added auth code to {file}")
+                    
+                except Exception as e:
+                    print(f"Error processing {file}: {e}")
+        EOF
+    
+    - name: Commit changes
+      run: |
+        git add .
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Auto-merge from HachiojiFes2025-HP main with auth preservation $(date)"
+          git push origin auto-merge-$(date +%Y%m%d-%H%M%S)
+        fi
+    
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        branch: auto-merge-$(date +%Y%m%d-%H%M%S)
+        title: "Auto-merge from HachiojiFes2025-HP main"
+        body: |
+          自動マージによる更新
+          
+          - ソース: HachiojiFes2025-HP main branch
+          - 認証機能は保持されています
+          - 変更内容を確認後、マージしてください
+        
+    - name: Notify completion
+      run: |
+        echo "Auto-merge completed. Please review the pull request."
