@@ -4,20 +4,20 @@
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg), 0 2px 0 #3a3a6a inset;
     margin: var(--spacing-xxl) auto; /* auto で中央揃え */
-    padding: 38px 0 38px 0; /* 見出し分の余白を追加 */
-    max-width: 900px;
+    padding: 50vw auto; /* 見出し分の余白を追加 */
+    max-width: 90vw;
     width: 100%; /* 幅を100%に */
     border: 2.5px solid var(--primary-color);
     position: relative;
     overflow: hidden;
-    text-align: center; /* セクション全体を中央揃え */
+   /* セクション全体を中央揃え */
 }
 
 .content-section::before {
     content: '';
     display: block;
     width: 100%;
-    height: 12px;
+    /*height: 12px;*/
     background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     border-radius: var(--radius-xl) var(--radius-xl) 0 0;
     position: absolute;
@@ -31,7 +31,7 @@
     align-items: center;
     justify-content: center; /* 中央揃えを追加 */
     gap: var(--spacing-xl);
-    padding: var(--spacing-xxl) 48px 0 48px;
+    padding: 5vw 4vw;
     position: relative;
     text-align: center; /* 行内コンテンツも中央揃え */
 }
@@ -43,40 +43,43 @@
 
 .content-text {
     flex: 10;
-    text-align: left; /* テキストコンテンツを中央揃え */
+    text-align: left;
+    color:white; /* テキストコンテンツを中央揃え */
 }
 
 .content-text h2 {
     position: absolute;
     top: 0;
     left: 50%; /* 中央に配置 */
-    transform: translateY(30%) translateX(-50%); /* 中央揃えのため -50% に変更 */
+    transform: translateY(30%) translateX(-65%); /* 中央揃えのため -50% に変更 */
     z-index: 2;
-    font-size: 1.7vw;
+    font-size: 2vw;
     color: var(--text-primary);
     font-weight: 900;
     letter-spacing: 0.13em;
-    margin: 0;
+    margin: 1vw 2vw auto;
     border-left: 10px solid var(--primary-color);
-    padding: 10px 28px 10px 20px;
+    padding: 10px 28px;
     background: rgba(0,34,68,0.92);
     border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
     display: inline-block;
     box-shadow: none;
     text-shadow: var(--shadow-text);
     font-family: var(--font-heading);
-    line-height: 1.2;
+    line-height: 2vw;
     filter: none;
     text-align: left;
+    max-width:90vw;
 }
 
 .content-text p {
     font-size: 1.13rem;
     line-height: 2.1;
     color: var(--text-secondary);
-    margin-bottom: 12px;
     text-shadow: 0 1px 8px #0a1446;
-    text-align: left;
+}
+.content-t{
+  text-align: center;
 }
 
 .content-image {
@@ -124,28 +127,21 @@
     background: rgba(34,34,34,0.92);
 }
 
-.notice-section .content-text h2 {
-    position: static;
-    transform: none;
-    margin-bottom: 24px;
-    margin-top: 0px; /* 上の余白も最小限に */
-    z-index: 1;
-}
 
 .notice-list {
     margin: 0;
-    padding: 0 0 0 1.2em;
+    padding: 1.2em;
     list-style: disc inside;
-    color: #fffbe7;
+    color: white;
     font-size: 1.1rem;
-    line-height: 2;
-    text-align: left; /* リスト項目は左揃えで読みやすく */
-    display: inline-block; /* 中央揃えしつつリストを左揃えにする */
+    line-height: 2; 
+    text-align: center; 
+    display: inline-block; 
 }
 
 .notice-list li {
     margin-bottom: 0.5em;
-    text-shadow: 0 1px 6px #000a;
+    text-shadow: 0 1px 6px yellow;
 }
 
 /* サブページの新セクションも統一デザイン適用 */
@@ -246,8 +242,8 @@
 
 @media (max-width: 900px) {
     .content-section {
-        margin: 32px auto; /* auto で中央揃え */
-        max-width: 98vw;
+        margin: 32px; 
+        max-width: 90vw;
         padding-top: 28px;
     }
     
@@ -265,8 +261,6 @@
     
     .content-text h2 {
         font-size: 1.5rem;
-        padding: 8px 14px 8px 12px;
-        transform: translateY(30%) translateX(10px);
     }
     
     .theme-highlight {
@@ -314,8 +308,8 @@
 
 @media (max-width: 768px) {
   .content-section {
-    padding: 16px 4vw;
-    margin: 16px auto; /* auto で中央揃え */
+    padding: 0 auto;
+    margin: 16px; /* auto で中央揃え */
   }
   .content-row {
     flex-direction: column !important;
@@ -354,10 +348,14 @@
     .content-section {
         padding-top: 18px;
     }
+    
     .content-text h2 {
-        font-size: 1.1rem;
-        padding: 6px 8px 6px 8px;
-        transform: translateY(30%) translateX(4px);
+        font-size: 1.0rem;
+        padding: 6px 0px;
+        transform: translateY(-50%) translateX(-55%);
+        min-width:85%;
+        text-align: center;
+
     }
     
     .content-text p {
