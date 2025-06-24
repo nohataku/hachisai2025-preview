@@ -57,7 +57,7 @@
     color: var(--text-primary);
     font-weight: 900;
     letter-spacing: 0.13em;
-    margin: 1vw 2vw auto;
+    margin: 1vw auto 2vw auto;
     border-left: 10px solid var(--primary-color);
     padding: 10px 28px;
     background: rgba(0,34,68,0.92);
@@ -69,7 +69,6 @@
     line-height: 2vw;
     filter: none;
     text-align: left;
-    max-width:90vw;
 }
 
 .content-text p {

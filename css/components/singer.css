@@ -19,11 +19,58 @@
   position: relative;
 }
 
+.ticket-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size:1.6vw;   
+    padding-left: 4vw;
+    padding-right: 4vw;
+    border-bottom: #fff dotted 0.2vw;
+}
+.ticket-buy-sub {
+    text-align: center;
+    color: #fff;
+    font-size: 1.6vw;
+    padding-top: 1vw;
+    margin: 0;
+}
+.ticket-buy-box {
+    display: flex;
+    flex-wrap: warp;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    font-size:1.6vw;
+}
+.ticket-buy-info-caption {
+    color: #fff;
+    font-size: 1.6vw;
+    text-align: center;
+}
+.padding-dots {
+    padding-top: 1vw;
+    border-bottom: #fff dotted 0.2vw;
+}
+.padding {
+    padding: 1.6vw 0;
+}
 /* デフォルト背景を無効化 */
 .singer-back .back {
   background: none !important;
 }
-
+.ticket-buy-note{
+  color:#fff;
+  font-size:1.3vw;
+  margin:0;
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+}
+.e-plus
+{
+  font-size: 1.3vw;
+}
 .singer-back .back::before {
   background-image: none !important;
   background: none !important;
