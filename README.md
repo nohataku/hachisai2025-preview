@@ -28,7 +28,8 @@ npm run setup            # 初期環境セットアップ
 
 ### 保護対象
 
-- **全ページ**: index.html, About.html, Projects.html, Guide.html, Notice.html, Event.html, Stage.html, Food.html, Exhibit.html, Access.html, Theme.html, Ponhachi.html, Singer.html, Comedian.html, TimeSchedule.html
+- **全HTMLファイル**: login.html以外のすべてのHTMLファイルを自動的に保護
+- **動的保護**: 新しく追加されたHTMLファイルも自動的に保護対象に含まれる
 - **例外**: login.html (認証ページ自体)
 
 ### セキュリティ機能

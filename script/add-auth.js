@@ -4,12 +4,29 @@ const path = require('path');
 // HTMLファイルに認証機能を追加する関数
 function addAuthToHtmlFiles() {
     console.log('HTMLファイルに認証機能を追加中...');
-      const htmlFiles = [
-        'index.html', 'About.html', 'Projects.html', 'Guide.html',
-        'Notice.html', 'Event.html', 'Stage.html', 'Food.html',
-        'Exhibit.html', 'Access.html', 'Theme.html', 'Ponhachi.html',
-        'Singer.html', 'Comedian.html', 'TimeSchedule.html'  // 全てのページに認証を適用
-    ];
+    
+    // ルートディレクトリから全てのHTMLファイルを取得（login.html以外、かつ完全なHTMLドキュメントのみ）
+    const rootDir = path.join(__dirname, '../');
+    const allFiles = fs.readdirSync(rootDir);
+    const htmlFiles = allFiles
+        .filter(file => {
+            if (!file.endsWith('.html') || file === 'login.html') {
+                return false;
+            }
+            
+            // HTMLファイルの内容を確認して、完全なHTMLドキュメントかチェック
+            const filePath = path.join(rootDir, file);
+            try {
+                const content = fs.readFileSync(filePath, 'utf8');
+                return content.includes('<!DOCTYPE html>') && content.includes('<html') && content.includes('<head>') && content.includes('<body');
+            } catch (error) {
+                console.log(`⚠ ${file} の読み込みに失敗: ${error.message}`);
+                return false;
+            }
+        })
+        .sort(); // アルファベット順にソート
+    
+    console.log(`対象HTMLファイル: ${htmlFiles.join(', ')}`);
       for (const htmlFile of htmlFiles) {
         const filePath = path.join(__dirname, '../', htmlFile); // __dirnameを使用
         if (!fs.existsSync(filePath)) {
@@ -49,13 +66,34 @@ function addAuthToHtmlFiles() {
             }
             
             // bodyタグにauth-hiddenクラスを追加
-            if (!content.includes('class="auth-hidden"')) {
-                content = content.replace(
-                    /<body>/,
-                    '<body class="auth-hidden">'
-                );
-                hasChanges = true;
-                console.log(`  - ${htmlFile}: bodyにauth-hiddenクラスを追加`);
+            if (!content.includes('class="auth-hidden"') && !content.includes('auth-hidden')) {
+                // <body>タグの場合
+                if (content.includes('<body>')) {
+                    content = content.replace(
+                        /<body>/,
+                        '<body class="auth-hidden">'
+                    );
+                    hasChanges = true;
+                    console.log(`  - ${htmlFile}: bodyにauth-hiddenクラスを追加`);
+                }
+                // <body class="existing-class">タグの場合
+                else if (content.match(/<body\s+class="([^"]*)">/)) {
+                    content = content.replace(
+                        /<body\s+class="([^"]*)">/,
+                        '<body class="$1 auth-hidden">'
+                    );
+                    hasChanges = true;
+                    console.log(`  - ${htmlFile}: bodyの既存クラスにauth-hiddenを追加`);
+                }
+                // その他のbodyタグの場合
+                else if (content.match(/<body[^>]*>/)) {
+                    content = content.replace(
+                        /<body([^>]*)>/,
+                        '<body$1 class="auth-hidden">'
+                    );
+                    hasChanges = true;
+                    console.log(`  - ${htmlFile}: bodyにauth-hiddenクラスを追加`);
+                }
             }
             
             if (hasChanges) {
