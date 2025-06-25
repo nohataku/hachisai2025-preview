@@ -43,7 +43,7 @@
 .artist-section {
     background-color: rgba(0,0,0,0.85);
     border-radius: 18px;
-    margin: auto 120px;
+    margin: auto 0px;
     padding: 25px 30px 25px 30px;
     border: 2.5px solid black;
     position: relative;
@@ -236,7 +236,7 @@
 .artist-section {
     background-color: rgba(0,0,0,0.85);
     border-radius: 18px;
-    margin: auto 120px;
+    margin: auto 0px;
     padding: 25px 30px 25px 30px;
     border: 2.5px solid black;
     position: relative;
@@ -602,7 +602,7 @@ html {
     }
     
     .artist-section {
-        margin: auto 20px;
+        margin: auto 0px;
         padding: 15px;
         font-size: 16px;
         line-height: 2.0;

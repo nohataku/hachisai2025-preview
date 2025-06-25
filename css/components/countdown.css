@@ -62,7 +62,7 @@
 @media (max-width: 768px) {
     .fes-date {
         font-size: 1.4rem;
-        margin: 224px auto;
+        margin: 300px auto;
         padding: 0 10px;
         white-space: normal;
         line-height: 1.4;
@@ -94,6 +94,7 @@
 
     .countdown-label {
         font-size: 2.5rem;
+        margin-top: -300px;
     }
 
     .countdown-value {
@@ -109,7 +110,7 @@
 @media (max-width: 360px) {
     .fes-date {
         font-size: 1.2rem;
-        margin-top: 240px;
+        margin-top: 300px;
         margin-bottom: 16px;
         text-align: center;
     }
@@ -120,6 +121,7 @@
 
     .countdown-label {
         font-size: 2rem;
+        margin-top: -300px;
     }
 
     .countdown-value {
