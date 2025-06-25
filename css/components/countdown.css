@@ -1,17 +1,25 @@
 /* カウントダウンタイマーのスタイル */
+.countdown {
+    position: relative;
+    z-index: 20;
+}
+
 .fes-date {
     font-size: 2.2rem;
     font-weight: bold;
     color: #ffffff;
     margin-bottom: 16px;
+    margin-top: 240px;
     letter-spacing: 0.1em;
     text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.5);
     white-space: nowrap;
     padding: 0 10px;
     display: block;
     width: 100%;
     box-sizing: border-box;
+    position: relative;
+    z-index: 20; /* スライドショーのオーバーレイより前に表示 */
 }
 
 .countdown-container {
@@ -29,7 +37,7 @@
   font-size: 3.5rem;
   color: #fbff00;
   letter-spacing: 0.08em;
-  text-shadow: 0 2px 8px #0a1446, 0 0 2px #fff;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(251, 255, 0, 0.3), 2px 2px 4px rgba(0, 0, 0, 0.9);
   margin-bottom: 8px;
   display: block;
 }
@@ -39,7 +47,7 @@
     color: #fffb00;
     font-weight: bold;
     letter-spacing: 0.05em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 251, 0, 0.3), 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .countdown-unit {
@@ -47,14 +55,14 @@
     color: #fffb00;
     font-weight: normal;
     letter-spacing: 0.1em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 251, 0, 0.3), 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 /* スマートフォン・タブレット用の調整 */
 @media (max-width: 768px) {
     .fes-date {
         font-size: 1.4rem;
-        margin: 12px auto;
+        margin: 224px auto;
         padding: 0 10px;
         white-space: normal;
         line-height: 1.4;
@@ -101,6 +109,9 @@
 @media (max-width: 360px) {
     .fes-date {
         font-size: 1.2rem;
+        margin-top: 240px;
+        margin-bottom: 16px;
+        text-align: center;
     }
 
     .countdown-container {

@@ -89,7 +89,9 @@
 /* 案内カテゴリー */
 .guide-categories {
     padding: 4rem 0;
-    background: linear-gradient(to bottom, #f8fafc, #e2e8f0);
+    background: linear-gradient(135deg, var(--background-secondary) 0%, var(--background-tertiary) 60%, #0d133d 100%);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg), 0 2px 0 #3a3a6a inset;
 }
 
 .categories-grid {
@@ -99,6 +101,14 @@
     margin: 3rem auto 0 auto; /* 中央揃え */
     max-width: 1200px; /* 最大幅を設定 */
     justify-items: center; /* グリッドアイテムを中央揃え */
+}
+
+/* 4つのカードの場合の最適化 */
+@media (min-width: 1200px) {
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 800px;
+    }
 }
 
 .category-card {
@@ -184,7 +194,9 @@
 /* 来場者向け情報 */
 .visitor-info {
     padding: 4rem 0;
-    background: white;
+    background: linear-gradient(135deg, var(--background-secondary) 0%, var(--background-tertiary) 60%, #0d133d 100%);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg), 0 2px 0 #3a3a6a inset;
 }
 
 .visitor-info .container {
@@ -234,7 +246,9 @@
 /* 重要なお知らせ */
 .important-notice {
     padding: 4rem 0;
-    background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+    background: linear-gradient(135deg, var(--background-secondary) 0%, var(--background-tertiary) 60%, #0d133d 100%);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg), 0 2px 0 #3a3a6a inset;
 }
 
 .important-notice .container {
@@ -300,7 +314,9 @@
 /* お問い合わせ */
 .contact-info {
     padding: 4rem 0;
-    background: #f8fafc;
+    background: linear-gradient(135deg, var(--background-secondary) 0%, var(--background-tertiary) 60%, #0d133d 100%);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg), 0 2px 0 #3a3a6a inset;
     text-align: center;
 }
 
@@ -319,11 +335,11 @@
     font-family: 'GenEiMGothic2-Bold', sans-serif;
     font-size: 1.4rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: #ffffff;
 }
 
 .contact-item p {
-    color: #666;
+    color: #ffffff;
     line-height: 1.6;
     margin-bottom: 2rem;
 }

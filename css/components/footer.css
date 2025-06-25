@@ -2,7 +2,7 @@
 footer {
     background: linear-gradient(to top, #0b0c2a, #11142b); /* 夜空グラデーション */
     color: #f0f8ff;
-    padding: 24px 0;
+    padding: 40px 0 24px 0; /* サイトマップのために上のパディングを増やす */
     position: relative;
     overflow: hidden;
 }
@@ -108,5 +108,143 @@ footer {
     100% {
         transform: translateX(500px) translateY(500px) rotate(45deg);
         opacity: 0;
+    }
+}
+
+/* サイトマップセクション */
+.sitemap-section {
+    position: relative;
+    z-index: 1;
+    padding: 0 20px 30px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sitemap-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.sitemap-column {
+    text-align: left;
+}
+
+.sitemap-title {
+    color: #fbff00;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+    text-shadow: 0 0 10px rgba(251, 255, 0, 0.5);
+    border-bottom: 2px solid rgba(251, 255, 0, 0.3);
+    padding-bottom: 6px;
+}
+
+.sitemap-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sitemap-list li {
+    margin-bottom: 8px;
+}
+
+.sitemap-list a {
+    color: #f0f8ff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 4px 0;
+}
+
+.sitemap-list a:hover {
+    color: #fbff00;
+    text-shadow: 0 0 8px rgba(251, 255, 0, 0.6);
+    transform: translateX(5px);
+}
+
+/* フッターリンク */
+.footer-links {
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    color: #f0f8ff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 4px;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.footer-link:hover {
+    color: #fbff00;
+    text-shadow: 0 0 8px rgba(251, 255, 0, 0.6);
+    background: rgba(251, 255, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.footer-separator {
+    color: #f0f8ff;
+    font-size: 0.9rem;
+    opacity: 0.6;
+    margin: 0 5px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .sitemap-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .sitemap-section {
+        padding: 0 15px 20px 15px;
+    }
+    
+    .sitemap-title {
+        font-size: 1.1rem;
+    }
+    
+    .sitemap-list a {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .footer-separator {
+        display: none;
+    }
+    
+    .footer-link {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .sitemap-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .sitemap-column {
+        text-align: center;
     }
 }

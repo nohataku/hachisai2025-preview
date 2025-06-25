@@ -47,10 +47,12 @@ body {
 
 .main-visual {
     text-align: center;
-    margin-top: var(--spacing-xl);
+    margin-top: 0px;
     margin-bottom: var(--spacing-lg);
     position: relative;
     z-index: auto;
+    width: -webkit-fill-available;
+    height: 802px;
 }
 
 @media (max-width: 768px) {

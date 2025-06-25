@@ -33,7 +33,7 @@ main {
 section {
     width: 100% !important;
     box-sizing: border-box !important;
-    margin: 0 !important;
+    margin: 0;
 }
 
 /* ヒーローセクション */
@@ -129,7 +129,9 @@ section {
 /* 企画カテゴリー */
 .projects-categories {
     padding: 4rem 0;
-    background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+    background: linear-gradient(135deg, var(--background-secondary) 0%, var(--background-tertiary) 60%, #0d133d 100%);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg), 0 2px 0 #3a3a6a inset;
     width: 100% !important;
     margin: 0 !important;
 }
@@ -232,7 +234,9 @@ section {
 /* おすすめ企画 */
 .featured-projects {
     padding: 4rem 0;
-    background: white;
+    background: linear-gradient(135deg, var(--background-secondary) 0%, var(--background-tertiary) 60%, #0d133d 100%);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg), 0 2px 0 #3a3a6a inset;
     width: 100% !important;
     margin: 0 !important;
 }
@@ -289,7 +293,9 @@ section {
 /* 企画マップ */
 .project-map {
     padding: 4rem 0;
-    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    background: linear-gradient(135deg, var(--background-secondary) 0%, var(--background-tertiary) 60%, #0d133d 100%);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg), 0 2px 0 #3a3a6a inset;
     text-align: center;
     width: 100% !important;
     margin: 0 !important;
@@ -304,7 +310,7 @@ section {
 
 .map-content p {
     font-size: 1.1rem;
-    color: #555;
+    color: #ffffff;
     margin-bottom: 2rem;
 }
 
@@ -329,7 +335,9 @@ section {
 /* お知らせ */
 .projects-notice {
     padding: 4rem 0;
-    background: #f8f9fa;
+    background: linear-gradient(135deg, var(--background-secondary) 0%, var(--background-tertiary) 60%, #0d133d 100%);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg), 0 2px 0 #3a3a6a inset;
     width: 100% !important;
     margin: 0 !important;
 }

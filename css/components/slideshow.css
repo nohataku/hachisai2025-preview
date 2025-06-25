@@ -1,0 +1,71 @@
+/* スライドショー */
+.slideshow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* カウントダウンの後ろに配置 */
+    overflow: hidden;
+}
+
+.slideshow-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.7) contrast(1.1); /* 画像を少し暗くしてコントラストを上げる */
+}
+
+/* スライドショーの上にオーバーレイを追加してテキストを読みやすくする */
+.slideshow-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 20, 60, 0.3) 0%,
+        rgba(0, 10, 40, 0.2) 50%,
+        rgba(20, 0, 60, 0.3) 100%
+    );
+    z-index: 2;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .slide img {
+        filter: brightness(0.6) contrast(1.2); /* モバイルでは更に暗く */
+    }
+    
+    .slideshow-container::after {
+        background: linear-gradient(
+            135deg,
+            rgba(0, 20, 60, 0.4) 0%,
+            rgba(0, 10, 40, 0.3) 50%,
+            rgba(20, 0, 60, 0.4) 100%
+        );
+    }
+}
