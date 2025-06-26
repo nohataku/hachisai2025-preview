@@ -1,8 +1,56 @@
 // 共通パーツ読み込み
-function includeHTML(id, file) {
+function includeHTML(id, file, basePath = '') {
     return fetch(file)
         .then(res => res.text())
         .then(data => {
+            // サブディレクトリにいる場合は、HTMLの中の相対パスも修正する
+            if (basePath) {
+                console.log('Fixing paths with basePath:', basePath);
+                
+                // 画像パスの修正（src属性）
+                data = data.replace(/src="([^"]*\.(png|jpg|jpeg|gif|svg|webp))"/gi, (match, fullPath, ext) => {
+                    if (fullPath.startsWith('../') || fullPath.startsWith('http://') || fullPath.startsWith('https://') || fullPath.startsWith('/')) {
+                        return match; // 既に絶対パスまたは修正済みの場合はそのまま
+                    }
+                    return `src="${basePath}${fullPath}"`;
+                });
+                
+                // 背景画像パス修正（CSSのurl()）
+                data = data.replace(/url\(['"]?([^'"]*\.(png|jpg|jpeg|gif|svg|webp))['"]?\)/gi, (match, fullPath, ext) => {
+                    if (fullPath.startsWith('../') || fullPath.startsWith('http://') || fullPath.startsWith('https://') || fullPath.startsWith('/')) {
+                        return match;
+                    }
+                    return `url('${basePath}${fullPath}')`;
+                });
+                
+                // CSSファイルパスの修正
+                data = data.replace(/href="([^"]*\.css)"/g, (match, filename) => {
+                    if (filename.startsWith('../') || filename.startsWith('http://') || filename.startsWith('https://') || filename.startsWith('/')) {
+                        return match;
+                    }
+                    return `href="${basePath}${filename}"`;
+                });
+                
+                // JSファイルパスの修正
+                data = data.replace(/src="([^"]*\.js)"/g, (match, filename) => {
+                    if (filename.startsWith('../') || filename.startsWith('http://') || filename.startsWith('https://') || filename.startsWith('/')) {
+                        return match;
+                    }
+                    return `src="${basePath}${filename}"`;
+                });
+                
+                // HTMLリンクパスの修正（.htmlファイルへのリンク）
+                data = data.replace(/href="([^"]*\.html)"/g, (match, filename) => {
+                    // 既に../で始まっている場合や、http://で始まる外部リンク、#で始まるアンカーは除外
+                    if (filename.startsWith('../') || filename.startsWith('http://') || filename.startsWith('https://') || filename.startsWith('#') || filename.startsWith('/')) {
+                        return match;
+                    }
+                    return `href="${basePath}${filename}"`;
+                });
+                
+                console.log('Path fixing completed');
+            }
+            
             const element = document.getElementById(id);
             if (element) {
                 element.innerHTML = data;
@@ -120,11 +168,20 @@ function initRocketButton() {
 window.addEventListener('DOMContentLoaded', function() {
     console.log('include.js: DOMContentLoaded');
     
+    // 現在のページのパスを確認して、適切な相対パスを設定
+    const currentPath = window.location.pathname;
+    const isInSubdirectory = currentPath.includes('/Notice/') || currentPath.includes('\\Notice\\');
+    const basePath = isInSubdirectory ? '../' : '';
+    
+    console.log('Current path:', currentPath);
+    console.log('Is in subdirectory:', isInSubdirectory);
+    console.log('Base path:', basePath);
+    
     // すべてのHTMLファイルを並行して読み込み
     Promise.all([
-        includeHTML("header-include", "header.html"),
-        includeHTML("footer-include", "footer.html"),
-        includeHTML("rocket-include", "rocket-button.html")
+        includeHTML("header-include", basePath + "header.html", basePath),
+        includeHTML("footer-include", basePath + "footer.html", basePath),
+        includeHTML("rocket-include", basePath + "rocket-button.html", basePath)
     ]).then(() => {
         console.log('include.js: すべてのHTMLの読み込み完了');
         

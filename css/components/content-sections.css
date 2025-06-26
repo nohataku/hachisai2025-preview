@@ -4,13 +4,13 @@
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg), 0 2px 0 #3a3a6a inset;
     margin: var(--spacing-xxl) auto; /* auto で中央揃え */
-    padding: 50vw auto; /* 見出し分の余白を追加 */
+    padding: 0; /* パディングをリセット */
     max-width: 90vw;
-    width: 100%; /* 幅を100%に */
+    width: auto; /* 幅を自動調整に変更 */
     border: 2.5px solid var(--primary-color);
     position: relative;
     overflow: hidden;
-   /* セクション全体を中央揃え */
+    display: block; /* ブロック要素として表示 */
 }
 
 .content-section::before {
@@ -148,6 +148,39 @@
     margin-bottom: 0.5em;
     text-shadow: 0 1px 6px yellow;
 }
+
+/* お知らせセクション専用スタイル */
+.notice-section {
+    margin: var(--spacing-xxl) auto; /* 上下マージンと中央揃え */
+    width: fit-content; /* コンテンツに合わせた幅 */
+    max-width: 95vw; /* 最大幅を少し広げる */
+    min-width: 350px; /* 最小幅を少し広げる */
+}
+
+.notice-section .content-text {
+    text-align: center; /* テキスト部分も中央揃え */
+    padding-bottom: 20px; /* 下部にスペースを追加 */
+}
+
+.notice-section .content-text h2 {
+    margin-bottom: 25px; /* 見出しの下マージンを追加 */
+    text-align: center; /* 見出しも中央揃え */
+}
+
+.notice-read-more-container {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* お知らせリストのスタイル調整 */
+.notice-section .notice-list {
+    margin-top: 20px; /* 見出しとの間隔を確保 */
+    width: 100%; /* リストの幅を100%に */
+}
+
+/* 注意マークと日付の重なり防止は notice.css で処理 */
 
 /* サブページの新セクションも統一デザイン適用 */
 .event-content,
