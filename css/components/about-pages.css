@@ -331,7 +331,14 @@ h3
 .contact-info {
     padding: 20px;
     margin: 15px 0;
-    background: rgba(0, 0, 0, 0);
+}
+
+.contact-info-privacy {
+    padding: 20px;
+    margin: 15px 0;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .contact-info p {
