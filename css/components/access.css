@@ -5,6 +5,7 @@
     box-shadow: 0 2px 8px rgba(64,184,240,0.08);
     padding: 18px 20px 14px 20px;
     margin: 0 0 8px 0;
+    text-align: center;
 }
 
 .access-info h2 {

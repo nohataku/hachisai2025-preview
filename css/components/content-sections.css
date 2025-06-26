@@ -43,15 +43,15 @@
 
 .content-text {
     flex: 10;
-    text-align: left;
-    color:white; /* テキストコンテンツを中央揃え */
+    text-align: center;
+    color:rgb(255, 255, 255); /* テキストコンテンツを中央揃え */
 }
 
 .content-text h2 {
     position: absolute;
     top: 0;
-    left: 20%;
-    transform: translateY(130%) translateX(0%);
+    left: 50%; /* 中央配置のため50%に変更 */
+    transform: translateY(130%) translateX(-50%); /* X軸を-50%にして中央揃え */
     z-index: 2;
     font-size: 3vw;
     color: var(--text-primary);
@@ -68,14 +68,17 @@
     font-family: var(--font-heading);
     line-height: 2vw;
     filter: none;
-    text-align: left;
-    max-width: 90vw;
+    text-align: center;
+    max-width: 85vw; /* 最大幅を少し小さくして余裕を持たせる */
+    overflow: hidden; /* はみ出し防止 */
+    text-overflow: ellipsis; /* 長すぎる場合は省略記号を表示 */
+    white-space: nowrap; /* テキストの折り返しを防ぐ */
 }
 
 .content-text p {
     font-size: 1.13rem;
     line-height: 2.1;
-    color: var(--text-secondary);
+    color: rgb(255, 255, 255);
     text-shadow: 0 1px 8px #0a1446;
 }
 .content-t{
@@ -382,22 +385,54 @@
   }
 }
 
+/* 小さな画面でのcontent-text h2の調整 */
+@media (max-width: 768px) {
+    .content-text h2 {
+        position: relative; /* 絶対配置から相対配置に変更 */
+        top: auto;
+        left: auto;
+        transform: none; /* 変形をリセット */
+        font-size: 4vw; /* フォントサイズを大きくして読みやすく */
+        max-width: 95vw; /* 最大幅を拡大 */
+        padding: 8px 20px; /* パディングを調整 */
+        line-height: 1.2; /* 行の高さを調整 */
+        white-space: normal; /* 小さな画面では折り返しを許可 */
+        text-overflow: unset; /* 省略記号を無効化 */
+        margin: 0 auto 20px auto; /* 中央揃えと下マージンを設定 */
+        display: block; /* ブロック要素として表示 */
+    }
+}
+
 @media (max-width: 480px) {
     .content-section {
-        padding-top: 18px;
+        padding-top: 20px; /* パディングを調整 */
+    }
+    
+    .content-row {
+        padding-top: 20px; /* パディングを調整 */
+    }
+    
+    .content-text {
+        margin-top: 0; /* マージンをリセット */
     }
     
     .content-text h2 {
-        font-size: 1rem;
-        padding: 0px 0px;
-        transform: translateY(200%) translateX(-15%);
-        min-width: 90%;
-        text-align: center;
-
+        position: relative; /* 相対配置を維持 */
+        top: auto;
+        left: auto;
+        transform: none; /* 変形をリセット */
+        font-size: 4.5vw; /* フォントサイズを調整 */
+        padding: 6px 15px; /* パディングをさらに調整 */
+        border-left: 6px solid var(--primary-color); /* ボーダーを細く */
+        line-height: 1.1; /* 行の高さをさらに調整 */
+        max-width: 90vw; /* 最大幅を調整 */
+        margin: 0 auto 15px auto; /* 中央揃えと下マージン */
+        display: block; /* ブロック要素として表示 */
     }
     
     .content-text p {
         font-size: 0.9rem;
+        margin-top: 10px; /* 段落の上マージンを調整 */
     }
     
     .content-image {
@@ -435,4 +470,44 @@
   .schedule-content ul {
     font-size: 0.95rem;
   }
+}
+
+/* 390px幅での特別対応 */
+@media (max-width: 390px) {
+    .content-section {
+        padding-top: 15px; /* パディングを調整 */
+        margin: 20px 8px; /* 左右マージンを調整 */
+    }
+    
+    .content-row {
+        padding: 15px 8px 20px 8px; /* パディングを調整 */
+    }
+    
+    .content-text {
+        margin-top: 0; /* マージンをリセット */
+    }
+    
+    .content-text h2 {
+        position: relative; /* 相対配置を維持 */
+        top: auto;
+        left: auto;
+        transform: none; /* 変形をリセット */
+        font-size: 4vw; /* フォントサイズを小さく調整 */
+        padding: 5px 12px; /* パディングを小さく */
+        border-left: 4px solid var(--primary-color); /* ボーダーをさらに細く */
+        line-height: 1.0; /* 行の高さをより小さく */
+        max-width: 85vw; /* 最大幅を調整 */
+        white-space: normal; /* 改行を許可 */
+        text-overflow: unset; /* 省略記号を無効化 */
+        margin: 0 auto 15px auto; /* 中央揃えと下マージン */
+        display: block; /* ブロック要素として表示 */
+    }
+    
+    .content-text p:first-of-type {
+        margin-top: 10px; /* 最初の段落の上マージンを調整 */
+    }
+    
+    .content-text h3 {
+        margin-top: 15px; /* h3要素の上マージンを調整 */
+    }
 }
