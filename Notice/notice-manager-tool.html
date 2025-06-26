@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お知らせ管理ツール - 第63回八王子祭</title>
+    <style>
+        body {
+            font-family: 'Yu Gothic', 'Hiragino Sans', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #8a2be2;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        button {
+            background: #8a2be2;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #7d28d9;
+        }
+        .preview {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border: 1px solid #e9ecef;
+        }
+        .preview h3 {
+            color: #8a2be2;
+            margin-top: 0;
+        }
+        .notice-preview {
+            border: 1px solid #8a2be2;
+            padding: 15px;
+            border-radius: 8px;
+            background: rgba(138, 43, 226, 0.05);
+        }
+        .notice-date {
+            color: #8a2be2;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .notice-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .notice-summary {
+            color: #666;
+            line-height: 1.6;
+        }
+        .json-output {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 お知らせ管理ツール</h1>
+        
+        <form id="noticeForm">
+            <div class="form-group">
+                <label for="noticeId">お知らせID:</label>
+                <input type="text" id="noticeId" placeholder="notice-2" required>
+                <small>例: notice-2, notice-3 など</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="noticeDate">日付:</label>
+                <input type="text" id="noticeDate" placeholder="2025年6月27日" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="noticeTitle">タイトル:</label>
+                <input type="text" id="noticeTitle" placeholder="お知らせのタイトル" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="noticeSummary">概要:</label>
+                <textarea id="noticeSummary" placeholder="お知らせの概要文を入力してください" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="noticeFile">ファイル名:</label>
+                <input type="text" id="noticeFile" placeholder="Notice-2.html" required>
+                <small>例: Notice-2.html, Notice-3.html など</small>
+            </div>
+            
+            <button type="button" onclick="generateNotice()">プレビュー生成</button>
+        </form>
+        
+        <div id="preview" class="preview" style="display: none;">
+            <h3>📋 プレビュー</h3>
+            <div id="noticePreview" class="notice-preview"></div>
+            
+            <h3>📝 notices.json に追加するデータ</h3>
+            <div id="jsonOutput" class="json-output"></div>
+            
+            <button onclick="copyToClipboard()">📋 JSONをコピー</button>
+        </div>
+    </div>
+
+    <script>
+        function generateNotice() {
+            const id = document.getElementById('noticeId').value;
+            const date = document.getElementById('noticeDate').value;
+            const title = document.getElementById('noticeTitle').value;
+            const summary = document.getElementById('noticeSummary').value;
+            const file = document.getElementById('noticeFile').value;
+            
+            if (!id || !date || !title || !summary || !file) {
+                alert('すべての項目を入力してください。');
+                return;
+            }
+            
+            // プレビュー表示
+            const preview = document.getElementById('noticePreview');
+            preview.innerHTML = `
+                <div class="notice-date">${date}</div>
+                <div class="notice-title">${title}</div>
+                <div class="notice-summary">${summary}</div>
+            `;
+            
+            // JSON出力
+            const jsonData = {
+                id: id,
+                date: date,
+                title: title,
+                summary: summary,
+                file: file
+            };
+            
+            document.getElementById('jsonOutput').textContent = JSON.stringify(jsonData, null, 2);
+            document.getElementById('preview').style.display = 'block';
+        }
+        
+        function copyToClipboard() {
+            const jsonText = document.getElementById('jsonOutput').textContent;
+            navigator.clipboard.writeText(jsonText).then(() => {
+                alert('JSONデータがクリップボードにコピーされました！');
+            });
+        }
+        
+        // フォームの自動入力補助
+        document.getElementById('noticeId').addEventListener('input', function() {
+            const id = this.value;
+            if (id.startsWith('notice-')) {
+                const number = id.replace('notice-', '');
+                if (number) {
+                    document.getElementById('noticeFile').value = `Notice-${number}.html`;
+                }
+            }
+        });
+        
+        // 日付の自動設定
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = today.getMonth() + 1;
+            const day = today.getDate();
+            document.getElementById('noticeDate').value = `${year}年${month}月${day}日`;
+        });
+    </script>
+</body>
+</html>
