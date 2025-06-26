@@ -12,6 +12,14 @@
     <title>第63回八王子祭</title>
     <link rel="icon" type="image/png" href="photo/MainLogo.PNG">
     <script src="script/auth.js"></script>
+    
+    <!-- 重要なリソースのプリロード -->
+    <link rel="preload" href="photo/MainLogo.PNG" as="image">
+    <link rel="preload" href="photo/SlideShow/1.JPG" as="image">
+    <link rel="preload" href="css/hachisai.css" as="style">
+    
+    <!-- DNS プリフェッチ（外部リソースがある場合） -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com"">
     <style>
         body.auth-hidden { display: none !important; }
         /* 初期状態でもbodyを非表示 */
@@ -47,31 +55,31 @@
         <div class="slideshow-container">
             <div class="slideshow-wrapper">
                 <div class="slide">
-                    <img src="photo/SlideShow/1.JPG" alt="八王子祭の様子1">
+                    <img src="photo/SlideShow/1.JPG" alt="八王子祭の様子1" loading="eager">
                 </div>
                 <div class="slide">
-                    <img src="photo/SlideShow/2.JPG" alt="八王子祭の様子2">
+                    <img data-src="photo/SlideShow/2.JPG" alt="八王子祭の様子2" loading="lazy" class="lazy-image">
                 </div>
                 <div class="slide">
-                    <img src="photo/SlideShow/3.JPG" alt="八王子祭の様子3">
+                    <img data-src="photo/SlideShow/3.JPG" alt="八王子祭の様子3" loading="lazy" class="lazy-image">
                 </div>
                 <div class="slide">
-                    <img src="photo/SlideShow/6.JPG" alt="八王子祭の様子6">
+                    <img data-src="photo/SlideShow/6.JPG" alt="八王子祭の様子6" loading="lazy" class="lazy-image">
                 </div>
                 <div class="slide">
-                    <img src="photo/SlideShow/7.JPG" alt="八王子祭の様子7">
+                    <img data-src="photo/SlideShow/7.JPG" alt="八王子祭の様子7" loading="lazy" class="lazy-image">
                 </div>
                 <div class="slide">
-                    <img src="photo/SlideShow/8.JPG" alt="八王子祭の様子8">
+                    <img data-src="photo/SlideShow/8.JPG" alt="八王子祭の様子8" loading="lazy" class="lazy-image">
                 </div>
                 <div class="slide">
-                    <img src="photo/SlideShow/9.JPG" alt="八王子祭の様子9">
+                    <img data-src="photo/SlideShow/9.JPG" alt="八王子祭の様子9" loading="lazy" class="lazy-image">
                 </div>
                 <div class="slide">
-                    <img src="photo/SlideShow/10.JPG" alt="八王子祭の様子10">
+                    <img data-src="photo/SlideShow/10.JPG" alt="八王子祭の様子10" loading="lazy" class="lazy-image">
                 </div>
                 <div class="slide">
-                    <img src="photo/SlideShow/11.JPG" alt="八王子祭の様子11">
+                    <img data-src="photo/SlideShow/11.JPG" alt="八王子祭の様子11" loading="lazy" class="lazy-image">
                 </div>
             </div>
         </div>
@@ -93,7 +101,7 @@
                         <a href="Theme.html" class="read-more-btn">詳しく見る</a>
                     </div>
                     <div class="content-image">
-                        <img src="photo/backlogo.PNG" alt="八王子祭ロゴ">
+                        <img data-src="photo/backlogo.PNG" alt="八王子祭ロゴ" loading="lazy" class="lazy-image">
                     </div>
                 </div>
             </div>
@@ -102,7 +110,7 @@
             <div class="content-section">
                 <div class="content-row">
                     <div class="content-image">
-                        <img src="photo/ponhachi.jpg" alt="ポン八について">
+                        <img data-src="photo/ponhachi.jpg" alt="ポン八について" loading="lazy" class="lazy-image">
                     </div>
                     <div class="content-text">
                         <h2>ポン八とは</h2>
@@ -117,7 +125,7 @@
             <section class="content-section">
                 <div class="content-row">
                     <div class="content-image">
-                        <img src="photo/backlogo.PNG" alt="八王子祭について">
+                        <img data-src="photo/backlogo.PNG" alt="八王子祭について" loading="lazy" class="lazy-image">
                     </div>
                     <div class="content-text">
                         <h2>八王子祭とは</h2>
@@ -148,6 +156,7 @@
 <script src="script/countdown.js"></script>
 <script src="script/slideshow.js"></script>
 <script src="script/animation.js"></script>
+<script src="script/lazy-loading.js"></script>
     <div id="footer-include"></div>
     <div id="rocket-include"></div>
 </body>

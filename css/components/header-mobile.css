@@ -4,14 +4,14 @@
 }
 
 /* PC画面ではハンバーガーメニューを非表示 */
-@media (min-width: 769px) {
+@media (min-width: 1201px) {
     #hamburger {
         display: none !important;
     }
 }
 
-/* モバイル用のヘッダースタイル */
-@media (max-width: 768px) {
+/* モバイル・タブレット用のヘッダースタイル */
+@media (max-width: 1200px) {
     header {
         width: 100%;
         backdrop-filter: blur(8px);
@@ -277,7 +277,7 @@
 }
 
 /* PCでドロップダウンメニューを復活させる */
-@media (min-width: 769px) {
+@media (min-width: 1201px) {
     /* PCでドロップダウンメニューを有効化 */
     .header-nav .dropdown-menu {
         display: block !important;

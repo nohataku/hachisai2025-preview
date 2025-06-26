@@ -180,7 +180,7 @@ header {
 }
 
 /* 他のCSSからの干渉を防ぐためのリセット */
-@media (min-width: 769px) {
+@media (min-width: 1201px) {
     .dropdown-menu {
         display: none !important;
         flex-direction: column !important;
@@ -202,7 +202,7 @@ header {
     display: flex;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1201px) {
     .header-nav a {
         background: rgba(255, 255, 255, 0.8);
         border-radius: 4px;

@@ -4,9 +4,9 @@ console.log('ドロップダウンメニューのスクリプトを読み込み�
 function initDropdownMenu() {
     console.log('ドロップダウンメニューの初期化を開始します');
 
-    // モバイルでドロップダウンメニューを強制的に非表示にする
+    // モバイル・タブレットでドロップダウンメニューを強制的に非表示にする
     function hideDropdownsOnMobile() {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1200) {
             const dropdownMenus = document.querySelectorAll('.dropdown-menu');
             dropdownMenus.forEach(menu => {
                 menu.style.display = 'none';
@@ -25,41 +25,25 @@ function initDropdownMenu() {
     // 初期化時に実行
     hideDropdownsOnMobile();
 
-    // モバイルでのドロップダウン制御
-    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');    dropdownToggles.forEach(toggle => {
+    // ドロップダウントグルのクリック制御
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    dropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', function(e) {
-            // モバイル表示の場合、企画情報とご案内は直接リンクとして動作
-            if (window.innerWidth <= 768) {
-                const toggleText = this.textContent.trim();
-                  // 企画情報、ご案内、八王子祭についての場合は直接リンクとして動作
-                if (toggleText === '企画情報') {
-                    e.preventDefault();
-                    window.location.href = 'Projects.html';
-                    return;
-                } else if (toggleText === 'ご案内') {
-                    e.preventDefault();
-                    window.location.href = 'Guide.html';
-                    return;
-                } else if (toggleText === '八王子祭について') {
-                    e.preventDefault();
-                    window.location.href = 'About.html';
-                    return;
-                }
-                
-                // その他のドロップダウンも無効化（モバイルでは全てのドロップダウンを無効化）
-                e.preventDefault();
+            // モバイル・タブレット表示の場合のみドロップダウンを無効化
+            if (window.innerWidth <= 1200) {
+                // モバイル・タブレットでは全てのドロップダウンを無効化し、直接リンクとして動作
+                // preventDefaultを呼ばずに、自然なリンク動作を許可
                 return;
-            } else {
-                // PC表示の場合は従来通りpreventDefaultでドロップダウン動作
-                e.preventDefault();
             }
+            // PC表示の場合は自然なリンク動作を許可（ドロップダウンはCSSのhoverで制御）
+            // preventDefaultを削除してリンク先に遷移できるようにする
         });
     });
       // ウィンドウリサイズ時にドロップダウンを閉じる
     window.addEventListener('resize', function() {
         hideDropdownsOnMobile();
         
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > 1200) {
             document.querySelectorAll('.dropdown.open').forEach(dropdown => {
                 dropdown.classList.remove('open');
                 const dropdownMenu = dropdown.querySelector('.dropdown-menu');

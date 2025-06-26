@@ -2,6 +2,7 @@
 @import 'components/variables.css';
 @import 'components/base.css';
 @import 'components/LoadingAnimation.css';
+@import 'components/lazy-loading.css';
 @import 'components/layout.css';
 @import 'components/header.css';
 @import 'components/header-mobile.css';
@@ -15,6 +16,7 @@
 @import 'components/content-sections.css';
 @import 'components/singer.css';
 @import 'components/comedian.css';
+@import 'components/artist.css';
 @import 'components/projects.css';
 @import 'components/guide.css';
 @import 'components/about-pages.css';

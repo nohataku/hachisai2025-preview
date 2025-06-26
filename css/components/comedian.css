@@ -3,20 +3,22 @@
   /* 複数の背景レイヤーでつなぎ目を目立たなくする */
   background-image: 
     linear-gradient(45deg, rgba(0,0,0,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%),
-    var(--bg-ticket) !important;
+    var(--bg-main) !important;
   background-size: 
     100% 100%,
-    600px 900px !important;
+    cover !important;
   background-position: 
     center,
     center !important;
   background-repeat: 
     no-repeat,
-    repeat !important;
+    no-repeat !important;
   background-attachment: fixed !important;
   background-blend-mode: overlay, normal !important; /* ブレンドモードでなじませる */
   min-height: 100vh;
   position: relative;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* デフォルト背景を無効化 */
@@ -31,26 +33,8 @@
   display: none !important;
 }
 
-/* モバイル版でもticket.jpgを使用 */
+/* モバイル版対応 */
 @media (max-width: 768px) {
-  .comedian-back {
-    /* モバイルでもticket.jpgを使用 */
-    background-image: 
-      linear-gradient(45deg, rgba(0,0,0,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%),
-      var(--bg-ticket) !important;
-    background-size: 
-      100% 100%,
-      400px 600px !important;
-    background-position: 
-      center,
-      center !important;
-    background-repeat: 
-      no-repeat,
-      repeat !important;
-    background-attachment: fixed !important;
-    background-blend-mode: overlay, normal !important;
-  }
-  
   .comedian-back .back {
     background: transparent !important;
     background-image: none !important;
@@ -62,4 +46,331 @@
     content: none !important;
     display: none !important;
   }
+}
+
+/* Comedian専用の独自クラススタイル */
+.comedian-section {
+    background-color: rgba(0,0,0,0.85);
+    border-radius: 18px;
+    margin: auto 0px;
+    padding: 25px 30px 25px 30px;
+    border: 2.5px solid #FFD700;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    line-height: 1.8;
+    font-size: 16px;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    /* アニメーション追加 */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out 0.8s forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.comedian-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.3);
+    border-color: #FFF700;
+}
+
+.comedian-section h1 {
+    text-align: center;
+    font-size: clamp(22px, 3vw, 36px);
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.comedian-schedule-section {
+    background-color: rgba(0,0,0,0.85);
+    border-radius: 18px;
+    margin: auto auto;
+    padding: 25px 30px 25px 30px;
+    border: 2.5px solid #FFD700;
+    position: relative;
+    font-size: clamp(18px, 2.5vw, 26px);
+    text-align: center;
+    line-height: 1.6;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    /* アニメーション追加 */
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideInLeft 0.8s ease-out 1.2s forwards;
+    margin-bottom: 30px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.comedian-schedule-section h1 {
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    font-weight: bold;
+}
+
+.comedian-ticket-section {
+    width: auto;
+    background-color: rgba(0,0,0,0.85);
+    border-radius: 18px;
+    margin: auto auto;
+    padding: 25px 30px 25px 30px;
+    border: 2.5px solid #FFD700;
+    position: relative;
+    text-align: center;
+    line-height: 1.7;
+    font-size: 15px;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    /* アニメーション追加 */
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideInRight 0.8s ease-out 1.6s forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.comedian-ticket-section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+}
+
+.comedian-ticket-section h1 {
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    font-weight: bold;
+}
+
+.comedian-attention-section {
+    background-color: rgba(0,0,0,0.85);
+    border-radius: 18px;
+    margin: auto 0px;
+    padding: 25px 30px 25px 30px;
+    border: 2.5px solid #FFD700;
+    position: relative;
+    text-align: left;
+    line-height: 1.7;
+    font-size: 15px;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    /* アニメーション追加 */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out 2s forwards;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.comedian-attention-section h1 {
+    text-align: center;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    font-weight: bold;
+}
+
+.comedian-hachi {
+    text-align: center;
+    color: #FFD700;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Comedian専用のページタイトルスタイル */
+.comedian-back .page-title {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    color: #FFD700 !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    padding: 20px 40px !important;
+    border-radius: 10px !important;
+    margin: 150px auto 30px auto !important;
+    display: inline-block !important;
+    border: 2px solid #FFD700 !important;
+    /* アニメーション追加 */
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeInDown 1s ease-out 0.2s forwards;
+}
+
+/* コメディアンコンテナのスタイル */
+.comedian {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+/* Comedian page専用のページクラス */
+.comedian-page {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.comedian-page * {
+    will-change: auto;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* アニメーション定義 */
+@keyframes fadeInDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .comedian-back {
+        padding: 0 10px;
+        background-attachment: scroll !important;
+    }
+    
+    .comedian-section,
+    .comedian-schedule-section,
+    .comedian-ticket-section,
+    .comedian-attention-section {
+        margin: 0 auto 20px auto;
+        padding: 15px;
+        font-size: 15px;
+        line-height: 1.8;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .comedian-section h1,
+    .comedian-schedule-section h1,
+    .comedian-ticket-section h1,
+    .comedian-attention-section h1 {
+        font-size: clamp(18px, 5vw, 28px);
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .comedian-back {
+        padding: 0 5px;
+        background-attachment: scroll !important;
+    }
+    
+    .comedian-section,
+    .comedian-schedule-section,
+    .comedian-ticket-section,
+    .comedian-attention-section {
+        margin: 0 auto 15px auto;
+        padding: 12px;
+        font-size: 14px;
+        line-height: 1.7;
+        background-color: rgba(0,0,0,0.9);
+        max-width: 100%;
+        box-sizing: border-box;
+        border-radius: 12px;
+    }
+
+    .comedian-back .page-title {
+        margin: 100px auto 15px auto !important;
+        padding: 12px 20px !important;
+        font-size: clamp(16px, 6vw, 22px) !important;
+        max-width: calc(100vw - 20px);
+        box-sizing: border-box;
+    }
+    
+    .comedian-section h1,
+    .comedian-schedule-section h1,
+    .comedian-ticket-section h1,
+    .comedian-attention-section h1 {
+        font-size: clamp(16px, 5vw, 24px);
+        margin-bottom: 12px;
+    }
+    
+    .comedian-section br,
+    .comedian-schedule-section br,
+    .comedian-ticket-section br,
+    .comedian-attention-section br {
+        line-height: 1.5;
+        margin: 3px 0;
+    }
+    
+    .comedian-hachi {
+        font-size: 12px;
+        margin-top: 15px;
+    }
+}
+
+/* 極小画面対応 */
+@media (max-width: 320px) {
+    .comedian-back {
+        padding: 0 2px;
+    }
+    
+    .comedian-section,
+    .comedian-schedule-section,
+    .comedian-ticket-section,
+    .comedian-attention-section {
+        margin: 0 auto 10px auto;
+        padding: 10px;
+        font-size: 13px;
+        line-height: 1.6;
+        border-radius: 8px;
+    }
+    
+    .comedian-back .page-title {
+        margin: 80px auto 10px auto !important;
+        padding: 10px 15px !important;
+        font-size: clamp(14px, 7vw, 20px) !important;
+        max-width: calc(100vw - 10px);
+    }
+    
+    .comedian-section h1,
+    .comedian-schedule-section h1,
+    .comedian-ticket-section h1,
+    .comedian-attention-section h1 {
+        font-size: clamp(14px, 6vw, 20px);
+        margin-bottom: 10px;
+    }
 }
