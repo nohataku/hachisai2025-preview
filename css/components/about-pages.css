@@ -149,8 +149,53 @@ h3
     border-radius: 20px;
     padding: 40px;
     margin: 40px auto; /* auto で中央揃え */
-    max-width: 800px; /* 最大幅を設定 */
+    max-width: 800px
+    px; /* 最大幅を設定 */
     text-align: center;
+}
+
+@media (max-width: 440px) {
+.message-section {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 255, 255, 0.08));
+    border-radius: 20px;
+    padding: 40px;
+    margin: 40px auto; /* auto で中央揃え */
+    max-width: 354px; /* 最大幅を設定 */
+    text-align: center;
+}
+}
+
+@media (max-width: 420px) {
+.message-section {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 255, 255, 0.08));
+    border-radius: 20px;
+    padding: 40px;
+    margin: 40px auto; /* auto で中央揃え */
+    max-width: 340px; /* 最大幅を設定 */
+    text-align: center;
+}
+}
+
+@media (max-width: 400px) {
+.message-section {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 255, 255, 0.08));
+    border-radius: 20px;
+    padding: 40px;
+    margin: 40px auto; /* auto で中央揃え */
+    max-width: 320px; /* 最大幅を設定 */
+    text-align: center;
+}
+}
+
+@media (max-width: 370px) {
+.message-section {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 255, 255, 0.08));
+    border-radius: 20px;
+    padding: 40px;
+    margin: 40px auto; /* auto で中央揃え */
+    max-width: 293px; /* 最大幅を設定 */
+    text-align: center;
+}
 }
 
 /* 八王子祭についてセクション */
@@ -373,7 +418,6 @@ h3
 
 .event-info {
     display: grid;
-    gap: 30px;
     margin: 30px 0;
 }
 
@@ -516,8 +560,7 @@ h3
     .ponhachi-details,
     .about-details,
     .venue-info,
-    .theme-message,
-    .message-section {
+    .theme-message {
         margin: 20px 10px;
         padding: 20px;
     }
@@ -569,6 +612,20 @@ h3
     
     .contact-info {
         padding: 15px;
+    }
+    
+    .countdown-timer {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .countdown-value {
+        font-size: 1.2rem;
+        padding: 8px 12px;
+    }
+    
+    .release-countdown h3 {
+        font-size: 1.3rem;
     }
 }
 

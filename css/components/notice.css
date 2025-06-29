@@ -2,7 +2,25 @@
 
 /* お知らせセクション全体 */
 .notice-content {
+  .notice-content .notice-item:hover::after {
+    color: var(--accent-color);
+    transform: translateY(-50%) translateX(5px);
+}
+
+.notice-content .notice-item::before {
+    content: "NEW";
     position: relative;
+    top: -8px;
+    right: 20px;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
 }
 
 .notice-content h2 {
@@ -28,7 +46,7 @@
 }
 
 /* お知らせアイテム */
-.notice-item {
+.notice-content .notice-item {
     margin-bottom: 2rem;
     padding: 2rem;
     border: 2px solid rgba(138, 43, 226, 0.3);
@@ -37,16 +55,18 @@
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     position: relative;
+    padding-right: 5rem; /* 矢印用にスペースを確保 */
 }
 
-.notice-item:hover {
+.notice-content .notice-item:hover {
     border-color: var(--accent-color);
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(138, 43, 226, 0.1));
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(138, 43, 226, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(138, 43, 226, 0.35);
 }
 
-.notice-item::before {
+/* NEWバッジ */
+.notice-content .notice-item::before {
     content: "NEW";
     position: absolute;
     top: -8px;
@@ -56,6 +76,40 @@
     font-size: 0.7rem;
     font-weight: 700;
     padding: 4px 12px;
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+/* クリック可能であることを示す矢印 */
+.notice-content .notice-item::after {
+    content: '〉';
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.notice-content .notice-item:hover::after {
+    color: var(--accent-color);
+    transform: translateY(-50%) translateX(5px);
+}
+
+.notice-content .notice-item::before {
+    content: "NEW";
+    position: relative;
+    top: 10px;
+    right: 15px;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 10px;
     border-radius: 12px;
     letter-spacing: 0.5px;
 }
@@ -203,6 +257,7 @@
     justify-content: center;
     gap: 1rem;
     margin-top: 3rem;
+    margin-bottom: 4rem;
     flex-wrap: wrap;
 }
 
@@ -275,7 +330,7 @@
 
 .notice-section .notice-list li {
     position: relative;
-    padding: 15px 20px;
+    padding: 15px 20px 15px 50px; /* 左側にアイコンのスペースを確保 */
     background: rgba(0, 0, 0, 0.8); /* 黒い背景 */
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -287,6 +342,8 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* ボーダーを維持 */
     min-height: auto; /* min-heightをリセット */
+    cursor: pointer; /* クリック可能を示すカーソル */
+    transition: all 0.3s ease; /* スムーズなトランジション */
 }
 
 .notice-section .notice-list li:last-child {
@@ -310,6 +367,23 @@
     text-decoration: none;
     display: block;
     line-height: 1.5;
+    position: relative;
+    padding-right: 30px; /* 矢印アイコンのスペース */
+}
+
+/* クリック可能であることを示す矢印アイコン */
+.notice-section .notice-list a::after,
+.notice-section .notice-list .notice-content::after {
+    content: "→";
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+    opacity: 0.7;
+    transition: all 0.3s ease;
 }
 
 /* ホームページのお知らせリストでのNEWマーク */
@@ -334,6 +408,52 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     transition: all 0.3s ease;
+    border-color: var(--accent-color); /* ホバー時のボーダー色 */
+}
+
+/* ホバー時の矢印アニメーション */
+.notice-section .notice-list li:hover a::after,
+.notice-section .notice-list li:hover .notice-content::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(5px);
+    color: white;
+}
+
+/* モバイル向けのタップフィードバック */
+.notice-section .notice-list li:active {
+    transform: translateY(0px);
+    background: rgba(138, 43, 226, 0.2);
+    border-color: var(--accent-color);
+}
+
+/* クリック可能であることを示すための追加スタイル */
+.notice-section .notice-list li::before {
+    content: "📄";
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.notice-section .notice-list li:hover::before {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* お知らせセクションにヒントテキストを追加 */
+.notice-section .content-text::after {
+    content: "クリックで詳細を確認";
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-style: italic;
 }
 
 /* 読み込み中とエラーメッセージ */
@@ -364,6 +484,103 @@
     50% { opacity: 1; }
 }
 
+/* ページ遷移アニメーション */
+.page-transition-out {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.3s ease-out;
+}
+
+/* クリックされたお知らせアイテムのアニメーション */
+.notice-item-clicked {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(138, 43, 226, 0.5);
+    border-color: var(--accent-color);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(138, 43, 226, 0.15));
+    transition: all 0.3s ease-out;
+}
+
+/* ページイン時のアニメーション */
+@keyframes pageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* お知らせコンテンツのフェードイン */
+.notice-content {
+    animation: pageSlideIn 0.6s ease-out;
+}
+
+/* 個別のお知らせアイテムのスタッガードアニメーション */
+.notice-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: noticeItemFadeIn 0.5s ease-out forwards;
+}
+
+.notice-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.notice-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.notice-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.notice-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.notice-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.notice-item:nth-child(n+6) {
+    animation-delay: 0.6s;
+}
+
+@keyframes noticeItemFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* クリック時のリップル効果 */
+.notice-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.notice-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.3) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: width 0.3s ease, height 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.notice-item-clicked::before {
+    width: 300px;
+    height: 300px;
+}
+
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
     .notice-header .notice-title {
@@ -389,4 +606,122 @@
     .notice-list .notice-date {
         margin-bottom: 0.3rem;
     }
+    
+    /* アーティスト画像のレスポンシブ対応 */
+    .artist-highlight-image {
+        width: 200px !important;
+        height: 200px !important;
+    }
+    
+    .artist-name-highlight {
+        font-size: 1.8rem !important;
+    }
+    
+    .artist-link-button {
+        padding: 12px 20px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* アーティスト名を目立たせるスタイル */
+.artist-name-highlight {
+    display: inline-block;
+    font-size: 2.2rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
+    margin: 1rem 0;
+    animation: glow 2s ease-in-out infinite alternate;
+    letter-spacing: 2px;
+    text-align: center;
+    width: 100%;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px rgba(255, 107, 107, 0.5), 0 0 30px rgba(78, 205, 196, 0.3);
+    }
+    to {
+        text-shadow: 0 0 30px rgba(255, 107, 107, 0.8), 0 0 40px rgba(78, 205, 196, 0.6);
+    }
+}
+
+/* アーティスト画像のスタイル */
+.artist-highlight-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid transparent;
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1);
+    padding: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    display: block;
+    margin: 2rem auto;
+}
+
+.artist-highlight-image:hover {
+    transform: scale(1.05) rotate(5deg);
+    box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+}
+
+/* アーティスト情報セクション */
+.artist-highlight-section {
+    text-align: center;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+    border-radius: 20px;
+    border: 2px solid rgba(255, 107, 107, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+/* アーティストページへのボタン */
+.artist-link-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.artist-link-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.artist-link-button:hover::before {
+    left: 100%;
+}
+
+.artist-link-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+    background: linear-gradient(135deg, #ff5252, #26a69a);
+}
+
+.artist-link-button:active {
+    transform: translateY(-1px) scale(1.02);
 }

@@ -51,14 +51,22 @@ class NoticeManager {
         }
 
         noticeContainer.innerHTML = this.notices.map(notice => `
-            <div class="notice-item">
+            <div class="notice-item" onclick="this.navigateToNotice('Notice/${notice.file}', event)" style="cursor: pointer;">
                 <div class="notice-date">${notice.date}</div>
                 <h3 class="notice-title">
-                    <a href="Notice/${notice.file}">${notice.title}</a>
+                    ${notice.title}
                 </h3>
                 <p class="notice-summary">${notice.summary}</p>
             </div>
         `).join('');
+
+        // クリックイベントハンドラーを追加
+        const noticeItems = noticeContainer.querySelectorAll('.notice-item');
+        noticeItems.forEach((item, index) => {
+            item.addEventListener('click', (e) => {
+                this.navigateToNotice(`Notice/${this.notices[index].file}`, e);
+            });
+        });
     }
 
     /**
@@ -140,6 +148,26 @@ class NoticeManager {
         } catch (error) {
             console.error('お知らせの追加に失敗しました:', error);
         }
+    }
+
+    /**
+     * お知らせ詳細ページへアニメーション付きで遷移
+     */
+    navigateToNotice(url, event) {
+        event.preventDefault();
+        
+        const clickedItem = event.currentTarget;
+        
+        // クリックされた要素にアニメーションクラスを追加
+        clickedItem.classList.add('notice-item-clicked');
+        
+        // ページ全体にフェードアウトアニメーションを適用
+        document.body.classList.add('page-transition-out');
+        
+        // アニメーション完了後に遷移
+        setTimeout(() => {
+            window.location.href = url;
+        }, 300);
     }
 }
 

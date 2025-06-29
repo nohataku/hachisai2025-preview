@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // テスト用の日時（ローカルテスト時に使用）
      const releaseDate = new Date('2025-06-26T11:12:30+09:00');
     
-    // 暗号化されたアーティスト情報（Base64エンコード + タイムロック）
+    // 暗号化されたアーティスト情報（エンコード + タイムロック）
     // 注意: 以下のデータは公開時刻前には復号化できません
     const encryptedData = {
         name: '44Kq44O844Kk44K344Oe44K144Oo44K3', 
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         try {
-            // シンプルなBase64デコード（日本語対応）
+            // シンプルなデコード（日本語対応）
             return decodeURIComponent(escape(atob(encrypted)));
         } catch(e) {
             console.error('復号エラー:', e);

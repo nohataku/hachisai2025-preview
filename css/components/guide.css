@@ -367,6 +367,66 @@
     margin-right: 0.5rem;
 }
 
+/* 総合案内のスタイル */
+.guide-info-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.guide-info-item {
+    margin-bottom: 1rem; /* notice-itemから調整 */
+    padding: 2rem;
+    border: 2px solid rgba(138, 43, 226, 0.3);
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(138, 43, 226, 0.05));
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.guide-info-item:hover {
+    border-color: var(--accent-color);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(138, 43, 226, 0.1));
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(138, 43, 226, 0.35);
+}
+
+.guide-info-item h3 {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.guide-info-item p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+.notice-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+}
+
+.notice-badge.urgent {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+}
+
+.notice-badge.important {
+    background: linear-gradient(135deg, #feca57, #ff9f43);
+}
+
+.notice-badge.info {
+    background: linear-gradient(135deg, #48dbfb, #45b7d1);
+}
+
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
     .hero-title {

@@ -3,9 +3,9 @@
     background: linear-gradient(135deg, var(--background-secondary) 0%, var(--background-tertiary) 60%, #0d133d 100%);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg), 0 2px 0 #3a3a6a inset;
-    margin: var(--spacing-xxl) auto; /* auto で中央揃え */
+    margin: 20px auto; /* auto で中央揃え */
     padding: 0; /* パディングをリセット */
-    max-width: 90vw;
+    max-width: 78vw;
     width: auto; /* 幅を自動調整に変更 */
     border: 2.5px solid var(--primary-color);
     position: relative;
@@ -156,7 +156,7 @@
 .notice-section {
     margin: var(--spacing-xxl) auto; /* 上下マージンと中央揃え */
     width: fit-content; /* コンテンツに合わせた幅 */
-    max-width: 95vw; /* 最大幅を少し広げる */
+    max-width: 79vw; /* 最大幅を少し広げる */
     min-width: 350px; /* 最小幅を少し広げる */
 }
 
@@ -350,7 +350,8 @@
 @media (max-width: 768px) {
   .content-section {
     padding: 0 auto;
-    margin: 16px; /* auto で中央揃え */
+    margin: 38px; /* auto で中央揃え */
+    margin-top: -10px;
   }
   .content-row {
     flex-direction: column !important;
@@ -406,6 +407,7 @@
 @media (max-width: 480px) {
     .content-section {
         padding-top: 20px; /* パディングを調整 */
+        max-width: 93vw; /* 最大幅を調整 */
     }
     
     .content-row {
@@ -509,5 +511,96 @@
     
     .content-text h3 {
         margin-top: 15px; /* h3要素の上マージンを調整 */
+    }
+}
+
+/* 430px幅での統一対応 - index.htmlのセクション幅を統一 */
+@media (max-width: 430px) {
+    /* about-section-containerのスタイルを追加 */
+    .about-section-container {
+        margin: 0; /* マージンをリセット */
+        padding: 0; /* パディングをリセット */
+    }
+    
+    .content-section {
+        padding-top: 25px; /* パディングを調整 */
+        margin: 25px 15px; /* 左右マージンを調整して幅を統一 */
+    }
+    
+    .content-row {
+        padding: 25px 10px; /* パディングを調整 */
+    }
+    
+    .content-text {
+        margin-top: 0; /* マージンをリセット */
+    }
+    
+    .content-text h2 {
+        position: relative; /* 相対配置を維持 */
+        top: auto;
+        left: auto;
+        transform: none; /* 変形をリセット */
+        font-size: 0.95rem !important; /* フォントサイズを統一 */
+        line-height: 1.1 !important; /* 行の高さを統一 */
+        letter-spacing: -0.03em; /* 文字間隔を調整 */
+        padding: 8px 12px; /* パディングを統一 */
+        border-left: 4px solid var(--primary-color); /* ボーダーを統一 */
+        max-width: 80vw; /* 最大幅を統一 */
+        white-space: normal; /* 改行を許可 */
+        text-overflow: unset; /* 省略記号を無効化 */
+        margin: 0 auto 20px auto; /* 中央揃えと下マージンを統一 */
+        display: block; /* ブロック要素として表示 */
+        word-break: keep-all; /* 単語の区切りを維持 */
+    }
+    
+    .content-text p {
+        font-size: 0.85rem; /* 段落のフォントサイズを統一 */
+        line-height: 1.4; /* 行の高さを統一 */
+        padding: 0 8px; /* 左右パディングを追加 */
+        margin-bottom: 20px; /* 下マージンを統一 */
+    }
+    
+    /* お知らせセクションの特別対応 */
+    .notice-section {
+        margin: 25px 5px; /* 他のセクションと同じマージンに統一 */
+    }
+    
+    .notice-section .content-text {
+        padding: 0 8px; /* パディングを統一 */
+    }
+    
+    .notice-section .content-text h2 {
+        border-left-color: #ffb300; /* お知らせセクションのボーダー色を維持 */
+    }
+    
+    .notice-list {
+        font-size: 0.8rem; /* リストのフォントサイズを調整 */
+        padding: 0 8px; /* パディングを統一 */
+    }
+    
+    .notice-read-more-container {
+        padding: 0 8px; /* パディングを統一 */
+    }
+}
+
+/* 395px幅専用（iPhone12 Pro） */
+@media (max-width: 395px) {
+    .content-text h2 {
+        font-size: 0.9rem !important; /* フォントサイズをさらに小さく */
+        letter-spacing: -0.04em; /* 文字間隔をさらに調整 */
+        padding: 5px 8px; /* パディングを調整 */
+    }
+}
+
+/* より小さい画面（iPhone SE など）への対応 */
+@media (max-width: 375px) {
+    .content-text h2 {
+        font-size: 0.85rem !important; /* フォントサイズをさらに小さく */
+        line-height: 1.0 !important; /* 行の高さをさらに調整 */
+        letter-spacing: -0.05em; /* 文字間隔をさらに調整 */
+    }
+    
+    .content-text p {
+        font-size: 0.8rem; /* 段落のフォントサイズをさらに小さく */
     }
 }
