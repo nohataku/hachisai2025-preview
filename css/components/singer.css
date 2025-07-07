@@ -109,4 +109,116 @@
     content: none !important;
     display: none !important;
   }
+  .ticket-info {
+    font-size: 3vw; /* モバイル用にフォントサイズを調整 */
+    padding-left: 5.02vw;
+    padding-right: 5.02vw;
+  }
+  .ticket-buy-sub {
+    text-align: center;
+    color: #fff;
+    font-size: 3vw;
+    padding-top: 1vw;
+    margin: 0;
+}
+.ticket-buy-info 
+{
+  font-size:3.7vw;
+}
+.ticket-buy-box {
+    display: flex;
+    flex-wrap: warp;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    font-size:3.6vw;
+}
+.ticket-buy-info-caption {
+    color: #fff;
+    font-size: 3.6vw;
+    text-align: center;
+}
+  .ticket-buy-note{
+  color:#fff;
+  font-size:2.8vw;
+  margin:0;
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+}
+.e-plus
+{
+  font-size: 3vw;
+}
+
+@media (max-width: 768px) {
+  .ticket-type-caption {
+    display: block;
+    margin-left: 0;
+    margin-top: 2px;
+    font-size: 2.1vw;
+    line-height: 1.5;
+    word-break: break-word;
+  }
+  .ticket-type {
+    font-size: 4vw;
+  }
+    .artist, .artist-section, .artist-ticket-section {
+    padding-left: 2vw;
+    padding-right: 2vw;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  .ticket-info {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 4vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    gap: 0.5em;
+  }
+  .ticket-type, .ticket-value {
+    width: 100%;
+    word-break: break-word;
+    white-space: normal;
+    font-size: 4vw;
+  }
+  .ticket-type-caption {
+    display: block;
+    margin-left: 0;
+    margin-top: 4px;
+    font-size: 3.2vw;
+    line-height: 1.5;
+    word-break: break-word;
+  }
+  .ticket-buy-box {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 3.6vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    gap: 0.5em;
+  }
+  .ticket-buy-info, .ticket-buy-info-caption {
+    width: 100%;
+    font-size: 3.6vw;
+    word-break: break-word;
+    white-space: normal;
+  }
+  pre {
+    font-size: 3vw;
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-width: 100vw;
+    overflow-x: auto;
+    }
+  .ticket-buy-note {
+    font-size: 2.8vw;
+    padding-left: 0;
+    padding-right: 0;
+    word-break: break-word;
+  }
+}
 }

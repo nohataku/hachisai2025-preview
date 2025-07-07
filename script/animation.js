@@ -103,3 +103,16 @@ function enhanceHoverEffects() {
         });
     });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const targets = document.querySelectorAll('.comedian-content, .comedian-section, .comedian-schedule-section, .comedian-ticket-section, .comedian-attention-section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-animated');
+                observer.unobserve(entry.target);
+            }
+            });
+        }, { threshold: 0.2 });
+    targets.forEach(target => observer.observe(target));
+});

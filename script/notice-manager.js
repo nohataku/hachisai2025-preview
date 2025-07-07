@@ -151,23 +151,13 @@ class NoticeManager {
     }
 
     /**
-     * お知らせ詳細ページへアニメーション付きで遷移
+     * お知らせ詳細ページへ遷移（アニメーションなし）
      */
     navigateToNotice(url, event) {
         event.preventDefault();
         
-        const clickedItem = event.currentTarget;
-        
-        // クリックされた要素にアニメーションクラスを追加
-        clickedItem.classList.add('notice-item-clicked');
-        
-        // ページ全体にフェードアウトアニメーションを適用
-        document.body.classList.add('page-transition-out');
-        
-        // アニメーション完了後に遷移
-        setTimeout(() => {
-            window.location.href = url;
-        }, 300);
+        // アニメーションなしで直接遷移
+        window.location.href = url;
     }
 }
 

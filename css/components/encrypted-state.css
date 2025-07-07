@@ -1,0 +1,173 @@
+/* 暗号化状態専用のCSS */
+/* Comedian.html - 公開前の暗号化状態用スタイル */
+
+/* 暗号化状態の背景設定 */
+body.comedian-page.encrypted-state {
+    background-image: url('../../photo/background1.jpg') !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* 暗号化状態では、通常のコンテンツ背景を非表示にする */
+body.comedian-page.encrypted-state .comedian-back {
+    background: none !important;
+}
+
+/* 準備中コンテンツのスタイル */
+.preparing-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: 40px 20px;
+}
+
+.preparing-message {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 2px solid #FFD700;
+}
+
+.preparing-message h1 {
+    color: #FFD700;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-weight: bold;
+}
+
+.preparing-text {
+    color: #FFFFFF;
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.preparing-text p {
+    margin-bottom: 15px;
+}
+
+.preparing-text strong {
+    color: #FFD700;
+    font-weight: bold;
+    font-size: 1.3em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* カウントダウンバーのスタイル */
+.countdown-bar {
+    width: 100%;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    margin-top: 25px;
+    overflow: hidden;
+    border: 1px solid #FFD700;
+}
+
+.countdown-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #FFD700, #FFA500, #FF8C00);
+    border-radius: 10px;
+    transition: width 1s ease-in-out;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* 公開演出のスタイル */
+.reveal-animation {
+    animation: revealGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes revealGlow {
+    0% {
+        text-shadow: 0 0 20px #FFD700;
+    }
+    100% {
+        text-shadow: 0 0 40px #FFD700, 0 0 60px #FFD700;
+    }
+}
+
+/* 準備中アニメーション */
+.preparing-animation {
+    animation: preparingPulse 3s ease-in-out infinite;
+}
+
+@keyframes preparingPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.9;
+    }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .preparing-message {
+        padding: 30px 20px;
+        margin: 0 10px;
+    }
+    
+    .preparing-message h1 {
+        font-size: 2em;
+    }
+    
+    .preparing-text {
+        font-size: 1.1em;
+    }
+    
+    .preparing-text strong {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .preparing-message {
+        padding: 25px 15px;
+    }
+    
+    .preparing-message h1 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+    
+    .preparing-text {
+        font-size: 1em;
+    }
+    
+    .preparing-text strong {
+        font-size: 1.1em;
+    }
+}
+
+/* 暗号化状態での特別なエフェクト */
+body.comedian-page.encrypted-state::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        rgba(0, 0, 0, 0.3) 0%, 
+        rgba(255, 215, 0, 0.1) 50%, 
+        rgba(0, 0, 0, 0.3) 100%);
+    pointer-events: none;
+    z-index: -1;
+    animation: encryptedShimmer 4s ease-in-out infinite;
+}
+
+@keyframes encryptedShimmer {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}

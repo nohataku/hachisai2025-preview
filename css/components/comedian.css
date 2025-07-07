@@ -1,37 +1,183 @@
 /* Comedian専用の背景設定 */
 .comedian-back {
   /* 複数の背景レイヤーでつなぎ目を目立たなくする */
-  background-image: 
-    linear-gradient(45deg, rgba(0,0,0,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%),
-    var(--bg-main) !important;
-  background-size: 
-    100% 100%,
-    cover !important;
-  background-position: 
-    center,
-    center !important;
-  background-repeat: 
-    no-repeat,
-    no-repeat !important;
-  background-attachment: fixed !important;
-  background-blend-mode: overlay, normal !important; /* ブレンドモードでなじませる */
+  background-image: url('../../photo/comedian-background.jpg') !important;
+  background-size: 100% 15%, cover;
+  background-position: center,center;
+  background-repeat: repeat,repeat;
   min-height: 100vh;
   position: relative;
   width: 100%;
   overflow-x: hidden;
 }
-
+.comedian-content {
+    background-color: rgba(0,0,0,0.85);
+    border-radius: 18px;
+    margin: auto 0px;
+    padding: 25px 30px 25px 30px;
+    border: 2.5px solid black;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    line-height: 1.8; /* 行間を広く */
+    font-size: 1.7vw; /* 基本フォントサイズを設定 */
+    color: #ffffff; /* 明確な白色 */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* テキストの可読性向上 */
+}
 /* デフォルト背景を無効化 */
 .comedian-back .back {
   background: none !important;
 }
-
+h1
+{
+    text-align: center;
+    color: #FFD700;
+}
+comedian-photo
+{
+    text-align: center;
+}
 .comedian-back .back::before {
   background-image: none !important;
   background: none !important;
   content: none !important;
   display: none !important;
 }
+/* 芸人写真のコンテナスタイル */
+.comedian-photo-wrap {
+  text-align: center;
+  width: 100%;
+  margin: 30px 0;
+  perspective: 1000px; /* 3D効果のための視点設定 */
+}
+
+.comedian-photo-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+/* 芸人写真の高度なスタイリング */
+.comedian-photo {
+  position: relative;
+  width: 380px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 25px;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+  cursor: pointer;
+  
+  /* グラデーションボーダー */
+  padding: 6px;
+  background: linear-gradient(45deg, 
+    #FFD700, #FFA500, #FF6347, #FF1493, 
+    #9370DB, #4169E1, #00CED1, #00FF7F, 
+    #FFD700);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+  
+  /* 美しいシャドウ効果 */
+  box-shadow: 
+    0 10px 30px rgba(255, 215, 0, 0.3),
+    0 0 50px rgba(255, 215, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  
+  /* 内側の画像用の設定 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: photoFadeIn 1.2s ease-out 0.5s forwards;
+}
+
+.comedian-photo:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.comedian-photo::before {
+  content: attr(data-name);
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(45deg, #FFD700, #FFA500);
+  color: #000;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  opacity: 0;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+/* 画像自体のスタイル */
+.comedian-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 19px;
+  position: relative;
+  z-index: 1;
+}
+
+.comedian-content,
+.comedian-section,
+.comedian-schedule-section,
+.comedian-ticket-section,
+.comedian-attention-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1);
+}
+
+.comedian-content.is-animated,
+.comedian-section.is-animated,
+.comedian-schedule-section.is-animated,
+.comedian-ticket-section.is-animated,
+.comedian-attention-section.is-animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+.schedule-list {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.schedule-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.7em;
+  text-align: left;
+}
+.schedule-label {
+  min-width: 7em;
+  font-weight: bold;
+  color: #FFD700;
+  font-size: 1em;
+  flex-shrink: 0;
+}
+.schedule-value {
+  color: #fff;
+  font-size: 1em;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+@media (max-width: 600px) {
+  .schedule-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .schedule-label {
+    min-width: 0;
+    margin-bottom: 0.1em;
+  }
+}
+
 
 /* モバイル版対応 */
 @media (max-width: 768px) {
@@ -59,7 +205,6 @@
     overflow: hidden;
     text-align: left;
     line-height: 1.8;
-    font-size: 16px;
     color: #ffffff;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
     /* アニメーション追加 */
@@ -151,7 +296,7 @@
 .comedian-attention-section {
     background-color: rgba(0,0,0,0.85);
     border-radius: 18px;
-    margin: auto 0px;
+    margin: auto 0px 80px 0px;
     padding: 25px 30px 25px 30px;
     border: 2.5px solid #FFD700;
     position: relative;
@@ -173,6 +318,14 @@
     color: #FFD700;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
     font-weight: bold;
+}
+
+/* 注意事項の内容部分の文字サイズ調整 */
+.attention-content {
+    font-size: clamp(16px, 2.2vw, 20px);
+    line-height: 1.8;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .comedian-hachi {
@@ -264,11 +417,38 @@
     }
 }
 
+/* 写真の表示アニメーション */
+@keyframes photoFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px) rotateX(-15deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
     .comedian-back {
         padding: 0 10px;
         background-attachment: scroll !important;
+    }
+    
+    /* タブレット用の芸人写真調整 */
+    .comedian-photo-container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        padding: 15px;
+        flex-wrap: wrap;
+    }
+    
+    .comedian-photo {
+        width: 200px;
+        height: 250px;
     }
     
     .comedian-section,
@@ -283,6 +463,11 @@
         box-sizing: border-box;
     }
     
+    /* タブレット用の注意事項の下余白調整 */
+    .comedian-attention-section {
+        margin-bottom: 60px;
+    }
+    
     .comedian-section h1,
     .comedian-schedule-section h1,
     .comedian-ticket-section h1,
@@ -290,12 +475,35 @@
         font-size: clamp(18px, 5vw, 28px);
         margin-bottom: 15px;
     }
+    .comedian-content {
+        font-size: 15px;
+        line-height: 2;
+    }
 }
 
 @media (max-width: 480px) {
     .comedian-back {
         padding: 0 5px;
         background-attachment: scroll !important;
+    }
+    
+    /* スマホ用の芸人写真調整 */
+    .comedian-photo-container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        flex-wrap: wrap;
+    }
+    
+    .comedian-photo {
+        width: 160px;
+        height: 200px;
+    }
+    
+    .comedian-photo:hover {
+        transform: translateY(-10px) rotateX(3deg) rotateY(3deg) scale(1.03);
     }
     
     .comedian-section,
@@ -340,12 +548,41 @@
         font-size: 12px;
         margin-top: 15px;
     }
+    
+    /* スマホ用の注意事項文字サイズ調整 */
+    .attention-content {
+        font-size: clamp(15px, 4vw, 18px);
+        line-height: 1.9;
+    }
+    
+    /* スマホ用の注意事項の下余白調整 */
+    .comedian-attention-section {
+        margin-bottom: 50px;
+    }
 }
 
 /* 極小画面対応 */
 @media (max-width: 320px) {
     .comedian-back {
         padding: 0 2px;
+    }
+    
+    /* 極小画面用の芸人写真調整 */
+    .comedian-photo-container {
+        gap: 8px;
+        padding: 5px;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .comedian-photo {
+        width: 140px;
+        height: 175px;
+    }
+    
+    .comedian-photo:hover {
+        transform: translateY(-8px) scale(1.02);
     }
     
     .comedian-section,
@@ -372,5 +609,16 @@
     .comedian-attention-section h1 {
         font-size: clamp(14px, 6vw, 20px);
         margin-bottom: 10px;
+    }
+    
+    /* 極小画面用の注意事項文字サイズ調整 */
+    .attention-content {
+        font-size: clamp(14px, 4.5vw, 16px);
+        line-height: 1.8;
+    }
+    
+    /* 極小画面用の注意事項の下余白調整 */
+    .comedian-attention-section {
+        margin-bottom: 40px;
     }
 }
