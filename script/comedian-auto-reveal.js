@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 暗号化されたコメディアン情報（エンコード + タイムロック）
     // 注意: 以下のデータは公開時刻前には復号化できません
     const encryptedData = {
-        comedian1: 'WWVzIeOCouOCreODqQ==',
+        comedian1: 'WWVzIeOCouOCreODiA==',
         comedian2: '44K044O84piG44K444Oj44K5',
         genre: '44GK56yR44GE44Op44Kk44OW',
         keywords: '6Iq45Lq6LCDjgYrnrJHjgYQsIOOCs+ODoeODh+OCow==',
