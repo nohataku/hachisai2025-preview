@@ -19,7 +19,12 @@ class NoticeManager {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data = await response.json();
-            this.notices = data.notices.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            // 現在時刻より前のdatetimeを持つお知らせのみをフィルタリング
+            const now = new Date();
+            const publishedNotices = data.notices.filter(notice => new Date(notice.datetime) <= now);
+
+            this.notices = publishedNotices.sort((a, b) => new Date(b.datetime) - new Date(a.datetime));
             
             // ページの種類に応じて適切なレンダリング関数を呼び出し
             if (document.querySelector('.notice-items-container')) {
@@ -32,6 +37,19 @@ class NoticeManager {
             console.error('お知らせの読み込みに失敗しました:', error);
             this.renderErrorMessage();
         }
+    }
+
+    /**
+     * 日付を YYYY年MM月DD日 形式にフォーマット
+     * @param {string} datetimeString - ISO 8601形式の日時文字列
+     * @returns {string} - フォーマットされた日付文字列
+     */
+    formatDate(datetimeString) {
+        const date = new Date(datetimeString);
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        return `${year}年${month}月${day}日`;
     }
 
     /**
@@ -52,7 +70,7 @@ class NoticeManager {
 
         noticeContainer.innerHTML = this.notices.map(notice => `
             <div class="notice-item" onclick="this.navigateToNotice('Notice/${notice.file}', event)" style="cursor: pointer;">
-                <div class="notice-date">${notice.date}</div>
+                <div class="notice-date">${this.formatDate(notice.datetime)}</div>
                 <h3 class="notice-title">
                     ${notice.title}
                 </h3>
@@ -88,7 +106,7 @@ class NoticeManager {
         const recentNotices = this.notices.slice(0, 3);
         const noticeItems = recentNotices.map(notice => `
             <li>
-                <span class="notice-date">${notice.date}</span>
+                <span class="notice-date">${this.formatDate(notice.datetime)}</span>
                 <a href="Notice/${notice.file}">${notice.title}</a>
             </li>
         `);
@@ -170,11 +188,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // 新しいお知らせ追加のヘルパー関数（管理用）
-window.addNewNotice = function(id, date, title, summary, filename) {
+window.addNewNotice = function(id, datetime, title, summary, filename) {
     if (window.noticeManager) {
         const noticeData = {
             id: id,
-            date: date,
+            datetime: datetime,
             title: title,
             summary: summary,
             file: filename

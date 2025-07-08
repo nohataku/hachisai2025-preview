@@ -6,21 +6,6 @@
     color: var(--accent-color);
     transform: translateY(-50%) translateX(5px);
 }
-
-.notice-content .notice-item::before {
-    content: "NEW";
-    position: relative;
-    top: -8px;
-    right: 20px;
-    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 12px;
-    letter-spacing: 0.5px;
-    z-index: 2;
-}
 }
 
 .notice-content h2 {
@@ -65,22 +50,6 @@
     box-shadow: 0 12px 30px rgba(138, 43, 226, 0.35);
 }
 
-/* NEWバッジ */
-.notice-content .notice-item::before {
-    content: "NEW";
-    position: absolute;
-    top: -8px;
-    right: 20px;
-    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 12px;
-    letter-spacing: 0.5px;
-    z-index: 2;
-}
-
 /* クリック可能であることを示す矢印 */
 .notice-content .notice-item::after {
     content: '〉';
@@ -98,20 +67,6 @@
 .notice-content .notice-item:hover::after {
     color: var(--accent-color);
     transform: translateY(-50%) translateX(5px);
-}
-
-.notice-content .notice-item::before {
-    content: "NEW";
-    position: relative;
-    top: 10px;
-    right: 15px;
-    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 12px;
-    letter-spacing: 0.5px;
 }
 
 .notice-date {
@@ -384,22 +339,6 @@
     font-size: 1.2rem;
     opacity: 0.7;
     transition: all 0.3s ease;
-}
-
-/* ホームページのお知らせリストでのNEWマーク */
-.notice-section .notice-list li.new-notice::after {
-    content: "NEW";
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 12px;
-    letter-spacing: 0.5px;
-    z-index: 3;
 }
 
 /* お知らせアイテムのホバーエフェクト */
