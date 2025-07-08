@@ -4,19 +4,19 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // 本番用の日時（コメディアン情報公開予定）
-    //const releaseDate = new Date('2025-08-01T12:00:00+09:00');
+    const releaseDate = new Date('2025-08-01T12:00:00+09:00');
     
     // テスト用の日時（ローカルテスト時に使用）
-     const releaseDate = new Date('2025-07-07T11:00:00+09:00');
+    // const releaseDate = new Date('2025-07-07T11:00:00+09:00');
     
     // 暗号化されたコメディアン情報（エンコード + タイムロック）
     // 注意: 以下のデータは公開時刻前には復号化できません
     const encryptedData = {
-        comedian1: 'WWVzIeOCouOCreODqQ==',  // Yes!アキラ
-        comedian2: '44K044O84piG44K444Oj44K5',  // ゴー☆ジャス
-        genre: '44GK56yR44GE44Op44Kk44OW',  // お笑いライブ
-        keywords: '6Iq45Lq6LCDjgYrnrJHjgYQsIOOCs+ODoeODh+OCow==',  // 芸人, お笑い, コメディ
-        description: '56yR44GE44GC44G144KM44KL44K544OG44O844K444KS44GK5qW944GX44G/44GP44Gg44GV44GE77yB'  // 笑いあふれるステージをお楽しみください！
+        comedian1: 'WWVzIeOCouOCreODqQ==',
+        comedian2: '44K044O84piG44K444Oj44K5',
+        genre: '44GK56yR44GE44Op44Kk44OW',
+        keywords: '6Iq45Lq6LCDjgYrnrJHjgYQsIOOCs+ODoeODh+OCow==',
+        description: '56yR44GE44GC44G144KM44KL44K544OG44O844K444KS44GK5qW944GX44G/44GP44Gg44GV44GE77yB'
     };
     
     // タイムロック付き復号化関数
