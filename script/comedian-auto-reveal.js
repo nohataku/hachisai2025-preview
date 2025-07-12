@@ -4,10 +4,10 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // 本番用の日時（コメディアン情報公開予定）
-    const releaseDate = new Date('2025-07-25T12:00:00+09:00');
+    //const releaseDate = new Date('2025-07-25T12:00:00+09:00');
     
     // テスト用の日時（ローカルテスト時に使用）
-    // const releaseDate = new Date('2025-07-07T11:00:00+09:00');
+     const releaseDate = new Date('2025-07-07T11:00:00+09:00');
     
     // 暗号化されたコメディアン情報（エンコード + タイムロック）
     // 注意: 以下のデータは公開時刻前には復号化できません
