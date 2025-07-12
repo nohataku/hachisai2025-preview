@@ -18,6 +18,10 @@
   min-height: 100vh;
   position: relative;
 }
+s{
+  color:red;
+}
+
 
 .ticket-info {
     display: flex;

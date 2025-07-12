@@ -4,10 +4,10 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // 本番用の日時（コメディアン情報公開予定）
-    //const releaseDate = new Date('2025-08-01T12:00:00+09:00');
+    const releaseDate = new Date('2025-07-25T12:00:00+09:00');
     
     // テスト用の日時（ローカルテスト時に使用）
-     const releaseDate = new Date('2025-07-07T11:00:00+09:00');
+    // const releaseDate = new Date('2025-07-07T11:00:00+09:00');
     
     // 暗号化されたコメディアン情報（エンコード + タイムロック）
     // 注意: 以下のデータは公開時刻前には復号化できません
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="preparing-text">
                         <p>出演者の情報は現在準備中です。</p>
                         <p><strong>公開まで: ${timeString}</strong></p>
-                        <p><strong>2025年7月8日 12:00</strong> に詳細を発表いたします。</p>
+                        <p><strong>2025年7月25日 12:00</strong> に詳細を発表いたします。</p>
                         <p>最新情報は公式SNSをご確認ください。</p>
                         <div class="countdown-bar">
                             <div class="countdown-progress" style="width: ${progressPercentage}%"></div>
