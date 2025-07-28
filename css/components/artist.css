@@ -1109,3 +1109,79 @@ body::before {
         background-position: 5% 15%, 15% 5%, 20% 25%, 25% 20%, 0% 0%;
     }
 }
+
+/* e-plusボタンのスタイル */
+.e-plus {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.e-plus-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #f16BAA 0%, #f580ba 50%, #f16BAA 100%);
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 
+        0 8px 20px rgba(241, 107, 170, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.5px;
+    transform: translateZ(0);
+}
+
+.e-plus-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.e-plus-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 12px 30px rgba(241, 107, 170, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    background: linear-gradient(135deg, #f580ba 0%, #f895ca 50%, #f580ba 100%);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.e-plus-button:hover::before {
+    left: 100%;
+}
+
+.e-plus-button:active {
+    transform: translateY(-1px);
+    box-shadow: 
+        0 6px 15px rgba(241, 107, 170, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .e-plus-button {
+        padding: 12px 25px;
+        font-size: 15px;
+        letter-spacing: 0.3px;
+    }
+}
+
+@media (max-width: 480px) {
+    .e-plus-button {
+        padding: 10px 20px;
+        font-size: 14px;
+        letter-spacing: 0.2px;
+        border-radius: 20px;
+    }
+}
