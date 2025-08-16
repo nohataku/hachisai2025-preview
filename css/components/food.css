@@ -1,0 +1,204 @@
+/* 模擬店ページ専用のスタイル */
+
+.food-page {
+    background: var(--bg-default);
+}
+
+.food-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: white;
+}
+
+/* 模擬店セクションの基本レイアウト */
+.food-section {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 18px;
+    margin: 2rem 0;
+    padding: 2rem;
+    border: 2.5px solid #333;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* 写真エリア */
+.food-photo-wrap {
+    flex: 0 0 300px;
+}
+
+.food-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.food-photo:hover {
+    transform: scale(1.05);
+}
+
+/* 情報エリア */
+.food-info {
+    flex: 1;
+    text-align: left;
+}
+
+.food-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.food-type {
+    font-size: 1.2rem;
+    color: #87CEEB;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.food-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.food-description p {
+    margin-bottom: 0.8rem;
+}
+
+/* 営業時間・場所情報 */
+.food-schedule-section {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 18px;
+    margin: 2rem 0;
+    padding: 2rem;
+    border: 2.5px solid #333;
+    text-align: center;
+}
+
+.food-schedule-section h2 {
+    font-size: 2rem;
+    color: #FFD700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.schedule-info {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.schedule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.schedule-item:last-child {
+    border-bottom: none;
+}
+
+.schedule-date {
+    font-weight: bold;
+    color: #87CEEB;
+    font-size: 1.2rem;
+}
+
+.schedule-details {
+    color: white;
+    font-size: 1rem;
+}
+
+.schedule-note {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #ccc;
+}
+
+/* 注意事項セクション */
+.food-attention-section {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 18px;
+    margin: 2rem 0;
+    padding: 2rem;
+    border: 2.5px solid #333;
+    text-align: center;
+}
+
+.food-attention-section h2 {
+    font-size: 2rem;
+    color: #FFD700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.attention-content {
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.food-hachi {
+    font-weight: bold;
+    color: #87CEEB;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .food-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .food-photo-wrap {
+        flex: none;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .food-info {
+        text-align: center;
+    }
+    
+    .food-title {
+        font-size: 2rem;
+    }
+    
+    .schedule-item {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .food-content {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .food-title {
+        font-size: 1.8rem;
+    }
+    
+    .food-schedule-section h2,
+    .food-attention-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .food-type {
+        font-size: 1rem;
+    }
+    
+    .food-description {
+        font-size: 1rem;
+    }
+}

@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/hachisai.css" rel="stylesheet">
+    <link href="css/components/artist.css" rel="stylesheet">
+    <link href="css/components/stage.css" rel="stylesheet">
     <meta name="author" content="工学院大学学園祭実行委員会八王子祭実行部">
-    <meta name="description" content="第63回八王子祭の公式ホームページです。2025年9月6日(土)・7日(日)に開催される学園祭の情報をお届けします。">
-    <meta name="keywords" content="八王子祭, 学園祭, 工学院大学, 2025年, イベント, アクセス">
+    <meta name="description" content="第63回八王子祭のイベント情報をお届けします。宇宙舞踏会や八乱闘をはじめ、魅力的なイベントが盛りだくさんです。">
+    <meta name="keywords" content="八王子祭, 学園祭, 工学院大学, 2025年, イベント, 宇宙舞踏会, 八乱闘, ダンス, パーティー, ゲーム">
     <title>イベント - 第63回八王子祭</title>
     <link rel="icon" type="image/png" href="photo/MainLogo.PNG">
     <script src="script/auth.js"></script>
@@ -25,19 +27,87 @@
 <!--header部分 終-->
 
 <!--body部分-->
-<body>
+<body class="event-page">
 <div class="back">
     <main>
         <h1 class="page-title">イベント</h1>
-        <section class="event-content highlight-card">
-          <h2>イベント情報</h2>
-          <div class="event-text">
-            <p>イベントの情報は現在準備中です。</p>
-            <p>詳細は後日発表いたしますので、しばらくお待ちください。</p>
-            <p>最新情報は公式SNSをご確認ください。</p>
-          </div>
-        </section>
-      </main>
+        <div class="stage-content">
+
+            <!-- 宇宙舞踏会企画 -->
+            <section class="stage-section">
+                <div class="stage-photo-wrap">
+                    <img src="photo/event/Space-Dance-Party_Own.jpg" alt="宇宙舞踏会" class="stage-photo">
+                </div>
+                <div class="stage-info">
+                    <h2 class="stage-title">宇宙舞踏会</h2>
+                    <p class="stage-type">【学園祭実行委員会 八王子祭実行部】</p>
+                    <div class="stage-description">
+                        <p>宇宙をテーマにした幻想的なダンスパーティーイベントです。</p>
+                        <p>音楽とダンス、光の演出が織りなす特別な空間で、みんなで一緒に踊り楽しみましょう！</p>
+                        <p>初心者から上級者まで、誰でも参加できるダンスタイムもご用意しています。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 八乱闘企画 -->
+            <section class="stage-section">
+                <div class="stage-photo-wrap">
+                    <img src="photo/stage/Hachi-Ranto_Own.jpg" alt="八乱闘" class="stage-photo">
+                </div>
+                <div class="stage-info">
+                    <h2 class="stage-title">八乱闘</h2>
+                    <p class="stage-type">【学園祭実行委員会 八王子祭実行部】</p>
+                    <div class="stage-description">
+                        <p>八王子祭ならではの楽しいゲームイベントです。</p>
+                        <p>学生たちの創意工夫が詰まった特別なゲーム企画で、みんなで楽しく競い合いましょう！</p>
+                        <p>初心者から上級者まで、誰でも参加できる様々なゲームをご用意しています。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- その他のイベント情報 -->
+            <section class="stage-section">
+                <div class="stage-info" style="flex: 1; text-align: center;">
+                    <h2 class="stage-title">その他のイベント</h2>
+                    <div class="stage-description">
+                        <p>八王子祭では、宇宙舞踏会や八乱闘以外にも様々なイベントを開催予定です。</p>
+                        <p>トークショー、体験コーナーなど、多彩な企画をご用意しています。</p>
+                        <p>詳細は後日発表いたしますので、お楽しみにお待ちください。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- イベントスケジュール -->
+            <section class="stage-schedule-section">
+                <h2>イベントスケジュール</h2>
+                <div class="schedule-info">
+                    <div class="schedule-item">
+                        <span class="schedule-date">2025年9月6日（土）</span>
+                        <span class="schedule-details">各種イベントを順次開催予定</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-date">2025年9月7日（日）</span>
+                        <span class="schedule-details">宇宙舞踏会、八乱闘 他、各種イベント開催</span>
+                    </div>
+                    <p class="schedule-note">詳細なタイムスケジュールや参加方法については、後日公式SNSにてお知らせいたします。</p>
+                </div>
+            </section>
+
+            <!-- 参加について -->
+            <section class="stage-attention-section">
+                <h2>イベント参加について</h2>
+                <div class="attention-content">
+                    ・各イベントの参加方法や定員については、詳細発表時にお知らせします。<br>
+                    ・一部のイベントは事前申し込みが必要な場合があります。<br>
+                    ・天候や諸事情により、内容やスケジュールが変更になる場合があります。<br>
+                    ・イベント参加時は他の参加者の方への配慮をお願いします。<br>
+                    ・会場内でのマナーを守り、スタッフの指示に従ってください。<br>
+                    ・最新情報は公式SNSで随時更新いたします。<br>
+                </div>
+                <div class="stage-hachi">工学院大学 学園祭実行委員会 八王子祭実行部</div>
+            </section>
+        </div>
+    </main>
 </div>
 
 <script src="script/include.js"></script>

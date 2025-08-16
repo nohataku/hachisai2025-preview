@@ -6,10 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/hachisai.css" rel="stylesheet">
+    <link href="css/components/exhibit.css" rel="stylesheet">
     <meta name="author" content="工学院大学学園祭実行委員会八王子祭実行部">
-    <meta name="description" content="第63回八王子祭の公式ホームページです。2025年9月6日(土)・7日(日)に開催される学園祭の情報をお届けします。">
-    <meta name="keywords" content="八王子祭, 学園祭, 工学院大学, 2025年, 教室展示, 展示内容">
-    <title>企画 - 第63回八王子祭</title>
+    <meta name="description" content="第63回八王子祭の教室展示情報をお届けします。VRプロジェクト、マジシャンズソサエティ、science create project、WA-K.proなど多彩な展示と体験企画をお楽しみください。">
+    <meta name="keywords" content="八王子祭, 学園祭, 工学院大学, 2025年, 教室展示, 展示内容, VR体験, マジック, ジャグリング, 科学実験, 木工ワークショップ, ボードゲーム, 写真展, 音ゲー, 鉄道模型, 文芸, ブックカフェ, 美術, 自然科学">
+    <title>教室展示 - 第63回八王子祭</title>
     <link rel="icon" type="image/png" href="photo/MainLogo.PNG">
     <script src="script/auth.js"></script>
     <style>
@@ -26,45 +27,250 @@
 <!--header部分 終-->
 
 <!--body部分-->
-<body>
+<body class="exhibit-page">
 <div class="back">
     <main>
-        <h1 class="page-title">教室での展示</h1>
-        <section class="exhibit-content highlight-card">
-          <h2>展示内容</h2>
-          <div class="exhibit-text">
-            <p>八王子祭では、工学院大学の部活やサークルが教室で様々な展示を行います。学生たちの作品を間近で見ることができる貴重な機会です。</p>
+        <h1 class="page-title">教室展示</h1>
+        <div class="exhibit-content">
+            
+            <!-- VRプロジェクト -->
+            <section class="exhibit-section">
+                <div class="exhibit-photo-wrap">
+                    <img src="photo/ComingSoon.jpeg" alt="VRプロジェクト" class="exhibit-photo">
+                </div>
+                <div class="exhibit-info">
+                    <h2 class="exhibit-title">VRプロジェクト</h2>
+                    <p class="exhibit-type">【VR・メタバース体験】</p>
+                    <div class="exhibit-description">
+                        <p>ゴーグルをかければ、そこは別世界！昨年の大会で観客賞を受賞＆決勝進出を果たしたVR装置を実際に体験できます！</p>
+                        <p>VTuberになりきれる体験や仮想空間の大学を探検するメタバース体験など、楽しめる企画が満載です。あなたも八王子で、未来にダイブしてみませんか？</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WA-K.pro × Moi -->
+            <section class="exhibit-section">
+                <div class="exhibit-photo-wrap">
+                    <img src="photo/ComingSoon.jpeg" alt="WA-K.pro × Moi" class="exhibit-photo">
+                </div>
+                <div class="exhibit-info">
+                    <h2 class="exhibit-title">WA-K.pro × Moi</h2>
+                    <p class="exhibit-type">【木工体験・ボードゲーム】</p>
+                    <div class="exhibit-description">
+                        <p>木のぬくもりを感じながら、のんびり楽しめる屋外ブース「もくもくプレイス」へようこそ！</p>
+                        <p>強大なボードゲームで盛り上がるもよし、木工ワークショップで世界に一つの作品をつくるもよし。あなたと、わたしと、木と… つながった先には新しい世界が待っているかもしれません…</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- マジシャンズソサエティ -->
+            <section class="exhibit-section">
+                <div class="exhibit-photo-wrap">
+                    <img src="photo/ComingSoon.jpeg" alt="マジシャンズソサエティ" class="exhibit-photo">
+                </div>
+                <div class="exhibit-info">
+                    <h2 class="exhibit-title">マジシャンズソサエティ</h2>
+                    <p class="exhibit-type">【マジック・ジャグリング】</p>
+                    <div class="exhibit-description">
+                        <p>ようこそ、奇跡と幻想の世界へ！マジックとジャグリングであっ！と驚けるようなパフォーマンスをお届けします。</p>
+                        <p>見る人の心を奪うマジックを日々研究・練習しています。目の前で繰り広げられる不思議な現象に、あなたもきっと驚きと笑顔が止まらないはず！！</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 文芸主体創作サークルink. -->
+            <section class="exhibit-section">
+                <div class="exhibit-photo-wrap">
+                    <img src="photo/ComingSoon.jpeg" alt="文芸主体創作サークルink." class="exhibit-photo">
+                </div>
+                <div class="exhibit-info">
+                    <h2 class="exhibit-title">文芸主体創作サークルink.</h2>
+                    <p class="exhibit-type">【ブックカフェ・文芸】</p>
+                    <div class="exhibit-description">
+                        <p>お祭り騒ぎに少しの休みを──。本と本に合うコーヒーや紅茶をご用意。文化祭に少し疲れたあなたに休息をもたらします。</p>
+                        <p>本に合うコーヒーや紅茶の提供、サークル誌「稿葉」の販売、ゆったりとした読書空間をお楽しみください。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 美術意匠部 -->
+            <section class="exhibit-section">
+                <div class="exhibit-photo-wrap">
+                    <img src="photo/ComingSoon.jpeg" alt="美術意匠部" class="exhibit-photo">
+                </div>
+                <div class="exhibit-info">
+                    <h2 class="exhibit-title">美術意匠部</h2>
+                    <p class="exhibit-type">【美術作品展示】</p>
+                    <div class="exhibit-description">
+                        <p>「宇宙」をテーマにして、部員によって制作された作品の展示を行います。</p>
+                        <p>宇宙をテーマにした美術作品の展示、ポストカード販売、ステッカー販売も行います。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- マンガ研究会 -->
+            <section class="exhibit-section">
+                <div class="exhibit-photo-wrap">
+                    <img src="photo/ComingSoon.jpeg" alt="マンガ研究会" class="exhibit-photo">
+                </div>
+                <div class="exhibit-info">
+                    <h2 class="exhibit-title">マンガ研究会</h2>
+                    <p class="exhibit-type">【絵画展示・体験】</p>
+                    <div class="exhibit-description">
+                        <p>普段の週課題や夏合宿で描いた水彩画など部員が丹精込めて描いた絵を多数展示！</p>
+                        <p>アンケートでお気に入りの作品に投票、部員の描いた線画による塗り絵、お絵かきコーナー、夏コミなどの既刊の展示も行います。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 文化会写真部 -->
+            <section class="exhibit-section">
+                <div class="exhibit-photo-wrap">
+                    <img src="photo/ComingSoon.jpeg" alt="文化会写真部" class="exhibit-photo">
+                </div>
+                <div class="exhibit-info">
+                    <h2 class="exhibit-title">文化会写真部</h2>
+                    <p class="exhibit-type">【写真展】</p>
+                    <div class="exhibit-description">
+                        <p>約50人で活動する写真部による写真展！部員が自由なテーマで撮影した写真を集めた写真展を開催します。</p>
+                        <p>撮影会で撮影した作品、暗室講習会でのフィルム現像作品、個性あふれる自由テーマ作品を展示します。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Music Gamers of Kogakuin -->
+            <section class="exhibit-section">
+                <div class="exhibit-photo-wrap">
+                    <img src="photo/ComingSoon.jpeg" alt="Music Gamers of Kogakuin" class="exhibit-photo">
+                </div>
+                <div class="exhibit-info">
+                    <h2 class="exhibit-title">Music Gamers of Kogakuin</h2>
+                    <p class="exhibit-type">【音ゲー体験】</p>
+                    <div class="exhibit-description">
+                        <p>色んな音ゲーの体験コーナーを開きます！音ゲーをやったことがない方も、経験者の方も大歓迎です！</p>
+                        <p>様々な音ゲーの体験、初心者向けの丁寧な説明、体験者限定の特典もご用意しています。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 鉄道研究部 -->
+            <section class="exhibit-section">
+                <div class="exhibit-photo-wrap">
+                    <img src="photo/ComingSoon.jpeg" alt="鉄道研究部" class="exhibit-photo">
+                </div>
+                <div class="exhibit-info">
+                    <h2 class="exhibit-title">鉄道研究部</h2>
+                    <p class="exhibit-type">【鉄道模型展示】</p>
+                    <div class="exhibit-description">
+                        <p>Nゲージと呼ばれる小さな鉄道模型と、模型の走るジオラマを展示します。</p>
+                        <p>本物そっくりな精密模型、迫力満点の走行シーン、詳細なジオラマをお楽しみください。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SF研究会 -->
+            <section class="exhibit-section">
+                <div class="exhibit-photo-wrap">
+                    <img src="photo/ComingSoon.jpeg" alt="SF研究会" class="exhibit-photo">
+                </div>
+                <div class="exhibit-info">
+                    <h2 class="exhibit-title">SF研究会</h2>
+                    <p class="exhibit-type">【ボードゲーム体験】</p>
+                    <div class="exhibit-description">
+                        <p>定番の人気ゲームから、ちょっと珍しい作品まで、さまざまなボードゲームを楽しめます！</p>
+                        <p>初心者向けの丁寧なルール説明で、空いている時間にふらっと参加OK。長時間ゲームは短縮版で体験できます。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- science create project -->
+            <section class="exhibit-section">
+                <div class="exhibit-photo-wrap">
+                    <img src="photo/ComingSoon.jpeg" alt="science create project" class="exhibit-photo">
+                </div>
+                <div class="exhibit-info">
+                    <h2 class="exhibit-title">science create project</h2>
+                    <p class="exhibit-type">【科学実験体験】</p>
+                    <div class="exhibit-description">
+                        <p>子どもも大人も楽しめる、普段はできない科学実験を体験してみませんか？</p>
+                        <p>ケミカルガーデン、DNA採取、レモン電池、スライム作りなど、さまざまな実験を楽しめます。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WA-K.pro -->
+            <section class="exhibit-section">
+                <div class="exhibit-photo-wrap">
+                    <img src="photo/ComingSoon.jpeg" alt="WA-K.pro" class="exhibit-photo">
+                </div>
+                <div class="exhibit-info">
+                    <h2 class="exhibit-title">WA-K.pro</h2>
+                    <p class="exhibit-type">【木工体験】</p>
+                    <div class="exhibit-description">
+                        <p>色を塗ったり、木のパーツを組み合わせたりして、"世界に一つだけ"のオリジナルネームプレートを作ってみませんか？</p>
+                        <p>完成品はお持ち帰りOK！小さなお子様から大人まで参加可能で、所要時間は約30分です。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 自然科学研究部 -->
+            <section class="exhibit-section">
+                <div class="exhibit-photo-wrap">
+                    <img src="photo/ComingSoon.jpeg" alt="自然科学研究部" class="exhibit-photo">
+                </div>
+                <div class="exhibit-info">
+                    <h2 class="exhibit-title">自然科学研究部</h2>
+                    <p class="exhibit-type">【研究成果展示】</p>
+                    <div class="exhibit-description">
+                        <p>部員たちの好奇心が原動力となって行われた、フィールドワーク・探究活動の成果をポスター形式で展示。</p>
+                        <p>自然科学の奥深さを共有し、鉱石の実物展示や昆虫標本などの実物展示も行います。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 開催時間・場所 -->
+            <section class="exhibit-schedule-section">
+                <h2>開催時間・場所</h2>
+                <div class="schedule-info">
+                    <div class="schedule-item">
+                        <span class="schedule-date">2025年9月6日（土）</span>
+                        <span class="schedule-details">10:00～16:00 八王子キャンパス内各教室</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-date">2025年9月7日（日）</span>
+                        <span class="schedule-details">10:00～16:00 八王子キャンパス内各教室</span>
+                    </div>
+                    <p class="schedule-note">詳細な教室については、当日配布のマップや案内板をご確認ください。</p>
+                </div>
+            </section>
+
+            <!-- 参加について -->
+            <section class="exhibit-attention-section">
+                <h2>展示参加について</h2>
+                <div class="attention-content">
+                    ・体験企画は材料がなくなり次第、終了となる場合があります。<br>
+                    ・一部の体験企画は人数制限がある場合があります。<br>
+                    ・小さなお子様は保護者の方と一緒にご参加ください。<br>
+                    ・展示物には直接手を触れないようお願いします。<br>
+                    ・教室内での撮影は各団体の指示に従ってください。<br>
+                    ・混雑時はお待ちいただく場合があります。<br>
+                    ・最新情報は公式SNSでお知らせします。<br>
+                </div>
+                <div class="exhibit-hachi">工学院大学 学園祭実行委員会 八王子祭実行部</div>
+            </section>
+              </div>
+            </div>
           </div>
         </section>
-        <section class="tenji">
-           WA-K.pro × Moi<br>
-          <div class="exhibit-text">
-            <p>この展示は、学生たちの創造力や技術を披露する場であり、来場者との交流を深めることを目的としています。各団体の活動内容や成果物を通じて、工学院大学の魅力を伝えます。</p>
-          </div>
-        <section class ="tenji-section">
-          WA-K.pro × Moi<br>
-          木のぬくもりを感じながら、のんびり楽しめる屋外ブース「もくもくプレイス」へようこそ！<br> 
-          強大なボードゲームで盛り上がるもよし、木工ワークショップで世界に一つの作品をつくるもよし。<br> 
-          WA-K.proとMoiのコラボによる、木に触れ、遊び、つながる空間があなたを待っています。 <br>
-          あなたと、わたしと、木と… つながった先には新しい世界が待っているかもしれません…<br>
-        </section>
-        <section class ="tenji-section">
-          VRプロジェクト<br>
-          ゴーグルをかければ､そこは別世界！<br>
-          私たちVRプロジェクトは､VRコンテンツ制作の魅力と可能性を追求する学生団体です｡<br>
-          八王子祭では､体験できるコンテンツが盛り沢山！<br>
-          なんと昨年の大会で観客賞を受賞＆決勝進出を果たしたVR装置を､実際に体験できます！<br>
-          さらに、VTuberになりきれる体験や仮想空間の大学を探検するメタバース体験など、楽しめる企画が満載です。<br>
-          あなたも八王子で、未来にダイブしてみませんか？<br>
-        </section>
-      </main>
+    </main>
 </div>
 
 <script src="script/include.js"></script>
 <script src="script/dropdown.js"></script>
 <script src="script/hamburger.js"></script>
+<script src="script/countdown.js"></script>
+<script src="script/lazy-loading.js"></script>
 </body>
-<!--body部分 終-->
 
 <!--footer部分-->
 <div id="footer-include"></div>

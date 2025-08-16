@@ -1,0 +1,332 @@
+/* Stage企画ページ専用のスタイル */
+
+.stage-page, .event-page {
+    background: var(--bg-default);
+}
+
+.stage-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: white;
+}
+
+/* ステージセクションの基本レイアウト */
+.stage-section {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 18px;
+    margin: 2rem 0;
+    padding: 2rem;
+    border: 2.5px solid #333;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* カテゴリタイトル */
+.stage-category-title {
+    font-size: 2.5rem;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid #FFD700;
+    padding-bottom: 1rem;
+}
+
+/* 学生団体用のグループスタイル */
+.stage-group {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stage-group .stage-photo-wrap {
+    flex: 0 0 200px;
+}
+
+.stage-group .stage-title {
+    font-size: 1.8rem;
+}
+
+/* 写真エリア */
+.stage-photo-wrap {
+    flex: 0 0 300px;
+}
+
+.stage-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.stage-photo:hover {
+    transform: scale(1.05);
+}
+
+/* 情報エリア */
+.stage-info {
+    flex: 1;
+    text-align: left;
+}
+
+.stage-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.stage-type {
+    font-size: 1.2rem;
+    color: #87CEEB;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.stage-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.stage-description p {
+    margin-bottom: 0.8rem;
+}
+
+/* 模擬店用のグリッドレイアウト */
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.food-item {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 18px;
+    padding: 1.5rem;
+    border: 2.5px solid #333;
+}
+
+.food-item h3 {
+    font-size: 1.8rem;
+    color: #FFD700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.food-menu {
+    margin-bottom: 1.5rem;
+}
+
+.food-menu:last-child {
+    margin-bottom: 0;
+}
+
+.food-menu p strong {
+    color: #87CEEB;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.food-menu p {
+    line-height: 1.6;
+    color: white;
+}
+
+/* 展示用のグリッドレイアウト */
+.exhibit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.exhibit-item {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 18px;
+    padding: 1.5rem;
+    border: 2.5px solid #333;
+}
+
+.exhibit-item h3 {
+    font-size: 1.8rem;
+    color: #FFD700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.exhibit-description p strong {
+    color: #87CEEB;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.exhibit-description p {
+    line-height: 1.6;
+    color: white;
+}
+
+/* スケジュールセクション */
+.stage-schedule-section {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 18px;
+    margin: 2rem 0;
+    padding: 2rem;
+    border: 2.5px solid #333;
+    text-align: center;
+}
+
+.stage-schedule-section h2 {
+    font-size: 2rem;
+    color: #FFD700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.schedule-info {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.schedule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.schedule-item:last-child {
+    border-bottom: none;
+}
+
+.schedule-date {
+    font-weight: bold;
+    color: #87CEEB;
+    font-size: 1.2rem;
+}
+
+.schedule-details {
+    color: white;
+    font-size: 1rem;
+}
+
+.schedule-note {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #ccc;
+}
+
+/* 注意事項セクション */
+.stage-attention-section {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 18px;
+    margin: 2rem 0;
+    padding: 2rem;
+    border: 2.5px solid #333;
+    text-align: center;
+}
+
+.stage-attention-section h2 {
+    font-size: 2rem;
+    color: #FFD700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.attention-content {
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.stage-hachi {
+    font-weight: bold;
+    color: #87CEEB;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .stage-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .stage-group {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .stage-photo-wrap, .stage-group .stage-photo-wrap {
+        flex: none;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .stage-info {
+        text-align: center;
+    }
+    
+    .stage-title {
+        font-size: 2rem;
+    }
+    
+    .stage-group .stage-title {
+        font-size: 1.5rem;
+    }
+    
+    .food-grid, .exhibit-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .schedule-item {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .stage-content {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stage-title {
+        font-size: 1.8rem;
+    }
+    
+    .stage-group .stage-title {
+        font-size: 1.3rem;
+    }
+    
+    .stage-schedule-section h2,
+    .stage-attention-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .stage-type {
+        font-size: 1rem;
+    }
+    
+    .stage-description {
+        font-size: 1rem;
+    }
+    
+    .food-item h3, .exhibit-item h3 {
+        font-size: 1.5rem;
+    }
+}

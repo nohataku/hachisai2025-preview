@@ -1,0 +1,205 @@
+/* 教室展示ページ専用のスタイル */
+
+.exhibit-page {
+    background: var(--bg-default);
+}
+
+.exhibit-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: white;
+}
+
+/* 展示セクションの基本レイアウト */
+.exhibit-section {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 18px;
+    margin: 2rem 0;
+    padding: 2rem;
+    border: 2.5px solid #333;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* 写真エリア */
+.exhibit-photo-wrap {
+    flex: 0 0 300px;
+}
+
+.exhibit-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.exhibit-photo:hover {
+    transform: scale(1.05);
+}
+
+/* 情報エリア */
+.exhibit-info {
+    flex: 1;
+    text-align: left;
+}
+
+.exhibit-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.exhibit-type {
+    font-size: 1.2rem;
+    color: #87CEEB;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.exhibit-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.exhibit-description p {
+    margin-bottom: 0.8rem;
+}
+
+/* 開催時間・場所情報 */
+.exhibit-schedule-section {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 18px;
+    margin: 2rem 0;
+    padding: 2rem;
+    border: 2.5px solid #333;
+    text-align: center;
+}
+
+.exhibit-schedule-section h2 {
+    font-size: 2rem;
+    color: #FFD700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.schedule-info {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.schedule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.schedule-item:last-child {
+    border-bottom: none;
+}
+
+.schedule-date {
+    font-weight: bold;
+    color: #87CEEB;
+    font-size: 1.2rem;
+}
+
+.schedule-details {
+    color: white;
+    font-size: 1rem;
+}
+
+.schedule-note {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #ccc;
+}
+
+/* 注意事項セクション */
+.exhibit-attention-section {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 18px;
+    margin: 2rem 0;
+    padding: 2rem;
+    border: 2.5px solid #333;
+    text-align: center;
+}
+
+.exhibit-attention-section h2 {
+    font-size: 2rem;
+    color: #FFD700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.attention-content {
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.exhibit-hachi {
+    font-weight: bold;
+    color: #87CEEB;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .exhibit-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .exhibit-photo-wrap {
+        flex: none;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .exhibit-info {
+        text-align: center;
+    }
+    
+    .exhibit-title {
+        font-size: 2rem;
+    }
+    
+    .schedule-item {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .exhibit-content {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .exhibit-title {
+        font-size: 1.8rem;
+    }
+    
+    .exhibit-schedule-section h2,
+    .exhibit-participation-section h2,
+    .exhibit-attention-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .exhibit-type {
+        font-size: 1rem;
+    }
+    
+    .exhibit-description {
+        font-size: 1rem;
+    }
+}
