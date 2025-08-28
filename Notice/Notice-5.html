@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<!--head部分 ブラウザの上のタブのやつ-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/hachisai.css" rel="stylesheet">
+    <style>
+        @keyframes fade-in {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .info-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            color: white;
+            text-align: center;
+            animation: fade-in 0.6s ease-out;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .sponsor-highlight {
+            background: linear-gradient(135deg, #ffc107 0%, #ff8f00 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .gratitude-card {
+            background: linear-gradient(135deg, #182c4d 0%, #1a237e 60%, #0d133d 100%);
+            border: 2px solid #ffc107;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            color: white;
+            text-align: center;
+        }
+    </style>
+    <meta name="author" content="工学院大学学園祭実行委員会八王子祭実行部">
+    <meta name="description" content="第63回八王子祭にご協賛いただいた企業様の情報を公開いたしました。多くの企業様からのご支援により、八王子祭の開催が実現しています。">
+    <meta name="keywords" content="八王子祭, 学園祭, 工学院大学, 2025年, 協賛企業, スポンサー, 支援">
+    <title>協賛企業情報公開のお知らせ - 第63回八王子祭</title>
+    <link rel="icon" type="image/png" href="../photo/MainLogo.PNG">
+</head>
+<!--head部分 ブラウザの上のタブのやつ 終-->
+
+<!--header部分-->
+<div id="header-include"></div>
+<!--header部分 終-->
+
+<!--body部分-->
+<body>
+<div class="back">
+    <main>
+        <h1 class="page-title">お知らせ詳細</h1>
+        
+        <section class="notice-detail">
+            <div class="notice-header">
+                <h2 class="notice-title">第63回八王子祭 協賛企業情報を公開いたしました</h2>
+                <p class="notice-date">2025年9月1日</p>
+            </div>
+            
+            <div class="notice-content highlight-card">
+                <div class="notice-text">
+                    <p>いつも八王子祭をご支援いただき、誠にありがとうございます。</p>
+                    
+                    <div class="sponsor-highlight">
+                        🏢 本日10時より、協賛企業様の情報を公開いたしました！ 🏢
+                    </div>
+                    
+                    <div class="gratitude-card">
+                        <h3 style="color: #ffc107; margin-bottom: 1rem;">🙏 ご協賛企業様への感謝</h3>
+                        <p>第63回八王子祭の開催にあたり、多くの企業様から温かいご支援をいただいております。</p>
+                        <p>皆様のご協賛により、今年も素晴らしい学園祭を開催することができます。</p>
+                        <p style="margin-top: 1rem; font-weight: bold;">心より感謝申し上げます。</p>
+                    </div>
+                    
+                    <h3>協賛企業様について</h3>
+                    <p>今回ご協賛いただいた企業様の情報を、協賛企業ページにて公開いたしました。</p>
+                    <p>地域の皆様をはじめ、多くの企業様からのご支援により、学生たちの成長と地域交流の場である八王子祭が実現しています。</p>
+                    
+                    <div style="background: rgba(255, 193, 7, 0.1); border: 2px solid #ffc107; border-radius: 10px; padding: 1.5rem; margin: 2rem 0;">
+                        <h3 style="color: #ffc107; margin-bottom: 1rem;">📋 協賛企業ページ公開内容</h3>
+                        <ul style="text-align: left; margin: 1rem 0;">
+                            <li>ご協賛いただいた企業様の一覧</li>
+                            <li>各企業様のロゴ・情報</li>
+                            <li>協賛カテゴリ別の分類</li>
+                        </ul>
+                        <p style="margin-top: 1rem; font-size: 0.9rem;">※企業様のご了承をいただいた範囲での情報公開となります</p>
+                    </div>
+                    
+                    <div style="text-align: center; margin: 2rem 0;">
+                        <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">協賛企業様の詳細は以下のリンクからご確認ください。</p>
+                        
+                        <a href="../Sponsors.html" class="artist-link-button" style="display: inline-block; padding: 1rem 2rem; font-size: 1.1rem;">
+                            🏢 協賛企業ページを見る
+                        </a>
+                    </div>
+                    <div class="notice-signature">
+                        <p>工学院大学学園祭実行委員会<br>八王子祭実行部</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="notice-navigation">
+                <a href="../Notice.html" class="back-to-notice-btn">お知らせ一覧に戻る</a>
+                <a href="../index.html" class="back-to-home-btn">ホームに戻る</a>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="../script/include.js"></script>
+<script src="../script/dropdown.js"></script>
+<script src="../script/hamburger.js"></script>
+<script src="../script/notice-validator.js"></script>
+</body>
+<!--body部分 終-->
+
+<!--footer部分-->
+<div id="footer-include"></div>
+<!--footer部分 終-->
+
+<!-- ロケットボタン -->
+<div id="rocket-include"></div>
+
+</html>

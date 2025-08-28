@@ -1,10 +1,10 @@
 // 協賛企業管理スクリプト
 document.addEventListener('DOMContentLoaded', function() {
     // 9月1日10時の公開日時を設定
-    //const releaseDate = new Date('2025-08-01T10:00:00+09:00');
+    const releaseDate = new Date('2025-08-01T10:00:00+09:00');
 
     // debug
-    const releaseDate = new Date('2025-08-01T10:00:00+09:00');
+    //const releaseDate = new Date('2025-08-01T10:00:00+09:00');
     const currentDate = new Date();
     
     if (currentDate >= releaseDate) {
@@ -123,10 +123,10 @@ function displaySponsorsOnHome(sponsors) {
 // ホームページ用の協賛企業読み込み
 async function loadSponsorsForHome() {
     // 9月1日10時の公開日時を設定
-    //const releaseDate = new Date('2025-09-01T10:00:00+09:00');
+    const releaseDate = new Date('2025-09-01T10:00:00+09:00');
 
     // debug
-    const releaseDate = new Date('2025-08-01T10:00:00+09:00');
+    //const releaseDate = new Date('2025-08-01T10:00:00+09:00');
     const currentDate = new Date();
     
     if (currentDate < releaseDate) {
