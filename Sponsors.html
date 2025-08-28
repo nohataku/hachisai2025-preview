@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/hachisai.css" rel="stylesheet">
+    <meta name="author" content="工学院大学学園祭実行委員会八王子祭実行部">
+    <meta name="description" content="第63回八王子祭の協賛企業様をご紹介します。貴重なご支援をいただいている企業様の情報を掲載しております。">
+    <meta name="keywords" content="八王子祭, 学園祭, 工学院大学, 協賛企業, スポンサー, 支援">
+    <title>協賛企業 - 第63回八王子祭</title>
+    <link rel="icon" type="image/png" href="photo/MainLogo.PNG">
+    <script src="script/auth.js"></script>
+    <style>
+        body.auth-hidden { display: none !important; }
+        /* 初期状態でもbodyを非表示 */
+        body { display: none; }
+        body:not(.auth-hidden) { display: block; }
+    </style>
+</head>
+
+<div id="header-include"></div>
+
+<body>
+<div class="back">
+    <main>
+        <h1 class="page-title">協賛企業</h1>
+        <p class="page-subtitle">第63回八王子祭を支えてくださる企業様に心より感謝申し上げます</p>
+
+        <!-- 協賛企業一覧セクション -->
+        <section class="content-section">
+            <div class="content-row">
+                <div class="content-text">
+                    <h2>ご協賛いただいている企業様</h2>
+                    <div id="sponsors-grid" class="sponsors-grid">
+                        <!-- JavaScriptで協賛企業が読み込まれます -->
+                        <div class="loading">協賛企業情報を読み込み中...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 広告協賛セクション -->
+        <section class="content-section">
+            <div class="content-row">
+                <div class="content-text">
+                    <h2>広告協賛<span class="honor-omitted">（敬称略）</span></h2>
+                    <div id="advertising-sponsors-list" class="sponsors-list">
+                        <!-- JavaScriptで広告協賛企業が読み込まれます -->
+                        <div class="loading">広告協賛企業情報を読み込み中...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 物品協賛セクション -->
+        <section class="content-section">
+            <div class="content-row">
+                <div class="content-text">
+                    <h2>物品協賛<span class="honor-omitted">（敬称略）</span></h2>
+                    <div id="goods-sponsors-list" class="sponsors-list">
+                        <!-- JavaScriptで物品協賛企業が読み込まれます -->
+                        <div class="loading">物品協賛企業情報を読み込み中...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+    <div id="footer-include"></div>
+    <div id="rocket-include"></div>
+
+    <script src="script/include.js"></script>
+    <script src="script/dropdown.js"></script>
+    <script src="script/hamburger.js"></script>
+    <script src="script/sponsors-manager.js"></script>
+</body>
+
+</html>

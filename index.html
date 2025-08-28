@@ -152,6 +152,20 @@
                 <a href="Notice.html" class="read-more-btn">お知らせ一覧を見る</a>
             </div>
         </section>
+
+        <!-- 協賛企業セクション -->
+        <section class="sponsors-section">
+            <div class="content-container">
+                <h2 class="section-title">協賛企業</h2>
+                <div id="sponsors-home-grid" class="sponsors-home-grid">
+                    <!-- JavaScriptで協賛企業ロゴが読み込まれます -->
+                </div>
+                <div class="sponsors-home-text">
+                    <p>第63回八王子祭の開催にあたり、多くの企業様からご支援をいただいております。</p>
+                    <a href="Sponsors.html" class="read-more-btn">協賛企業一覧を見る</a>
+                </div>
+            </div>
+        </section>
     </main>
 </div>
 
@@ -163,6 +177,13 @@
 <script src="script/animation.js"></script>
 <script src="script/lazy-loading.js"></script>
 <script src="script/notice-manager.js"></script>
+<script src="script/sponsors-manager.js"></script>
+<script>
+    // ページ読み込み後に協賛企業を表示
+    document.addEventListener('DOMContentLoaded', function() {
+        loadSponsorsForHome();
+    });
+</script>
     <div id="footer-include"></div>
     <div id="rocket-include"></div>
 </body>

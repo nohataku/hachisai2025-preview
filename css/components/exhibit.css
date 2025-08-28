@@ -54,6 +54,17 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+.room-location {
+    font-size: 1.1rem;
+    color: #87CEEB;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    background: rgba(135, 206, 235, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #87CEEB;
+}
+
 .exhibit-type {
     font-size: 1.2rem;
     color: #87CEEB;
@@ -187,6 +198,11 @@
 @media (max-width: 480px) {
     .exhibit-title {
         font-size: 1.8rem;
+    }
+    
+    .room-location {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
     }
     
     .exhibit-schedule-section h2,

@@ -152,6 +152,83 @@
     font-size: 1.1rem;
 }
 
+/* 模擬店ランキングセクション */
+.food-ranking-section {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 18px;
+    margin: 2rem 0;
+    padding: 2rem;
+    border: 2.5px solid #333;
+    text-align: center;
+}
+
+.food-ranking-section h2 {
+    font-size: 2rem;
+    color: #FFD700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.ranking-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.ranking-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.ranking-link-container {
+    margin: 2rem 0;
+}
+
+.ranking-link {
+    display: inline-block;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #000;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 1.2rem 2rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    border: 2px solid transparent;
+}
+
+.ranking-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+    background: linear-gradient(135deg, #FFA500, #FFD700);
+    border-color: #FFD700;
+}
+
+.ranking-icon {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.ranking-arrow {
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.ranking-link:hover .ranking-arrow {
+    transform: translateX(5px);
+}
+
+.ranking-note {
+    font-size: 0.9rem;
+    color: #ccc;
+    font-style: italic;
+    margin-top: 1rem;
+    line-height: 1.5;
+}
+
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
     .food-section {
@@ -190,7 +267,8 @@
     }
     
     .food-schedule-section h2,
-    .food-attention-section h2 {
+    .food-attention-section h2,
+    .food-ranking-section h2 {
         font-size: 1.5rem;
     }
     
@@ -200,5 +278,10 @@
     
     .food-description {
         font-size: 1rem;
+    }
+
+    .ranking-link {
+        font-size: 1.1rem;
+        padding: 1rem 1.5rem;
     }
 }
