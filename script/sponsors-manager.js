@@ -1,7 +1,33 @@
 // 協賛企業管理スクリプト
 document.addEventListener('DOMContentLoaded', function() {
-    loadSponsors();
+    // 9月1日10時の公開日時を設定
+    //const releaseDate = new Date('2025-08-01T10:00:00+09:00');
+
+    // debug
+    const releaseDate = new Date('2025-08-01T10:00:00+09:00');
+    const currentDate = new Date();
+    
+    if (currentDate >= releaseDate) {
+        loadSponsors();
+    } else {
+        displayPreparationMessage();
+    }
 });
+
+function displayPreparationMessage() {
+    const containers = [
+        { id: 'sponsors-grid', message: '協賛企業情報は9月1日10時に公開予定です' },
+        { id: 'advertising-sponsors-list', message: '広告協賛企業情報は9月1日10時に公開予定です' },
+        { id: 'goods-sponsors-list', message: '物品協賛企業情報は9月1日10時に公開予定です' }
+    ];
+    
+    containers.forEach(({ id, message }) => {
+        const container = document.getElementById(id);
+        if (container) {
+            container.innerHTML = `<div class="preparation-message">${message}</div>`;
+        }
+    });
+}
 
 async function loadSponsors() {
     try {
@@ -96,6 +122,21 @@ function displaySponsorsOnHome(sponsors) {
 
 // ホームページ用の協賛企業読み込み
 async function loadSponsorsForHome() {
+    // 9月1日10時の公開日時を設定
+    //const releaseDate = new Date('2025-09-01T10:00:00+09:00');
+
+    // debug
+    const releaseDate = new Date('2025-08-01T10:00:00+09:00');
+    const currentDate = new Date();
+    
+    if (currentDate < releaseDate) {
+        const container = document.getElementById('sponsors-home-grid');
+        if (container) {
+            container.innerHTML = '<div class="preparation-message">協賛企業情報は9月1日10時に公開予定です</div>';
+        }
+        return;
+    }
+    
     try {
         const response = await fetch('data/sponsors.json');
         if (!response.ok) {
